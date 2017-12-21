@@ -41,7 +41,7 @@ class CategoryController extends CommonController
     }
 
     /**
-     * 分类产品信息列表
+     * 分类产品信息列表######################
      */
     public function index()
     {
@@ -50,6 +50,10 @@ class CategoryController extends CommonController
         $this->assign('show_marketprice', C('show_marketprice'));
         $cat_id=I('request.id');
         $brand=I('request.brand');
+        $cart_goods = insert_cart_info_number();
+        $cart_sum=get_sum();
+        $this->assign('seller_cart_total_number', $cart_goods);
+        $this->assign('cart_sum', $cart_sum);
         $this->assign('goods', model('GoodsBase')->get_category($cat_id,$brand));
         $this->display('category.dwt');
 

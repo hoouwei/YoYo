@@ -30,8 +30,8 @@ class GoodsBaseModel extends BaseModel {
         return intval($number);
         //返回购物车的数量
     }
-    function get_category(){
-        $sql = 'SELECT * FROM  yoyo_goods where '  ;
+    function get_category($cat_id,$brand){
+        $sql = "SELECT * FROM  yoyo_goods where cat_id='$cat_id' and brand_id='$brand'";
         $row = $this->query($sql);
 //        ######################
         return $row;

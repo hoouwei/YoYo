@@ -1,4 +1,21 @@
-<?php echo $this->fetch('library/new_page_header.lbi'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Generator" content="ECTouch 2.2.30" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta charset="utf-8">
+	<title><?php echo $this->_var['page_title']; ?></title>
+	<link rel="stylesheet" href="__TPL__/statics/fonts/iconfont.css">
+	<link rel="stylesheet" href="__TPL__/statics/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" href="__TPL__/statics/css/ectouch.css" />
+
+</head>
+
+<body style="max-width:640px;">
+<div id="loading"><img src="__TPL__/statics/img/loading.gif" /></div>
 <div class="con">
 	
 	<div class="goods">
@@ -169,8 +186,13 @@ if ($this->_foreach['spec']['total'] > 0):
 
 </div>
 
-<?php echo $this->fetch('library/search.lbi'); ?>
-<?php echo $this->fetch('library/new_page_footer.lbi'); ?>
+
+
+<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
+<script type="text/javascript" src="__TPL__/statics/js/ectouch.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
 
 </div>
 

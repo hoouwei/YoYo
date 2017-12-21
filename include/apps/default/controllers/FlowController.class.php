@@ -153,8 +153,6 @@ class FlowController extends CommonController
         $isCart=$_POST ['isCart'];
         //可能需要改为I函数来处理#########################################
         $_SESSION['isCart']=$isCart;
-        error_log("如果不支持session，可能需要改为I函数来处理");
-        error_log($_SESSION['isCart']);
         $_POST ['goods'] = strip_tags(urldecode($_POST ['goods']));
         $_POST ['goods'] = json_str_iconv($_POST ['goods']);
         if (!empty($_REQUEST ['goods_id']) && empty($_POST ['goods'])) {

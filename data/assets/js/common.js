@@ -98,7 +98,6 @@ function addToCart1(goodsId, parentId) {
     }, function(data) {
         addToCartResponse1(data);
     }, 'json');
-    //Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
 }
 /**
  * 获得选定的商品属性
