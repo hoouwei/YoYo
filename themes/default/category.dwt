@@ -64,6 +64,16 @@ $(function(){
    $('.product-list').infinite({url: url,params:"brand={$brand}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&keywords={$keywords}&type={$type}", template:'j-product'});
 })
 </script>
+
+
+
+        {$aaa[0].goods_sn}
+		<!-- {foreach from=$aaa item=a}-->
+        {$a.goods_sn}
+		<!--{/foreach}-->
+
+
+
 </body>
 
 </html>

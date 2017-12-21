@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script type="text/javascript" src="themes/default/js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.post("index.php?m=default&c=flow&a=test",
+                    {
+                        name: "1",
+                        city: "Duckburg"
+                    },
+                    function (data, status) {
+                        $("#test1").text(status);
+                        $("#test2").text(data);
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<p>姓名：<input type="text" id="test" value="米老鼠"></p>
+<button>Button</button>
+<p id="test1">这是段落。</p>
+<p id="test2">这是段落。</p>
+</body>
+
+</body>
+</html>

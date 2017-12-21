@@ -48,12 +48,15 @@ class CategoryController extends CommonController
         $this->parameter();
         $this->assign('id', $this->cat_id);
         $this->assign('show_marketprice', C('show_marketprice'));
+        $cat_id=I('request.id');
+        $brand=I('request.brand');
+        $this->assign('goods', model('GoodsBase')->get_category($cat_id,$brand));
         $this->display('category.dwt');
 
     }
 
     /**
-     * ajax获取子分类
+     * ajax获取子分类，分页######################
      */
     public function async_list()
     {
@@ -134,6 +137,7 @@ class CategoryController extends CommonController
         $this->assign('show_asynclist', C('show_asynclist'));
         $this->keywords();
         $this->cat_id = I('request.id', 0, 'intval');
+        //获取参数用这个函数，删减购物车那儿，最好也是用这种吧###################################################################
         $this->brand = I('brand');
         if($this->brand == ""){
             $this->brand = I('request.brand');

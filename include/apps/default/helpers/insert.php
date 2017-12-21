@@ -82,6 +82,17 @@ function insert_cart_info_number() {
 }
 
 /**
+ * 获取购物车总额
+ */
+function get_sum(){
+    $sql = 'SELECT sum(goods_number*goods_price) AS price FROM ' . M()->pre . 'cart ' .
+        " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
+    $res = M()->getRow($sql);
+    $price = $res['price'];
+    return $price;
+}
+
+/**
  * 调用购物车信息
  *
  * @access  public

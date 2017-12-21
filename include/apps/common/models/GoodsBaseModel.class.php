@@ -22,6 +22,21 @@ class GoodsBaseModel extends BaseModel {
      * @access  public
      * @return  array
      */
+    function test($goods_id){
+        $sql = 'SELECT SUM(goods_number) AS number ,SUM(goods_price) AS price FROM ' . M()->pre . 'cart ' .
+            " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
+        $res = M()->getRow($sql);
+        $number = $res['number'];
+        return intval($number);
+        //返回购物车的数量
+    }
+    function get_category(){
+        $sql = 'SELECT * FROM  yoyo_goods where '  ;
+        $row = $this->query($sql);
+//        ######################
+        return $row;
+        //返回购物车的数量
+    }
     function get_promotion_info($goods_id = '') {
         $snatch = array();
         $group = array();

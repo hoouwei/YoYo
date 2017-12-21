@@ -139,6 +139,9 @@ class GoodsController extends CommonController
         $this->assign('meta_description', htmlspecialchars($goods['goods_brief']));
         $this->assign('ur_here', $page_info['ur_here']);
         $this->assign('page_title', $page_info['title']);
+        $this->assign('test', "111");
+//        C:\xampp\htdocs\yoyo\include\apps\common\models\GoodsBaseModel.class.php 都写在这儿
+        $this->assign('aaa', json_encode(model('GoodsBase')->test($this->goods_id)));
         $this->display('goods.dwt');
     }
 
