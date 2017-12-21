@@ -14,7 +14,6 @@
 
 	<body class="">
 		<div id="loading"><img src="__TPL__/statics/img/loading.gif" /></div>
-
 		<section class="product-list j-product-list product-list-small" data="2">
 				<!-- {foreach from=$goods item=good}-->
 				{*判断是否下架*}
@@ -46,7 +45,6 @@
 			<a type="button" class="btn-cart box-flex"  ">总金额：{$cart_sum}</a>
 			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即结算</a>
 		</div>
-
 		<!--引用js-->
 		<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
