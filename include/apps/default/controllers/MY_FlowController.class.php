@@ -47,10 +47,7 @@ class MY_FlowController extends FlowController {
         // 获取收货人信息
         $consignee = model('Order')->get_consignee($_SESSION ['user_id']);
         /* 检查收货人信息是否完整 */
-        if (!model('Order')->check_consignee_info($consignee, $flow_type)) {
-            /* 如果不完整则转向到收货人信息填写界面 */
-            ecs_header("Location: " . url('flow/consignee') . "\n");
-        }
+
 
         // 处理接收信息
         $how_oos = I('post.how_oos', 0);
@@ -163,12 +160,6 @@ class MY_FlowController extends FlowController {
             /* 统计实体商品的个数 */
             if ($val ['is_real']) {
                 $is_real_good = 1;
-            }
-        }
-        if (isset($is_real_good)) {
-            $res = $this->model->table('shipping')->field('shipping_id')->where("shipping_id=" . $order ['shipping_id'] . " AND enabled =1")->getOne();
-            if (!$res) {
-                show_message(L('flow_no_shipping'));
             }
         }
         /* 订单中的总额 */

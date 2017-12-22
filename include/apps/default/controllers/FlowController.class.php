@@ -436,21 +436,21 @@ class FlowController extends CommonController
         if ($count == 0) {
             show_message(L('no_goods_in_cart'), '', '', 'warning');
         }
-
+        //去除收货人相关的##########################
         //  检查用户是否已经登录 如果用户已经登录了则检查是否有默认的收货地址 如果没有登录则跳转到登录和注册页面
         if (empty($_SESSION ['direct_shopping']) && $_SESSION ['user_id'] == 0) {
             /* 用户没有登录且没有选定匿名购物，转向到登录页面 */
             $this->redirect(url('user/login', array('step' => 'flow')));
             exit;
         }
-        // 获取收货人信息
+        // 获取收货人信息##############################
         $consignee = model('Order')->get_consignee($_SESSION ['user_id']);
         /* 检查收货人信息是否完整 */
 //        去除收货人过程，不检查不跳转，设置默认值
-        if (!model('Order')->check_consignee_info($consignee, $flow_type)) {
-            /* 如果不完整则转向到收货人信息填写界面 */
-            ecs_header("Location: " . url('flow/consignee_list') . "\n");
-        }
+//        if (!model('Order')->check_consignee_info($consignee, $flow_type)) {
+//            /* 如果不完整则转向到收货人信息填写界面 */
+//            ecs_header("Location: " . url('flow/consignee_list') . "\n");
+//        }
         // 获取配送地址
         $consignee_list = model('Users')->get_consignee_list($_SESSION ['user_id']);
         $this->assign('consignee_list', $consignee_list);
