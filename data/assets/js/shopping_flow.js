@@ -533,69 +533,8 @@ function checkOrderForm(frm)
     }
   }
 
-
-  if ( ! paymentSelected)
-  {
-    alert(flow_no_payment);
-    return false;
-  }
 var ECS_SURPLUS = '';
 var ECS_INTEGRAL = '';
-  // 检查用户输入的余额
-  if (document.getElementById("ECS_SURPLUS"))
-  {
-    var surplus = document.getElementById("ECS_SURPLUS").value;
-
-    var info = $.ajax({
-                  url : 'index.php?m=default&c=flow&a=check_surplus',
-                  async : false,
-                  data: {surplus:surplus},
-                  success: function(data){
-                	  ECS_SURPLUS = data;
-                  },
-                  dataType: 'text'
-                });
-
-    if (ECS_SURPLUS)
-    {
-      try
-      {
-        document.getElementById("ECS_SURPLUS_NOTICE").innerHTML = ECS_SURPLUS;
-      }
-      catch (ex)
-      {
-      }
-      return false;
-    }
-  }
-
-  // 检查用户输入的积分
-  if (document.getElementById("ECS_INTEGRAL"))
-  {
-    var integral = document.getElementById("ECS_INTEGRAL").value;
-
-    var info = $.ajax({
-                  url : 'index.php?m=default&c=flow&a=check_integral',
-                  async : false,
-                  data: {integral:integral},
-                  success: function(data){
-                	  ECS_INTEGRAL = data;
-                  },
-                  dataType: 'text'
-                });
-
-    if (ECS_INTEGRAL)
-    {
-      return false;
-      try
-      {
-        document.getElementById("ECS_INTEGRAL_NOTICE").innerHTML = ECS_INTEGRAL;
-      }
-      catch (ex)
-      {
-      }
-    }
-  }
   //避免重复提交
   $("input[name='submit']").attr("disabled",true);
   setTimeout(function (){$("input[name='submit']").attr("disabled",false);},5000);
@@ -605,76 +544,6 @@ var ECS_INTEGRAL = '';
   return true;
 }
 
-/* *
- * 检查收货地址信息表单中填写的内容
- */
-function checkConsignee(frm)
-{
-  var msg = new Array();
-  var err = false;
-  
-  if (frm.elements['country'] && frm.elements['country'].value == 0 && frm.elements['country'].length > 1)
-  {
-    err = true;
-    msg.push(country_not_null);
-  }
-
-
-  if (frm.elements['province'] && frm.elements['province'].value == 0 && frm.elements['province'].length > 1)
-  {
-    err = true;
-    msg.push(province_not_null);
-  }
-
-  if (frm.elements['city'] && frm.elements['city'].value == 0 && frm.elements['city'].length > 1)
-  {
-    err = true;
-    msg.push(city_not_null);
-  }
-
-  if (frm.elements['district'] && frm.elements['district'].length > 1)
-  {
-    if (frm.elements['district'].value == 0)
-    {
-      err = true;
-      msg.push(district_not_null);
-    }
-  }
-
-  if (Utils.isEmpty(frm.elements['consignee'].value))
-  {
-    err = true;
-    msg.push(consignee_not_null);
-  }
-
-
-  if (frm.elements['address'] && Utils.isEmpty(frm.elements['address'].value))
-  {
-    err = true;
-    msg.push(address_not_null);
-  }
-  
-  if (Utils.isEmpty(frm.elements['mobile'].value))
-  {
-    err = true;
-    msg.push(mobile_not_null);
-  }
-  else
-  {
-    if (!Utils.isTel(frm.elements['mobile'].value))
-    {
-      err = true;
-      msg.push(mobile_invaild);
-    }
-  }
-  
-  if (err)
-  {
-    message = msg.join("\n");
-    alert(message);
-  }
-  return !err;
-}
 
 /**
  * 改变配送地址
