@@ -439,8 +439,8 @@ class MY_FlowController extends FlowController {
             include_once (ROOT_PATH . 'plugins/payment/' . $payment ['pay_code'] . '.php');
 
             $pay_obj = new $payment ['pay_code'] ();
+//            $pay_online = $pay_obj->get_code($order, unserialize_config($payment ['pay_config']));
             $pay_online = $pay_obj->get_code($order, unserialize_config($payment ['pay_config']));
-
             $order ['pay_desc'] = $payment ['pay_desc'];
 
             $this->assign('pay_online', $pay_online);

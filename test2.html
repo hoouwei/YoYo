@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="themes/default/js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Text: " + $("#test").text());
+            });
+        });
+    </script>
+
+
+    <script>
+        window.onload = function(){
+            function autoclick(){
+                $('#btn1').click();
+            }
+            setTimeout(autoclick, 1000)
+        }
+    </script>
+</head>
+
+<body>
+<p id="test">这是段落中的<b>粗体</b>文本。</p>
+<input id="btn1">显示文本</input>
+
+</body>
+
+</html>
