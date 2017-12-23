@@ -15,7 +15,6 @@
 
 	<body class="">
 		<div id="loading"><img src="__TPL__/statics/img/loading.gif" /></div>
-
 		<section class="product-list j-product-list product-list-small" data="2">
 				<?php $_from = $this->_var['goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'good');if (count($_from)):
     foreach ($_from AS $this->_var['good']):
@@ -47,9 +46,8 @@
 		<div class="filter-btn dis-box">
 			<a href="<?php echo url('flow/cart');?>" class="filter-btn-flow filter-btn-a"><i class="iconfont icon-gouwuche"></i><sup class="b-color" id='total_number'><?php if ($this->_var['seller_cart_total_number']): ?><?php echo $this->_var['seller_cart_total_number']; ?><?php else: ?>0<?php endif; ?></sup><em>购物车</em></a>
 			<a type="button" class="btn-cart box-flex"  ">总金额：<?php echo $this->_var['cart_sum']; ?></a>
-			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即结算</a>
+			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即支付</a>
 		</div>
-
 		
 		<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
