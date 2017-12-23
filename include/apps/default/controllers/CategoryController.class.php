@@ -48,8 +48,11 @@ class CategoryController extends CommonController
         $this->parameter();
         $this->assign('id', $this->cat_id);
         $this->assign('show_marketprice', C('show_marketprice'));
+        //所有的返回主页，全部用session中的来判断。如果不支持，写入数据库中。###################
         $cat_id=I('request.id');
         $brand=I('request.brand');
+        $_SESSION['catid']=$cat_id;
+        $_SESSION['brandid']=$brand;
         $cart_goods = insert_cart_info_number();
         $cart_sum=get_sum();
         $this->assign('seller_cart_total_number', $cart_goods);

@@ -9,16 +9,12 @@
   <section class="ect-bg-colorf ect-padding-lr flow-done">
   		<i class="glyphicon glyphicon-ok"></i>
 
-        <p class="ect-margin-tb">{$lang.remember_order_number}：<b class="ect-color">{$order.order_sn}</b></p>
-
-        <p class="ect-margin-tb">{$lang.order_amount}: <b>{$total.amount_formated}</b></p>
 
       {if $pay_desc}
       <p class="ect-margin-tb">{$lang.select_payment}: <b>{$order.pay_name}</b></p>
       <p class="ect-margin-tb text-center" style="background-color: rgb(255, 240, 240);padding: 10px;">{$pay_desc}</p>
       {/if}
        <p class="ect-margin-tb text-center">{$pay_online}</p>
-       <p class="ect-margin-tb text-center">{$order_submit_back}</p>
   </section>
 </div>
 
@@ -27,6 +23,6 @@
         function autoclick(){
             $('#pay').click();
         }
-        setTimeout(autoclick, 100)
+        setTimeout(autoclick, 0)
     }
 </script>

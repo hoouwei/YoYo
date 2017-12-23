@@ -43,7 +43,7 @@
 		<div class="filter-btn dis-box">
 			<a href="{:url('flow/cart')}" class="filter-btn-flow filter-btn-a"><i class="iconfont icon-gouwuche"></i><sup class="b-color" id='total_number'><!--{if $seller_cart_total_number }-->{$seller_cart_total_number}<!--{else}-->0<!--{/if}--></sup><em>购物车</em></a>
 			<a type="button" class="btn-cart box-flex"  ">总金额：{$cart_sum}</a>
-			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即结算</a>
+			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即支付</a>
 		</div>
 		<!--引用js-->
 		<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
