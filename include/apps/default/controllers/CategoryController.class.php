@@ -57,6 +57,8 @@ class CategoryController extends CommonController
         $cart_sum=get_sum();
         $this->assign('seller_cart_total_number', $cart_goods);
         $this->assign('cart_sum', $cart_sum);
+        $this->assign('cat_id', $cat_id);
+        $this->assign('brand', $brand);
         $this->assign('goods', model('GoodsBase')->get_category($cat_id,$brand));
         $this->display('category.dwt');
 

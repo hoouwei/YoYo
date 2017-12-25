@@ -4,7 +4,7 @@
   </div>
   <div class="flow-checkout">
     <form action="{:url('flow/done')}" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
-      <section hidden class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
+      <section class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
         <div  id="collapseTwo" class="panel-collapse collapse in">
           //支付方式暂时默认为支付宝，如果默认微信支付，将id改为1，并且hidden############
           <ul class="ect-radio">
@@ -18,7 +18,7 @@
 
       </section>
 
-      <section hidden class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
+      <section class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
         <ul>
           <!-- {foreach from=$goods_list item=goods} -->
           <li>
@@ -43,6 +43,8 @@
 
       </section>
       <div class="ect-padding-lr ect-padding-tb ect-margin-tb">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <input id="pay" type="submit" name="submit" value="" class=""/>
         <input type="hidden" name="step" value="done" />
       </div>
@@ -52,7 +54,7 @@
 <script>
     window.onload = function(){
         function autoclick(){
-            $('#pay').click();
+            $('#pay1').click();
         }
         setTimeout(autoclick, 0)
     }

@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514102117;s:8:"maketime";i:1514098517;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514219540;s:8:"maketime";i:1514215940;}<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta name="Generator" content="ECTouch 2.2.30" />
@@ -26,7 +26,7 @@
 	</div>
 </div>
 <header class="index-header comWidth">
-  <i class="index-header-menu iconfont fl" onclick="window.location = '/yoyo/index.php?m=default&c=category&a=top_all&u=0'">&#xe627;</i>
+  <i class="index-header-menu iconfont fl" onclick="window.location = '/yoyo/index.php?m=default&c=category&a=top_all&u=2'">&#xe627;</i>
   <div class="index-search-box fl">
     <input type="text" class="index-search-input" placeholder="商品搜索" onclick="openSearch();">
     <a href="javascript:void(0)" id="translateVoice" style="display:None;"><i class="index-search-sound iconfont fr">&#xe623;</i></a>
@@ -80,8 +80,7 @@
   </div>
   <div class="index-theme" style="display:none">
       <ul class="index-more-list">
-      
-      </ul>
+            </ul>
   </div>
 	<div class="index-more">
   	<div class="index-more-icon">
@@ -95,11 +94,11 @@
 </div>
 <footer class="index-footer comWidth">
 	<ul>
-	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=index&a=index&u=0"><i class="iconfont">&#xe621;</i><span>首页</span></a></li>
-	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=category&a=top_all&u=0"><i class="iconfont">&#xe627;</i><span>分类</span></a></li>
+	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=index&a=index&u=2"><i class="iconfont">&#xe621;</i><span>首页</span></a></li>
+	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=category&a=top_all&u=2"><i class="iconfont">&#xe627;</i><span>分类</span></a></li>
 	<li class="fl index-footer-list"><a href="javascript:openSearch();"><i class="iconfont">&#xe617;</i><span>搜索</span></a></li>
-	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=flow&a=cart&u=0"><i class="iconfont">&#xe626;</i><span>购物车</span></a></li>
-		<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=user&a=index&u=0"><i class="iconfont">&#xe625;</i><span>用户中心</span></a></li>
+	<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=flow&a=cart&u=2"><i class="iconfont">&#xe626;</i><span>购物车</span></a></li>
+		<li class="fl index-footer-list"><a href="/yoyo/index.php?m=default&c=user&a=index&u=2"><i class="iconfont">&#xe625;</i><span>用户中心</span></a></li>
 		
 </ul></footer>
 </div>
@@ -108,7 +107,7 @@
 		<header class="ect-header ect-margin-tb ect-margin-lr text-center"><span>搜索</span><a href="javascript:;" class="herder-close" onClick="closeSearch();">×</a></header>
 	</div>
 	<div class="ect-padding-lr">
-		<form action="/yoyo/index.php?m=default&c=category&a=index&u=0"  method="post" id="searchForm" name="searchForm">
+		<form action="/yoyo/index.php?m=default&c=category&a=index&u=2"  method="post" id="searchForm" name="searchForm">
 		<div class="input-search"> <span>
 			<input name="keywords" type="search" placeholder="请输入搜索关键词！" autofocus="autofocus" id="keywordBox">
 			</span>
@@ -116,8 +115,7 @@
 		</div>
 		</form>
 			</div>
-</div>
-<a id="scrollUp" href="#top" style="position: fixed; z-index: 10;"><i class="fa fa-angle-up"></i></a>
+</div><a id="scrollUp" href="#top" style="position: fixed; z-index: 10;"><i class="fa fa-angle-up"></i></a>
 <style>
 #scrollUp {
 	border-radius:100%;
@@ -163,9 +161,8 @@
 			$(".search").hide();
 		}
 	}
-</script>
-<script type="text/javascript">
-get_asynclist("/yoyo/index.php?m=default&c=index&a=ajax_goods&type=best&u=0" , '__TPL__/images/loader.gif');
+</script><script type="text/javascript">
+get_asynclist("/yoyo/index.php?m=default&c=index&a=ajax_goods&type=best&u=2" , '__TPL__/images/loader.gif');
 </script>
 <script>
 	/*立即关注*/

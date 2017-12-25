@@ -154,6 +154,7 @@ function addToCartResponse0(result) {
         else
         {
             document.getElementById('total_number').innerHTML = result.cart_number;//更新数量
+            document.getElementById('total_price').innerHTML = result.total_price;//更新数量
         }
     }
 }

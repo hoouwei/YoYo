@@ -262,7 +262,7 @@ class FlowController extends CommonController
         // 返回购物车商品总数量
         $result ['cart_number'] = insert_cart_info_number();
         $result ['isCart'] = $isCart;
-        $result ['sum'] =get_sum();
+        $result ['total_price'] =get_sum();
         die(json_encode($result));
     }
     public function cart()

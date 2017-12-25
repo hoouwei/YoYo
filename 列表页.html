@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <meta charset="utf-8"/>
-    <title>XXX</title>
+    <title>{$page_title}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
@@ -15,7 +15,7 @@
         .description{
             font-size: 1.3rem;
             color: #909090;
-            background: url(b.png) no-repeat;
+            background: url(css/b.png) no-repeat;
             background-size: 2.5rem;
             padding: 0.3rem 0 .4rem 1.5rem;
             margin-top: 1rem;
@@ -42,7 +42,7 @@
             width: 2.5rem;
             height: 2.5rem;
             margin-top: .6rem;
-            background: url(cart.png) no-repeat;
+            background: url(css/cart.png) no-repeat;
             background-size: 100%;
         }
         .left-icon{
@@ -81,6 +81,73 @@
 
 <body class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse">
 
+<div class="c-layout-page2">
+    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space c-bg-grey-1">
+        <div class="container">
+            <div class="c-content-tab-5  c-theme">
+                <!--{if $brand==1 }-->
+                <ul class="nav nav-pills c-nav-tab c-arrow" role="tablist">
+                    <li role="presentation" class="active">
+                        <a class="c-font-uppercase" href="index.php?m=default&c=category&a=index&id={$cat_id}&brand=1" aria-controls="" role="tab" data-toggle="tab">今日菜单</a>
+                    </li>
+                    <li role="presentation" >
+                        <a class="c-font-uppercase" href="index.php?m=default&c=category&a=index&id={$cat_id}&brand=2" aria-controls="" role="tab" aria-expanded="true" data-toggle="tab">明日菜单</a>
+                    </li>
+                </ul>
+                <!--{else}-->
+                <ul class="nav nav-pills c-nav-tab c-arrow" role="tablist">
+                    <li role="presentation" >
+                        <a class="c-font-uppercase" href="index.php?m=default&c=category&a=index&id={$cat_id}&brand=1" aria-controls="" role="tab" data-toggle="tab">今日菜单</a>
+                    </li>
+                    <li role="presentation" class="active" >
+                        <a class="c-font-uppercase" href="index.php?m=default&c=category&a=index&id={$cat_id}&brand=2" aria-controls="" role="tab" aria-expanded="true" data-toggle="tab">明日菜单</a>
+                    </li>
+                </ul>
+                <!--{/if}-->
+            </div>
+            <div class="row" style="margin-top: -20px;">
+
+
+
+
+                <!-- {foreach from=$goods item=good}-->
+                {*判断是否下架*}
+                <!--{if $good.is_on_sale==1 }-->
+                <div class="col-md-3 col-sm-6 c-margin-b-20">
+                    <div class="c-content-product-2 c-bg-white">
+                        <div class="c-content-overlay">
+                            <div class="c-label c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
+                            <div class="c-bg-img-center c-overlay-object" data-height="height"
+                                 style="height: 270px; background-image: url(http://localhost/yoyo/{$good.original_img});"></div>
+                        </div>
+                        <div class="c-info">
+                            <p class="c-title c-font-20 c-font-dark">{$good.goods_name}</p>
+                            <!--{if $good.goods_number==0 }-->
+                            <div class="price"><span class="dish-price-value">已售罄</div>
+                            <!--{else}-->
+                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
+                            <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20">{$good.goods_number}</span>份
+                            </div>
+                            <div class="test">
+                                <a type="button" onClick="addToCart0({$good.goods_id});" class="btn c-btn-green c-btn-circle" style="padding: 4px 10px 4px 10px;font-size: 14px;">+</a>&nbsp&nbsp
+                                <a type="button" onClick="addToCart1({$good.goods_id});" class="btn c-btn-green" style="padding: 6px 10px 4px 10px;font-size: 14px;">立即购买</a>
+                                <!--<a href="#" class="btn btn-md c-btn-green c-btn-circle"style="padding: 8px 6px 8px 6px;font-size: 14px;">-->
+                                <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
+                            </div>
+                            <!--{/if}-->
+                            <div class="description">{$good.short_des}</div>
+                        </div>
+                    </div>
+                </div>
+                <!--{/if}-->
+                <!--{/foreach}-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
     <div class="c-navbar">
         <div class="container">
@@ -102,91 +169,11 @@
         </div>
     </div>
 </header>
-<div class="c-layout-page2">
-    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space c-bg-grey-1">
-        <div class="container">
-            <div class="c-content-tab-5  c-theme">
-                <ul class="nav nav-pills c-nav-tab c-arrow" role="tablist">
-                    <li role="presentation" class="active">
-                        <a class="c-font-uppercase" href="" aria-controls="" role="tab" data-toggle="tab">今日菜单</a>
-                    </li>
-                    <li role="presentation" >
-                        <a class="c-font-uppercase" href="" aria-controls="" role="tab" aria-expanded="true" data-toggle="tab">明日菜单</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="row" style="margin-top: -20px;">
-                <div class="col-md-3 col-sm-6 c-margin-b-20">
-                    <div class="c-content-product-2 c-bg-white">
-                        <div class="c-content-overlay">
-                            <div class="c-label c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
-                            <div class="c-bg-img-center c-overlay-object" data-height="height"
-                                 style="height: 270px; background-image: url(a.jpg);"></div>
-                        </div>
-                        <div class="c-info">
-                            <p class="c-title c-font-20 c-font-dark">蒸饺套餐</p>
-                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
-                            <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20">20</span>份
-                            </div>
-                            <div class="test">
-                                <a href="#" class="btn c-btn-green c-btn-circle" style="padding: 4px 10px 4px 10px;font-size: 14px;">+</a>&nbsp&nbsp
-                                <a href="#" class="btn c-btn-green" style="padding: 6px 10px 4px 10px;font-size: 14px;">立即购买</a>
-                                <!--<a href="#" class="btn btn-md c-btn-green c-btn-circle"style="padding: 8px 6px 8px 6px;font-size: 14px;">-->
-                                    <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
-                            </div>
-                            <div class="description">玉米蔬猪肉蒸饺4个+杂粮粥+茶叶蛋+咸菜</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 c-margin-b-20">
-                    <div class="c-content-product-2 c-bg-white">
-                        <div class="c-content-overlay">
-                            <div class="c-label c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
-                            <div class="c-bg-img-center c-overlay-object" data-height="height"
-                                 style="height: 270px; background-image: url(a.jpg);"></div>
-                        </div>
-                        <div class="c-info">
-                            <p class="c-title c-font-20 c-font-dark">蒸饺套餐</p>
-                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
-                            <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20">20</span>份
-                            </div>
-                            <div class="test">
-                                <a href="#" class="btn c-btn-green c-btn-circle" style="padding: 4px 10px 4px 10px;font-size: 14px;">+</a>&nbsp&nbsp
-                                <a href="#" class="btn c-btn-green" style="padding: 6px 10px 4px 10px;font-size: 14px;">立即购买</a>
-                                <!--<a href="#" class="btn btn-md c-btn-green c-btn-circle"style="padding: 8px 6px 8px 6px;font-size: 14px;">-->
-                                <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
-                            </div>
-                            <div class="description">玉米蔬猪肉蒸饺4个+杂粮粥+茶叶蛋+咸菜</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 c-margin-b-20">
-                    <div class="c-content-product-2 c-bg-white">
-                        <div class="c-content-overlay">
-                            <div class="c-label c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
-                            <div class="c-bg-img-center c-overlay-object" data-height="height"
-                                 style="height: 270px; background-image: url(a.jpg);"></div>
-                        </div>
-                        <div class="c-info">
-                            <p class="c-title c-font-20 c-font-dark">蒸饺套餐</p>
-                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
-                            <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20">20</span>份
-                            </div>
-                            <div class="test">
-                                <a href="#" class="btn c-btn-green c-btn-circle" style="padding: 4px 10px 4px 10px;font-size: 14px;">+</a>&nbsp&nbsp
-                                <a href="#" class="btn c-btn-green" style="padding: 6px 10px 4px 10px;font-size: 14px;">立即购买</a>
-                                <!--<a href="#" class="btn btn-md c-btn-green c-btn-circle"style="padding: 8px 6px 8px 6px;font-size: 14px;">-->
-                                <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
-                            </div>
-                            <div class="description">玉米蔬猪肉蒸饺4个+杂粮粥+茶叶蛋+咸菜</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
+<script type="text/javascript" src="__TPL__/statics/js/ectouch.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
 </body>
 
 </html>

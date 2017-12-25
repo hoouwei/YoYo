@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta charset="utf-8">
+		<title>{$page_title}</title>
+		<link rel="stylesheet" href="__TPL__/statics/fonts/iconfont.css">
+		<link rel="stylesheet" href="__TPL__/statics/css/swiper-3.2.5.min.css" />
+		<link rel="stylesheet" href="__TPL__/statics/css/ectouch.css" />
+	</head>
+
+	<body class="">
+		<div id="loading"><img src="__TPL__/statics/img/loading.gif" /></div>
+		<section class="product-list j-product-list product-list-small" data="2">
+				<!-- {foreach from=$goods item=good}-->
+				{*判断是否下架*}
+				<!--{if $good.is_on_sale==1 }-->
+				<li>
+					<div class="product-div">
+
+						<img class="product-list-img" src="http://localhost/yoyo/{$good.original_img}">
+						<div class="product-text">
+							<h4>{$good.goods_name}</h4>
+							{*判断是否还有库存*}
+							<!--{if $good.goods_number==0 }-->
+							<p class="dis-box p-t-remark"><span class="box-flex">已售罄</span></p>
+							<!--{else}-->
+							<p class="dis-box p-t-remark"><span class="box-flex">库存：{$good.goods_number}</span></p>
+							<a type="button" class="icon-flow-cart fr j-goods-attr"   onClick="addToCart0({$good.goods_id});"><i class="iconfont icon-gouwuche"></i></a>
+							<a type="button" class="btn-submit "style="margin-left:100px " onClick="addToCart1({$good.goods_id});">立即购买</a>
+							<!--{/if}-->
+							<p><span class="p-price t-first ">¥{$good.shop_price}</span></p>
+						</div>
+					</div>
+
+				</li>
+				<!--{/if}-->
+				<!--{/foreach}-->
+		</section>
+		<div class="filter-btn dis-box">
+			<a href="{:url('flow/cart')}" class="filter-btn-flow filter-btn-a"><i class="iconfont icon-gouwuche"></i><sup class="b-color" id='total_number'>
+				<!--{if $seller_cart_total_number }-->{$seller_cart_total_number}<!--{else}-->0<!--{/if}--></sup><em>购物车</em></a>
+			<a type="button" class="btn-cart box-flex"  id='total_price'>总金额：{$cart_sum}</a>
+			<a type="button" class="btn-submit box-flex" onclick="location.href='index.php?c=flow&a=cart'">立即支付</a>
+		</div>
+		<!--引用js-->
+		<script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
+		<script type="text/javascript" src="__TPL__/statics/js/ectouch.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.json.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+
+		</div>
+</body>
+
+</html>
