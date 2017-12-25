@@ -1,7 +1,7 @@
 <?php
 //echo "dd".'<br>';
 //echo $_GET['name'].'<br>';
-
+//
 //$a = require('/data/config.php');
 //$mysql_server_name=$a['DB_HOST'];
 //$mysql_username=$a['DB_USER'];
@@ -20,14 +20,14 @@
 //echo $_GET['a'];
 //$a = new FlowController();
 //$a->index('1');
-function a(){
-    $GLOBALS['test']='1';
-}
-a();
-echo $GLOBALS['test'];
-
-
-
-
-
-?>
+//function a(){
+//    $GLOBALS['test']='1';
+//}
+//a();
+//echo $GLOBALS['test'];
+//
+//
+//
+//
+//
+//?>

@@ -578,7 +578,7 @@ class UserController extends CommonController {
      */
     public function order_list() {
         $pay = 1;
-        $size = I(C('page_size'), 10);
+        $size = I(C('page_size'), 50);
         $count = $this->model->table('order_info')->where('user_id = ' . $this->user_id)->count();
         $filter['page'] = '{page}';
         $offset = $this->pageLimit(url('order_list', $filter), $size);
