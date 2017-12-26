@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta name="Generator" content="ECTouch 2.2.30" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <?php if ($this->_var['auto_redirect']): ?>
-      <meta http-equiv="refresh" content="3;URL=<?php echo $this->_var['message']['back_url']; ?>" />
-    <?php endif; ?>
-  <title><?php echo $this->_var['page_title']; ?></title>
+    {if $auto_redirect}
+      <meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+    {/if}
+  <title>{$page_title}{$brand}</title>
   <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
   <link rel="stylesheet" href="__PUBLIC__/swiper/css/swiper.min.css"/>
@@ -17,69 +16,62 @@
   <script type="text/javascript" src="__TPL__/js/ectouch.js"></script>
 </head>
 <body>
+
 <div class="con">
-  <div class="ect-bg">
-    <header class="ect-header ect-margin-tb ect-margin-lr text-center ect-bg icon-write"> <a href="javascript:history.go(-1)" class="pull-left ect-icon ect-icon1 ect-icon-history"></a> <span><?php echo $this->_var['title']; ?></span> </header>
-  </div>
-  <div class="flow-checkout">
-    <form action="<?php echo url('flow/done');?>" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
-      <section class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
-        <div  id="collapseTwo" class="panel-collapse collapse in">
-          //支付方式暂时默认为支付宝，如果默认微信支付，将id改为1，并且hidden############
-          <ul class="ect-radio">
-            <li>
-              <input name="payment" type="radio" id="payment_2" value="2"
-                     checked style="vertical-align:middle">
-              <label for="payment_2">支付宝<i></i></label>
-            </li>
-          </ul>
+
+  <!-- {if $goods_list } -->
+  <p class="flow-price ect-padding-lr ect-padding-tb">共<b id="total_number">{$total.total_number}</b>件商品，
+      总价:<b  id="goods_subtotal">{$total.goods_price}</b>
+  </p>
+
+  <section class="ect-pro-list flow-pic ect-border-bottom0">
+    <ul>
+      <!-- {foreach from=$goods_list item=goods key=k} -->
+      <li>
+        <div class="ect-clear-over">
+          <a>
+            <img src="{$goods.goods_img}" title="{$goods.goods_name|escape:html}">
+          </a>
+          <dl>
+            <dt>
+              <h4 class="title">
+                <a >{$goods.goods_name}</a>
+              </h4>
+            </dt>
+            <dd class="ect-color999"> 
+              <p><strong class="ect-colory">{$goods.goods_price}</strong></p>
+            </dd>
+          </dl>
         </div>
+        <div class="ect-margin-tb ect-margin-bottom0 ect-clear-over flow-num-del">
+          
+          <div class="input-group pull-left wrap">
+            <span class="input-group-addon" onClick="change_goods_number('1',{$goods.rec_id})" >-</span>
+            <input type="hidden" id="back_number{$goods.rec_id}" value="{$goods.goods_number}" />
+            <input type="text" class="form-num form-contro"  name="{$goods.rec_id}" id="goods_number{$goods.rec_id}" autocomplete="off" value="{$goods.goods_number}" onFocus="back_goods_number({$goods.rec_id})"  onblur="change_goods_number('2',{$goods.rec_id})" />
+            <span class="input-group-addon" onClick="change_goods_number('3',{$goods.rec_id})">+</span> </div>
+         
+           <div class="pull-right flow-del text-center">
+             <a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='{:url('flow/drop_goods',array('id'=>$this->_var['goods']['rec_id']))}';" style="padding: 2px 5px;">删除</a>
+           </div>
 
-      </section>
-
-      <section class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
-        <ul>
-          <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
-    foreach ($_from AS $this->_var['goods']):
-?>
-          <li>
-            <dl>
-              <dt class="pull-left"> 
-                <a href="<?php echo url('goods/index',array('id'=>$this->_var['goods']['goods_id']));?>" target="_blank" ><?php echo $this->_var['goods']['goods_name']; ?></a>
-              </dt>
-
-              <dd class="pull-left list-num">x <?php echo $this->_var['goods']['goods_number']; ?></dd>
-              <dd class="pull-right"><?php echo $this->_var['goods']['formated_subtotal']; ?></dd>
-            </dl>
-          </li>
-          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-        </ul>
-
-        <div class="ect-padding-tb text-right" id="ECS_ORDERTOTAL">
-           商品总价
-          <b class="ect-colory"><?php echo $this->_var['total']['goods_price_formated']; ?></b>
-          <br />
         </div>
-
-
-      </section>
-      <div class="ect-padding-lr ect-padding-tb ect-margin-tb">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <input id="pay" type="submit" name="submit" value="" class=""/>
-        <input type="hidden" name="step" value="done" />
-      </div>
-    </form>
+      </li>
+      <!-- {/foreach} -->
+    </ul>
+  </section>
+  	<div class="flow-jiesuan ect-padding-lr ect-padding-tb">
+  	<a href="{:url('flow/checkout')}" type="button" class="btn btn-info ect-btn-info ect-bg">{$lang.check_out}</a>
   </div>
+
+  <!--{else}-->
+
+  <div class="flow-no-pro">
+    <img src="__TPL__/images/gwc.png">
+    <p class="text-center">{$lang.empty_shopping}</p>
+    <a type="button" href="index.php?m=default&c=category&a=index&id={$brand}&brand=1" class="btn btn-info ect-btn-info ect-bg">返回购物</a> </div>
+  <!-- {/if} --> 
 </div>
-<script>
-    window.onload = function(){
-        function autoclick(){
-            $('#pay1').click();
-        }
-        setTimeout(autoclick, 0)
-    }
-</script>
 
 
 
@@ -141,13 +133,13 @@
     function change_goods_number(type, id)
     {
         var goods_number = document.getElementById('goods_number'+id).value;
-        if(type != 2){back_goods_number(id)}
-        if(type == 1){goods_number--;}
-        if(type == 3){goods_number++;}
-        if(goods_number <=0 ){goods_number=1;}
-        if(!/^[0-9]*$/.test(goods_number)){goods_number = document.getElementById('back_number'+id).value;}
+        if(type != 2){  back_goods_number(id) }
+        if(type == 1){  goods_number--;  }
+        if(type == 3){  goods_number++;  }
+        if(goods_number <=0 ){ goods_number=1; }
+        if(!/^[0-9]*$/.test(goods_number)){ goods_number = document.getElementById('back_number'+id).value; }
         document.getElementById('goods_number'+id).value = goods_number;
-        $.post('<?php echo url("flow/ajax_update_cart");?>', {
+        $.post('{:url("flow/ajax_update_cart")}', {
             rec_id : id,goods_number : goods_number
         }, function(data) {
             change_goods_number_response(data,id);

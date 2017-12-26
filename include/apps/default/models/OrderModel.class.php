@@ -963,9 +963,9 @@ class OrderModel extends BaseModel {
             }
             /* 增加是否在购物车里显示商品图 */
             if ((C('show_goods_in_cart') == "2" || C('show_goods_in_cart') == "3") && $row['extension_code'] != 'package_buy') {
-                $res = $this->row("SELECT `goods_thumb` FROM " . $this->pre . "goods WHERE `goods_id`='{$row['goods_id']}'");
-                $goods_thumb = $res['goods_thumb'];
-                $row['goods_thumb'] = get_image_path($row['goods_id'], $goods_thumb, true);
+                $res = $this->row("SELECT `original_img` FROM " . $this->pre . "goods WHERE `goods_id`='{$row['goods_id']}'");
+                $original_img = $res['original_img'];
+                $row['original_img'] = get_image_path($row['goods_id'], $original_img, true);
             }
             if ($row['extension_code'] == 'package_buy') {
                 $row['package_goods_list'] = model('PackageBase')->get_package_goods($row['goods_id']);
