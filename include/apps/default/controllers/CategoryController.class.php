@@ -53,6 +53,7 @@ class CategoryController extends CommonController
         $brand=I('request.brand');
         $_SESSION['catid']=$cat_id;
         $_SESSION['brandid']=$brand;
+        error_log("9999999999999999999999"."$$$$$$$$$".$_SESSION['brandid']);
         $cart_goods = insert_cart_info_number();
         $cart_sum=get_sum();
         $this->assign('seller_cart_total_number', $cart_goods);

@@ -171,7 +171,7 @@
                     </div>
                     <a href="index.php?c=flow&a=cart">
                         <div class="money">
-                            <span id='total_price'>{$cart_sum}</span>元
+                            <span id='total_price'><!--{if $cart_sum }-->{$cart_sum}<!--{else}-->0<!--{/if}--></span>元
                         </div>
                     </a>
                 </div>

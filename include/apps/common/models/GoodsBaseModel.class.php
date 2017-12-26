@@ -31,7 +31,7 @@ class GoodsBaseModel extends BaseModel {
         //返回购物车的数量
     }
     function get_category($cat_id,$brand){
-        $sql = "SELECT * FROM  yoyo_goods where cat_id='$cat_id' and brand_id='$brand'";
+        $sql = "SELECT * FROM  yoyo_goods where cat_id='$cat_id' and brand_id='$brand' ORDER BY sort_order DESC ";
         $row = $this->query($sql);
 //        ######################
         return $row;

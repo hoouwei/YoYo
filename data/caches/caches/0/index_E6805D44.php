@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514219540;s:8:"maketime";i:1514215940;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514268610;s:8:"maketime";i:1514265010;}<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta name="Generator" content="ECTouch 2.2.30" />

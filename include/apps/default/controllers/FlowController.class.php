@@ -67,6 +67,7 @@ class FlowController extends CommonController
         $this->assign('integral_scale', C('integral_scale'));
         $this->assign('step', 'cart');
         $this->assign('title', L('shopping_cart'));
+        $this->assign('brand', $_SESSION['brandid']);
         $this->display('flow.dwt');
     }
 
