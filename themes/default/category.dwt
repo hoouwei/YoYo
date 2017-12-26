@@ -12,6 +12,7 @@
     <link href="assets/base/css/themes/default.css" rel="stylesheet" id="style_theme" type="text/css"/>
     <!-- END THEME STYLES -->
     <style>
+        body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Lucida Grande',sans-serif;}
         .description {
             font-size: 1.3rem;
             color: #909090;

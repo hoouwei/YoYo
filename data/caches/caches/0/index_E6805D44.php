@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514283713;s:8:"maketime";i:1514280113;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";i:1;s:57:"C:/xampp/htdocs/yoyo/themes/default/library/cat_goods.lbi";i:2;s:63:"C:/xampp/htdocs/yoyo/themes/default/library/page_index_menu.lbi";i:3;s:60:"C:/xampp/htdocs/yoyo/themes/default/library/search_index.lbi";i:4;s:59:"C:/xampp/htdocs/yoyo/themes/default/library/page_footer.lbi";}s:7:"expires";i:1514307223;s:8:"maketime";i:1514303623;}<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta name="Generator" content="ECTouch 2.2.30" />
@@ -80,8 +80,7 @@
   </div>
   <div class="index-theme" style="display:none">
       <ul class="index-more-list">
-      
-      </ul>
+            </ul>
   </div>
 	<div class="index-more">
   	<div class="index-more-icon">
@@ -116,8 +115,7 @@
 		</div>
 		</form>
 			</div>
-</div>
-<a id="scrollUp" href="#top" style="position: fixed; z-index: 10;"><i class="fa fa-angle-up"></i></a>
+</div><a id="scrollUp" href="#top" style="position: fixed; z-index: 10;"><i class="fa fa-angle-up"></i></a>
 <style>
 #scrollUp {
 	border-radius:100%;
@@ -163,8 +161,7 @@
 			$(".search").hide();
 		}
 	}
-</script>
-<script type="text/javascript">
+</script><script type="text/javascript">
 get_asynclist("/yoyo/index.php?m=default&c=index&a=ajax_goods&type=best&u=2" , '__TPL__/images/loader.gif');
 </script>
 <script>

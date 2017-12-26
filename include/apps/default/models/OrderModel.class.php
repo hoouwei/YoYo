@@ -170,6 +170,7 @@ class OrderModel extends BaseModel {
             $order['formated_pay_fee'] = price_format($order['pay_fee'], false);
             $order['formated_pack_fee'] = price_format($order['pack_fee'], false);
             $order['formated_card_fee'] = price_format($order['card_fee'], false);
+
             $order['formated_total_fee'] = price_format($order['total_fee'], false);
             $order['formated_money_paid'] = price_format($order['money_paid'], false);
             $order['formated_bonus'] = price_format($order['bonus'], false);
@@ -1975,8 +1976,8 @@ class OrderModel extends BaseModel {
      */
     function get_order_thumb($order_id) {
 
-        $arr = $this->model->query("SELECT g.goods_thumb FROM " . $this->model->pre . "order_goods as og left join " . $this->model->pre . "goods g on og.goods_id = g.goods_id WHERE og.order_id = " . $order_id . " limit 1");
-        return $arr[0]['goods_thumb'];
+        $arr = $this->model->query("SELECT g.original_img FROM " . $this->model->pre . "order_goods as og left join " . $this->model->pre . "goods g on og.goods_id = g.goods_id WHERE og.order_id = " . $order_id . " limit 1");
+        return $arr[0]['original_img'];
     }
 
 }

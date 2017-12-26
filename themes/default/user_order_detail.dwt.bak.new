@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$page_title}</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{$ecs_css_path}">
+    <link rel="stylesheet" href="__TPL__/css/user.css">
+    <link rel="stylesheet" href="__TPL__/css/photoswipe.css">
+</head>
+
+<body>
+<div class="con">
+
+    <section class="user-order-detail" style="border-top:none;">
+        <div class="user-order">
+            <p>订单状态：<span>{$order.order_status} {$order.pay_status} </span></p>
+            <p>订单号：<span>{$order.order_sn}</span></p>
+            <p>订单金额：<span>{$order.formated_total_fee}</span></p>
+            <p>下单时间：<span>{$order.formated_add_time}</span></p>
+
+        </div>
+        {if $order.order_amount gt 0}
+        <section class="ect-padding-lr ect-padding-tb ect-margin-tb ect-margin-bottom0">{$order.pay_online}</section>
+        {/if}
+
+        <div class="ect-pro-list">
+            <ul>
+                <!-- {foreach from=$goods_list item=goods} -->
+                <li><a href="{:url('goods/index', array('id'=>$this->_var['goods']['goods_id']))}" target="_blank"><img src="{$goods.goods_thumb}"></a>
+                    <dl>
+                        <dt>
+                            <h4 class="title"><a href="{:url('goods/index', array('id'=>$this->_var['goods']['goods_id']))}">{$goods.goods_name}{$goods.goods_attr}</a></h4>
+                        </dt>
+                        <dd class="dd-price"><b>本店售价{$goods.goods_price} <br> 数量：{$goods.goods_number}</br></dd>
+                        <dd class="dd-price"><b >总金额：<span class="ect-colory">{$goods.subtotal}</span></b></dd>
+                    </dl>
+                </li>
+                <!-- {/foreach} -->
+            </ul>
+        </div>
+    </section>
+
+
+    <div class="two-btn ect-padding-tb ect-padding-lr ect-margin-tb text-center">
+        {*取消订单的按键，还得重新处理一遍*}
+        {$order.handler}
+    </div>
+
+</div>

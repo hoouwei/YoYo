@@ -577,14 +577,17 @@ class UsersModel extends BaseModel {
             }
 
             $value['shipping_status'] = ($value['shipping_status'] == SS_SHIPPED_ING) ? SS_PREPARING : $value['shipping_status'];
-            $value['order_status'] = L('os.' . $value['order_status']) . ',' . L('ps.' . $value['pay_status']) . ',' . L('ss.' . $value['shipping_status']);
-
+//            $value['order_status'] = L('os.' . $value['order_status']) . ',' . L('ps.' . $value['pay_status']) ;
+//            只保留付款状态，详情页保留具体的状态
+            $value['order_status'] = L('ps.' . $value['pay_status']) ;
 
             $arr[] = array(
                 'order_id' => $value['order_id'],
                 'order_sn' => $value['order_sn'],
+//                修改为获得原始图片##########################
                 'img' => get_image_path(0, model('Order')->get_order_thumb($value['order_id'])),
-                'order_time' => local_date(C('time_format'), $value['add_time']),
+//                截取保留日期，时间在详情里
+                'order_time' => sub_str(local_date(C('time_format'), $value['add_time']),10,0),
                 'order_status' => $value['order_status'],
                 'shipping_id' => $value['shipping_id'],
                 'total_fee' => price_format($value['total_fee'], false),
