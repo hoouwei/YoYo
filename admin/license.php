@@ -22,24 +22,6 @@ require(dirname(__FILE__) . '/includes/init.php');
 /*------------------------------------------------------ */
 if ($_REQUEST['act']== 'list_edit')
 {
-    /* 检查权限 */
-    admin_priv('shop_authorized');
-
-    include_once(BASE_PATH . 'helpers/license_helper.php');
-
-    $license = get_shop_license();
-
-    $smarty->assign('ur_here', $_LANG['license_here']);
-    $smarty->assign('is_download', '0');
-    if ($license['certificate_id'] != '' && $license['token'] != '')
-    {
-        $smarty->assign('is_download', '1');
-    }
-
-    $smarty->assign('certificate_id', $license['certificate_id']);
-    $smarty->assign('token', $license['token']);
-
-    $smarty->display('license.htm');
 }
 
 /*------------------------------------------------------ */

@@ -4,8 +4,50 @@
 <?php echo $this->fetch('pageheader.htm'); ?>
 <?php echo $this->smarty_insert_scripts(array('files'=>'../js/utils.js,listtable.js')); ?>
 
+
+
+
+
+
 <!-- 商品搜索 -->
-<?php echo $this->fetch('goods_search.htm'); ?>
+<div class="form-div">
+  <form action="javascript:searchGoods()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    <?php if ($_GET['act'] != "trash"): ?>
+    <!-- 分类 -->
+    <select name="cat_id"><option value="0">所有饭柜</option><?php echo $this->_var['cat_list']; ?></select>
+    <!-- 品牌 -->
+    <select name="brand_id"><option value="0">所有分类</option><?php echo $this->html_options(array('options'=>$this->_var['brand_list'])); ?></select>
+    <!-- 上架 -->
+    <select name="is_on_sale"><option value=''>全部状态</option><option value="1"><?php echo $this->_var['lang']['on_sale']; ?></option><option value="0"><?php echo $this->_var['lang']['not_on_sale']; ?></option></select>
+    <?php endif; ?>
+    <!-- 关键字 -->
+    <?php echo $this->_var['lang']['keyword']; ?> <input type="text" name="keyword" size="15" />
+    <input type="submit" value="搜索" class="button" />
+  </form>
+</div>
+
+
+<script language="JavaScript">
+    function searchGoods()
+    {
+        
+            <?php if ($_GET['act'] != "trash"): ?>
+            listTable.filter['cat_id'] = document.forms['searchForm'].elements['cat_id'].value;
+            listTable.filter['brand_id'] = document.forms['searchForm'].elements['brand_id'].value;
+                listTable.filter['is_on_sale'] = document.forms['searchForm'].elements['is_on_sale'].value;
+                <?php endif; ?>
+                    
+                    listTable.filter['keyword'] = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
+                    listTable.filter['page'] = 1;
+
+                    listTable.loadList();
+                }
+</script>
+
+
+
+
 <!-- 商品列表 -->
 <form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
   <!-- start goods list -->
@@ -15,41 +57,37 @@
   <tr>
     <th>
       <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
-      <a href="javascript:listTable.sort('goods_id'); "><?php echo $this->_var['lang']['record_id']; ?></a><?php echo $this->_var['sort_goods_id']; ?>
+      <a href="javascript:listTable.sort('goods_id'); ">编号</a><?php echo $this->_var['sort_goods_id']; ?>
     </th>
-    <th><a href="javascript:listTable.sort('goods_name'); "><?php echo $this->_var['lang']['goods_name']; ?></a><?php echo $this->_var['sort_goods_name']; ?></th>
-    <th><a href="javascript:listTable.sort('goods_sn'); "><?php echo $this->_var['lang']['goods_sn']; ?></a><?php echo $this->_var['sort_goods_sn']; ?></th>
-    <th><a href="javascript:listTable.sort('shop_price'); "><?php echo $this->_var['lang']['shop_price']; ?></a><?php echo $this->_var['sort_shop_price']; ?></th>
-    <th><a href="javascript:listTable.sort('is_on_sale'); "><?php echo $this->_var['lang']['is_on_sale']; ?></a><?php echo $this->_var['sort_is_on_sale']; ?></th>
-    <th><a href="javascript:listTable.sort('is_best'); "><?php echo $this->_var['lang']['is_best']; ?></a><?php echo $this->_var['sort_is_best']; ?></th>
-    <th><a href="javascript:listTable.sort('is_new'); "><?php echo $this->_var['lang']['is_new']; ?></a><?php echo $this->_var['sort_is_new']; ?></th>
-    <th><a href="javascript:listTable.sort('is_hot'); "><?php echo $this->_var['lang']['is_hot']; ?></a><?php echo $this->_var['sort_is_hot']; ?></th>
-    <th><a href="javascript:listTable.sort('sort_order'); "><?php echo $this->_var['lang']['sort_order']; ?></a><?php echo $this->_var['sort_sort_order']; ?></th>
+    <th><a href="javascript:listTable.sort('goods_name'); ">商品名称</a></th>
+    <th><a href="">饭柜</a><?php echo $this->_var['sort_goods_sn']; ?></th>
+    <th><a href="">分类</a><?php echo $this->_var['sort_shop_price']; ?></th>
+    <th><a href="javascript:listTable.sort('shop_price'); ">价格</a><?php echo $this->_var['sort_shop_price']; ?></th>
+    <th><a href="javascript:listTable.sort('is_on_sale'); ">上架</a><?php echo $this->_var['sort_is_on_sale']; ?></th>
+    <th><a href="javascript:listTable.sort('sort_order'); ">推荐排序</a><?php echo $this->_var['sort_sort_order']; ?></th>
     <?php if ($this->_var['use_storage']): ?>
-    <th><a href="javascript:listTable.sort('goods_number'); "><?php echo $this->_var['lang']['goods_number']; ?></a><?php echo $this->_var['sort_goods_number']; ?></th>
+    <th><a href="javascript:listTable.sort('goods_number'); ">库存</a><?php echo $this->_var['sort_goods_number']; ?></th>
     <?php endif; ?>
-    <th><?php echo $this->_var['lang']['handler']; ?></th>
+    <th>操作</th>
   <tr>
+
   <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
     foreach ($_from AS $this->_var['goods']):
 ?>
   <tr>
     <td><input type="checkbox" name="checkboxes[]" value="<?php echo $this->_var['goods']['goods_id']; ?>" /><?php echo $this->_var['goods']['goods_id']; ?></td>
     <td class="first-cell" style="<?php if ($this->_var['goods']['is_promote']): ?>color:red;<?php endif; ?>"><span onclick="listTable.edit(this, 'edit_goods_name', <?php echo $this->_var['goods']['goods_id']; ?>)"><?php echo htmlspecialchars($this->_var['goods']['goods_name']); ?></span></td>
-    <td><span onclick="listTable.edit(this, 'edit_goods_sn', <?php echo $this->_var['goods']['goods_id']; ?>)"><?php echo $this->_var['goods']['goods_sn']; ?></span></td>
+    <td><span><?php echo $this->_var['goods']['cat_name']; ?></span></td>
+  <td><span><?php echo $this->_var['goods']['brand_name']; ?></span></td>
     <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', <?php echo $this->_var['goods']['goods_id']; ?>)"><?php echo $this->_var['goods']['shop_price']; ?>
 
     </span></td>
     <td align="center"><img src="images/<?php if ($this->_var['goods']['is_on_sale']): ?>yes<?php else: ?>no<?php endif; ?>.gif" onclick="listTable.toggle(this, 'toggle_on_sale', <?php echo $this->_var['goods']['goods_id']; ?>)" /></td>
-    <td align="center"><img src="images/<?php if ($this->_var['goods']['is_best']): ?>yes<?php else: ?>no<?php endif; ?>.gif" onclick="listTable.toggle(this, 'toggle_best', <?php echo $this->_var['goods']['goods_id']; ?>)" /></td>
-    <td align="center"><img src="images/<?php if ($this->_var['goods']['is_new']): ?>yes<?php else: ?>no<?php endif; ?>.gif" onclick="listTable.toggle(this, 'toggle_new', <?php echo $this->_var['goods']['goods_id']; ?>)" /></td>
-    <td align="center"><img src="images/<?php if ($this->_var['goods']['is_hot']): ?>yes<?php else: ?>no<?php endif; ?>.gif" onclick="listTable.toggle(this, 'toggle_hot', <?php echo $this->_var['goods']['goods_id']; ?>)" /></td>
     <td align="center"><span onclick="listTable.edit(this, 'edit_sort_order', <?php echo $this->_var['goods']['goods_id']; ?>)"><?php echo $this->_var['goods']['sort_order']; ?></span></td>
     <?php if ($this->_var['use_storage']): ?>
     <td align="right"><span onclick="listTable.edit(this, 'edit_goods_number', <?php echo $this->_var['goods']['goods_id']; ?>)"><?php echo $this->_var['goods']['goods_number']; ?></span></td>
     <?php endif; ?>
     <td align="center">
-      <a href="../index.php?c=goods&id=<?php echo $this->_var['goods']['goods_id']; ?>" target="_blank" title="<?php echo $this->_var['lang']['view']; ?>"><img src="images/icon_view.gif" width="21" height="21" border="0" /></a>
       <a href="goods.php?act=edit&goods_id=<?php echo $this->_var['goods']['goods_id']; ?><?php if ($this->_var['code'] != 'real_goods'): ?>&extension_code=<?php echo $this->_var['code']; ?><?php endif; ?>" title="<?php echo $this->_var['lang']['edit']; ?>"><img src="images/icon_edit.gif" width="21" height="21" border="0" /></a>
       <a href="goods.php?act=copy&goods_id=<?php echo $this->_var['goods']['goods_id']; ?><?php if ($this->_var['code'] != 'real_goods'): ?>&extension_code=<?php echo $this->_var['code']; ?><?php endif; ?>" title="<?php echo $this->_var['lang']['copy']; ?>"><img src="images/icon_copy.gif" width="21" height="21" border="0" /></a>
       <a href="javascript:;" onclick="listTable.remove(<?php echo $this->_var['goods']['goods_id']; ?>, '<?php echo $this->_var['lang']['trash_goods_confirm']; ?>')" title="<?php echo $this->_var['lang']['trash']; ?>"><img src="images/icon_trash.gif" width="21" height="21" border="0" /></a>
@@ -98,7 +136,7 @@
     <option value="move_to"><?php echo $this->_var['lang']['move_to']; ?></option>
 	<?php if ($this->_var['suppliers_list'] > 0): ?>
     <option value="suppliers_move_to"><?php echo $this->_var['lang']['suppliers_move_to']; ?></option>
-	<?php endif; ?>    
+	<?php endif; ?>
   </select>
   <select name="target_cat" style="display:none">
     <option value="0"><?php echo $this->_var['lang']['select_please']; ?></option><?php echo $this->_var['cat_list']; ?>
@@ -117,7 +155,7 @@ if ($this->_foreach['sln']['total'] > 0):
     <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
   </select>
   <!--end!-->
-	<?php endif; ?>  
+	<?php endif; ?>
   <?php if ($this->_var['code'] != 'real_goods'): ?>
   <input type="hidden" name="extension_code" value="<?php echo $this->_var['code']; ?>" />
   <?php endif; ?>
@@ -176,7 +214,7 @@ if ($this->_foreach['sln']['total'] > 0):
 
       // 切换分类列表的显示
       frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
-			
+
 			<?php if ($this->_var['suppliers_list'] > 0): ?>
       frm.elements['suppliers_id'].style.display = frm.elements['type'].value == 'suppliers_move_to' ? '' : 'none';
 			<?php endif; ?>

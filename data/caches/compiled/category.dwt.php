@@ -13,6 +13,7 @@
     <link href="assets/base/css/themes/default.css" rel="stylesheet" id="style_theme" type="text/css"/>
     
     <style>
+        body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Lucida Grande',sans-serif;}
         .description {
             font-size: 1.3rem;
             color: #909090;
@@ -136,7 +137,7 @@
                             <?php if ($this->_var['good']['goods_number'] == 0): ?>
                             <div class="price"><span class="dish-price-value">已售罄</div>
                             <?php else: ?>
-                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
+                            <div class="price"><span class="dish-price-value"><?php echo $this->_var['good']['shop_price']; ?></span>元</div>
                             <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20"><?php echo $this->_var['good']['goods_number']; ?></span>份
                             </div>
                             <div class="test">
@@ -146,7 +147,7 @@
                                 <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
                             </div>
                             <?php endif; ?>
-                            <div class="description"><?php echo $this->_var['good']['short_des']; ?></div>
+                            <div class="description"><?php echo $this->_var['good']['goods_brief']; ?></div>
                         </div>
                     </div>
                 </div>

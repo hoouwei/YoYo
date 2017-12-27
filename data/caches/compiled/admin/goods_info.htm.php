@@ -15,14 +15,7 @@
     <!-- tab bar -->
     <div id="tabbar-div">
       <p>
-        <span class="tab-front" id="general-tab"><?php echo $this->_var['lang']['tab_general']; ?></span><span
-        class="tab-back" id="detail-tab"><?php echo $this->_var['lang']['tab_detail']; ?></span><span
-        class="tab-back" id="mix-tab"><?php echo $this->_var['lang']['tab_mix']; ?></span><?php if ($this->_var['goods_type_list']): ?><span
-        class="tab-back" id="properties-tab"><?php echo $this->_var['lang']['tab_properties']; ?></span><?php endif; ?><span
-        class="tab-back" id="gallery-tab"><?php echo $this->_var['lang']['tab_gallery']; ?></span><span
-        class="tab-back" id="linkgoods-tab"><?php echo $this->_var['lang']['tab_linkgoods']; ?></span><?php if ($this->_var['code'] == ''): ?><span
-        class="tab-back" id="groupgoods-tab"><?php echo $this->_var['lang']['tab_groupgoods']; ?></span><?php endif; ?><span
-        class="tab-back" id="article-tab"><?php echo $this->_var['lang']['tab_article']; ?></span>
+        <span class="tab-front" id="general-tab">通用信息</span>
       </p>
     </div>
 
@@ -34,37 +27,24 @@
         <!-- 閫氱敤淇℃伅 -->
         <table width="90%" id="general-table" align="center">
           <tr>
-            <td class="label"><?php echo $this->_var['lang']['lab_goods_name']; ?></td>
-            <td><input type="text" name="goods_name" value="<?php echo htmlspecialchars($this->_var['goods']['goods_name']); ?>" style="float:left;color:<?php echo $this->_var['goods_name_color']; ?>;" size="30" /><div style="background-color:<?php echo $this->_var['goods_name_color']; ?>;float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"><img src="images/color_selecter.gif" style="margin-top:-1px;" /></div><input type="hidden" id="goods_name_color" name="goods_name_color" value="<?php echo $this->_var['goods_name_color']; ?>" />&nbsp;
-            <select name="goods_name_style">
-              <option value=""><?php echo $this->_var['lang']['select_font']; ?></option>
-              <?php echo $this->html_options(array('options'=>$this->_var['lang']['font_styles'],'selected'=>$this->_var['goods_name_style'])); ?>
-            </select>
-            <?php echo $this->_var['lang']['require_field']; ?></td>
+            <td class="label">商品名称</td>
+            <td><input type="text" name="goods_name" value="<?php echo htmlspecialchars($this->_var['goods']['goods_name']); ?>" style="float:left;color:<?php echo $this->_var['goods_name_color']; ?>;" size="30" /><?php echo $this->_var['lang']['require_field']; ?></td>
           </tr>
           <tr>
             <td class="label">
-            <a href="javascript:showNotice('noticeGoodsSN');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_goods_sn']; ?> </td>
+            <a href="javascript:showNotice('noticeGoodsSN');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> 商品货号 </td>
             <td><input type="text" name="goods_sn" value="<?php echo htmlspecialchars($this->_var['goods']['goods_sn']); ?>" size="20" onblur="checkGoodsSn(this.value,'<?php echo $this->_var['goods']['goods_id']; ?>')" /><span id="goods_sn_notice"></span><br />
             <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeGoodsSN"><?php echo $this->_var['lang']['notice_goods_sn']; ?></span></td>
           </tr>
           <tr>
-            <td class="label"><?php echo $this->_var['lang']['lab_goods_cat']; ?></td>
-            <td><select name="cat_id" onchange="hideCatDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?></option><?php echo $this->_var['cat_list']; ?></select>
-              <?php if ($this->_var['is_add']): ?>
-              <a href="javascript:void(0)" onclick="rapidCatAdd()" title="<?php echo $this->_var['lang']['rapid_add_cat']; ?>" class="special"><?php echo $this->_var['lang']['rapid_add_cat']; ?></a>
-              <span id="category_add" style="display:none;">
-              <input class="text" size="10" name="addedCategoryName" />
-               <a href="javascript:void(0)" onclick="addCategory()" title="<?php echo $this->_var['lang']['button_submit']; ?>" class="special" ><?php echo $this->_var['lang']['button_submit']; ?></a>
-               <a href="javascript:void(0)" onclick="return goCatPage()" title="<?php echo $this->_var['lang']['category_manage']; ?>" class="special" ><?php echo $this->_var['lang']['category_manage']; ?></a>
-               <a href="javascript:void(0)" onclick="hideCatDiv()" title="<?php echo $this->_var['lang']['hide']; ?>" class="special" ><<</a>
-               </span>
-               <?php endif; ?>
+            <td class="label">饭柜：</td>
+            <td>
+              <select name="cat_id" onchange="hideCatDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?></option><?php echo $this->_var['cat_list']; ?></select>
                <?php echo $this->_var['lang']['require_field']; ?>
             </td>
           </tr>
-          <tr>
-            <td class="label"><?php echo $this->_var['lang']['lab_other_cat']; ?></td>
+          <tr hidden>
+            <td class="label">扩展分类</td>
             <td>
               <input type="button" value="<?php echo $this->_var['lang']['add']; ?>" onclick="addOtherCat(this.parentNode)" class="button" />
               <?php $_from = $this->_var['goods']['other_cat']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'cat_id');if (count($_from)):
@@ -74,65 +54,31 @@
               <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </td>
           </tr>
+
           <tr>
-            <td class="label"><?php echo $this->_var['lang']['lab_goods_brand']; ?></td>
-            <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?><?php echo $this->html_options(array('options'=>$this->_var['brand_list'],'selected'=>$this->_var['goods']['brand_id'])); ?></select>
-              <?php if ($this->_var['is_add']): ?>
-              <a href="javascript:void(0)" title="<?php echo $this->_var['lang']['rapid_add_brand']; ?>" onclick="rapidBrandAdd()" class="special" ><?php echo $this->_var['lang']['rapid_add_brand']; ?></a>
-              <span id="brand_add" style="display:none;">
-              <input class="text" size="15" name="addedBrandName" />
-               <a href="javascript:void(0)" onclick="addBrand()" class="special" ><?php echo $this->_var['lang']['button_submit']; ?></a>
-               <a href="javascript:void(0)" onclick="return goBrandPage()" title="<?php echo $this->_var['lang']['brand_manage']; ?>" class="special" ><?php echo $this->_var['lang']['brand_manage']; ?></a>
-               <a href="javascript:void(0)" onclick="hideBrandDiv()" title="<?php echo $this->_var['lang']['hide']; ?>" class="special" ><<</a>
-               </span>
-               <?php endif; ?>
+            <td class="label">分类：</td>
+            <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?><?php echo $this->html_options(array('options'=>$this->_var['brand_list'],'selected'=>$this->_var['goods']['brand_id'])); ?></select><?php echo $this->_var['lang']['require_field']; ?>
             </td>
           </tr>
-         <?php if ($this->_var['suppliers_exists'] == 1): ?>
-          <tr>
-            <td class="label"><?php echo $this->_var['lang']['label_suppliers']; ?></td>
-            <td><select name="suppliers_id" id="suppliers_id">
-        <option value="0"><?php echo $this->_var['lang']['suppliers_no']; ?></option>
-        <?php echo $this->html_options(array('options'=>$this->_var['suppliers_list_name'],'selected'=>$this->_var['goods']['suppliers_id'])); ?>
-      </select></td>
-          </tr>
-         <?php endif; ?>
           <tr>
             <td class="label"><?php echo $this->_var['lang']['lab_shop_price']; ?></td>
             <td><input type="text" name="shop_price" value="<?php echo $this->_var['goods']['shop_price']; ?>" size="20" onblur="priceSetted()"/>
-            <input type="button" value="<?php echo $this->_var['lang']['compute_by_mp']; ?>" onclick="marketPriceSetted()" />
             <?php echo $this->_var['lang']['require_field']; ?></td>
           </tr>
           <!--/*DRP_START*/-->
-            <tr>
+            <tr hidden>
                 <td class="label"><?php echo $this->_var['lang']['lab_shop_profit']; ?></td>
                 <td><input type="text" name="touch_sale" value="<?php echo $this->_var['goods']['touch_sale']; ?>" size="20" onblur="priceSetted()"/>
                     </td>
             </tr>
-            <tr>
+            <tr hidden>
                 <td class="label"><?php echo $this->_var['lang']['touch_fencheng']; ?></td>
                 <td><input type="text" name="touch_fencheng" value="<?php echo $this->_var['goods']['touch_fencheng']; ?>" size="20" onblur="priceSetted()"/>
                 </td>
             </tr>
-          <!--/*DRP_END*/-->
-          <?php if ($this->_var['user_rank_list']): ?>
-          <tr>
-            <td class="label"><a href="javascript:showNotice('noticeUserPrice');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a><?php echo $this->_var['lang']['lab_user_price']; ?></td>
-            <td>
-              <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'user_rank');if (count($_from)):
-    foreach ($_from AS $this->_var['user_rank']):
-?>
-              <?php echo $this->_var['user_rank']['rank_name']; ?><span id="nrank_<?php echo $this->_var['user_rank']['rank_id']; ?>"></span><input type="text" id="rank_<?php echo $this->_var['user_rank']['rank_id']; ?>" name="user_price[]" value="<?php echo empty($this->_var['member_price_list'][$this->_var['user_rank']['rank_id']]) ? '-1' : $this->_var['member_price_list'][$this->_var['user_rank']['rank_id']]; ?>" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(<?php echo $this->_var['user_rank']['rank_id']; ?>)" size="8" />
-              <input type="hidden" name="user_rank[]" value="<?php echo $this->_var['user_rank']['rank_id']; ?>" />
-              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-              <br />
-              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeUserPrice"><?php echo $this->_var['lang']['notice_user_price']; ?></span>
-            </td>
-          </tr>
-          <?php endif; ?>
 
           <!--鍟嗗搧浼樻儬浠锋牸-->
-          <tr>
+          <tr hidden>
             <td class="label"><a href="javascript:showNotice('volumePrice');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a><?php echo $this->_var['lang']['lab_volume_price']; ?></td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
@@ -159,37 +105,31 @@ if ($this->_foreach['volume_price_tab']['total'] > 0):
           </tr>
           <!--鍟嗗搧浼樻儬浠锋牸 end -->
 
-          <tr>
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_market_price']; ?></td>
             <td><input type="text" name="market_price" value="<?php echo $this->_var['goods']['market_price']; ?>" size="20" />
               <input type="button" value="<?php echo $this->_var['lang']['integral_market_price']; ?>" onclick="integral_market_price()" />
             </td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><a href="javascript:showNotice('giveIntegral');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_give_integral']; ?></td>
             <td><input type="text" name="give_integral" value="<?php echo $this->_var['goods']['give_integral']; ?>" size="20" />
             <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="giveIntegral"><?php echo $this->_var['lang']['notice_give_integral']; ?></span></td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><a href="javascript:showNotice('rankIntegral');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_rank_integral']; ?></td>
             <td><input type="text" name="rank_integral" value="<?php echo $this->_var['goods']['rank_integral']; ?>" size="20" />
             <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="rankIntegral"><?php echo $this->_var['lang']['notice_rank_integral']; ?></span></td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><a href="javascript:showNotice('noticPoints');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_integral']; ?></td>
             <td><input type="text" name="integral" value="<?php echo $this->_var['goods']['integral']; ?>" size="20" onblur="parseint_integral()";/>
               <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticPoints"><?php echo $this->_var['lang']['notice_integral']; ?></span>
             </td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" <?php if ($this->_var['goods']['is_promote']): ?>checked="checked"<?php endif; ?> onclick="handlePromote(this.checked);" /> <?php echo $this->_var['lang']['lab_promote_price']; ?></label></td>
             <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="<?php echo $this->_var['goods']['promote_price']; ?>" size="20" /></td>
-          </tr>
-          <tr id="promote_4">
-            <td class="label" id="promote_5"><?php echo $this->_var['lang']['lab_promote_date']; ?></td>
-            <td id="promote_6">
-              <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='<?php echo $this->_var['goods']['promote_start_date']; ?>' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="<?php echo $this->_var['lang']['btn_select']; ?>" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='<?php echo $this->_var['goods']['promote_end_date']; ?>' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="<?php echo $this->_var['lang']['btn_select']; ?>" class="button"/>
-            </td>
           </tr>
           <tr>
             <td class="label"><?php echo $this->_var['lang']['lab_picture']; ?></td>
@@ -203,7 +143,7 @@ if ($this->_foreach['volume_price_tab']['total'] > 0):
               <br /><input type="text" size="40" value="<?php echo $this->_var['lang']['lab_picture_url']; ?>" style="color:#aaa;" onfocus="if (this.value == '<?php echo $this->_var['lang']['lab_picture_url']; ?>'){this.value='http://';this.style.color='#000';}" name="goods_img_url"/>
             </td>
           </tr>
-          <tr id="auto_thumb_1">
+          <tr hidden id="auto_thumb_1">
             <td class="label"> <?php echo $this->_var['lang']['lab_thumb']; ?></td>
             <td id="auto_thumb_3">
               <input type="file" name="goods_thumb" size="35" />
@@ -217,48 +157,44 @@ if ($this->_foreach['volume_price_tab']['total'] > 0):
               <br /><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)" /><?php echo $this->_var['lang']['auto_thumb']; ?></label><?php endif; ?>
             </td>
           </tr>
-        </table>
-
-        <!-- 璇︾粏鎻忚堪 -->
-        <table width="100%" id="detail-table" style="display:none" align="center">
-          <tr>
-            <td><?php echo $this->_var['fckeditor']; ?></td>
-          </tr>
-        </table>
-
-        <!-- 鍏朵粬淇℃伅 -->
-        <table width="90%" id="mix-table" style="display:none" align="center">
           <?php if ($this->_var['code'] == ''): ?>
-          <tr>
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_goods_weight']; ?></td>
             <td><input type="text" name="goods_weight" value="<?php echo $this->_var['goods']['goods_weight_by_unit']; ?>" size="20" /> <select name="weight_unit"><?php echo $this->html_options(array('options'=>$this->_var['unit_list'],'selected'=>$this->_var['weight_unit'])); ?></select></td>
           </tr>
           <?php endif; ?>
+
           <?php if ($this->_var['cfg']['use_storage']): ?>
-          <tr>
+          <tr >
             <td class="label"><a href="javascript:showNotice('noticeStorage');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_goods_number']; ?></td>
-<!--            <td><input type="text" name="goods_number" value="<?php echo $this->_var['goods']['goods_number']; ?>" size="20" <?php if ($this->_var['code'] != '' || $this->_var['goods']['_attribute'] != ''): ?>readonly="readonly"<?php endif; ?> /><br />-->
+            <!--            <td><input type="text" name="goods_number" value="<?php echo $this->_var['goods']['goods_number']; ?>" size="20" <?php if ($this->_var['code'] != '' || $this->_var['goods']['_attribute'] != ''): ?>readonly="readonly"<?php endif; ?> /><br />-->
             <td><input type="text" name="goods_number" value="<?php echo $this->_var['goods']['goods_number']; ?>" size="20" /><br />
-            <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeStorage"><?php echo $this->_var['lang']['notice_storage']; ?></span></td>
+              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeStorage"><?php echo $this->_var['lang']['notice_storage']; ?></span></td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_warn_number']; ?></td>
             <td><input type="text" name="warn_number" value="<?php echo $this->_var['goods']['warn_number']; ?>" size="20" /></td>
           </tr>
           <?php endif; ?>
-          <tr>
+
+
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_intro']; ?></td>
             <td><input type="checkbox" name="is_best" value="1" <?php if ($this->_var['goods']['is_best']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_best']; ?> <input type="checkbox" name="is_new" value="1" <?php if ($this->_var['goods']['is_new']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_new']; ?> <input type="checkbox" name="is_hot" value="1" <?php if ($this->_var['goods']['is_hot']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_hot']; ?></td>
           </tr>
+
+
           <tr id="alone_sale_1">
             <td class="label" id="alone_sale_2"><?php echo $this->_var['lang']['lab_is_on_sale']; ?></td>
             <td id="alone_sale_3"><input type="checkbox" name="is_on_sale" value="1" <?php if ($this->_var['goods']['is_on_sale']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['on_sale_desc']; ?></td>
           </tr>
-          <tr>
+
+
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_is_alone_sale']; ?></td>
             <td><input type="checkbox" name="is_alone_sale" value="1" <?php if ($this->_var['goods']['is_alone_sale']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['alone_sale']; ?></td>
           </tr>
-          <tr>
+          <tr hidden>
             <td class="label"><?php echo $this->_var['lang']['lab_is_free_shipping']; ?></td>
             <td><input type="checkbox" name="is_shipping" value="1" <?php if ($this->_var['goods']['is_shipping']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['free_shipping']; ?></td>
           </tr>
@@ -272,11 +208,39 @@ if ($this->_foreach['volume_price_tab']['total'] > 0):
           </tr>
           <tr>
             <td class="label">
-            <a href="javascript:showNotice('noticeSellerNote');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_seller_note']; ?> </td>
+              <a href="javascript:showNotice('noticeSellerNote');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_seller_note']; ?> </td>
             <td><textarea name="seller_note" cols="40" rows="3"><?php echo $this->_var['goods']['seller_note']; ?></textarea><br />
-            <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeSellerNote"><?php echo $this->_var['lang']['notice_seller_note']; ?></span></td>
+              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeSellerNote"><?php echo $this->_var['lang']['notice_seller_note']; ?></span></td>
           </tr>
         </table>
+
+
+
+        <!--其他信息-->
+        <table width="90%" id="mix-table" style="display:none" align="center">
+
+        </table>
+
+
+
+
+
+
+
+        <!-- 璇︾粏鎻忚堪 -->
+        <table width="100%" id="detail-table" style="display:none" align="center">
+          <tr>
+            <td><?php echo $this->_var['fckeditor']; ?></td>
+          </tr>
+        </table>
+
+
+
+
+
+
+
+
 
         <!-- 灞炴€т笌瑙勬牸 -->
         <?php if ($this->_var['goods_type_list']): ?>

@@ -269,7 +269,7 @@ function cat_list($cat_id = 0, $selected = 0, $re_type = true, $level = 0, $is_s
                 'FROM ' . $global->ecs->table('category') . " AS c ".
                 "LEFT JOIN " . $global->ecs->table('category') . " AS s ON s.parent_id=c.cat_id ".
                 "GROUP BY c.cat_id ".
-                'ORDER BY c.parent_id, c.sort_order ASC';
+                'ORDER BY c.cat_id';
             $res = $global->db->getAll($sql);
 
             $sql = "SELECT cat_id, COUNT(*) AS goods_num " .

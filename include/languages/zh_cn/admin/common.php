@@ -139,10 +139,10 @@ $_LANG['16_email_manage'] = '邮件群发管理';
 /* 商品管理 */
 $_LANG['01_goods_list'] = '商品列表';
 $_LANG['02_goods_add'] = '添加新商品';
-$_LANG['03_category_list'] = '商品分类';
+$_LANG['03_category_list'] = '饭柜';
 $_LANG['04_category_add'] = '添加分类';
 $_LANG['05_comment_manage'] = '用户评论';
-$_LANG['06_goods_brand_list'] = '商品品牌';
+$_LANG['06_goods_brand_list'] = '分类';
 $_LANG['07_brand_add'] = '添加品牌';
 $_LANG['08_goods_type'] = '商品类型';
 $_LANG['09_attribute_list'] = '商品属性';
@@ -162,7 +162,7 @@ $_LANG['14_goods_export'] = '商品批量导出';
 $_LANG['50_virtual_card_list'] = '虚拟商品列表';
 $_LANG['51_virtual_card_add'] = '添加虚拟商品';
 $_LANG['52_virtual_card_change'] = '更改加密串';
-$_LANG['goods_auto'] = '商品自动上下架';
+$_LANG['goods_auto'] = '二维码生成';
 $_LANG['article_auto'] = '文章自动发布';
 $_LANG['navigator'] = $_LANG['01_navigator'] = '导航设置';
 
@@ -225,7 +225,7 @@ $_LANG['shop_help'] = '网店帮助';
 $_LANG['vote_list'] = '在线调查';
 
 /* 会员管理 */
-$_LANG['08_unreply_msg'] = '会员留言';
+$_LANG['08_unreply_msg'] = '企业入驻信息';
 $_LANG['03_users_list'] = '会员列表';
 $_LANG['04_users_add'] = '添加会员';
 $_LANG['05_user_rank_list'] = '会员等级';

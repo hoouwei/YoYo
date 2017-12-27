@@ -37,7 +37,7 @@ if ($_REQUEST['act'] == 'list')
 
     /* 模板赋值 */
     $smarty->assign('ur_here',      $_LANG['03_category_list']);
-    $smarty->assign('action_link',  array('href' => 'category.php?act=add', 'text' => $_LANG['04_category_add']));
+    $smarty->assign('action_link',  array('href' => 'category.php?act=add', 'text' => '添加饭柜'));
     $smarty->assign('full_page',    1);
 
     $smarty->assign('cat_info',     $cat_list);
@@ -154,13 +154,13 @@ if ($_REQUEST['act'] == 'insert')
         clear_cache_files();    // 清除缓存
 
         /*添加链接*/
-        $link[0]['text'] = $_LANG['continue_add'];
+        $link[0]['text'] = "继续添加饭柜";
         $link[0]['href'] = 'category.php?act=add';
 
-        $link[1]['text'] = $_LANG['back_list'];
+        $link[1]['text'] = "返回饭柜列表";
         $link[1]['href'] = 'category.php?act=list';
 
-        sys_msg($_LANG['catadd_succed'], 0, $link);
+        sys_msg("饭柜添加成功", 0, $link);
     }
 
 

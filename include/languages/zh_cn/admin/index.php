@@ -70,7 +70,7 @@ $_LANG['new_reimburse'] = '退款申请:';
 $_LANG['shipped_part'] = '部分发货订单:';
 
 $_LANG['goods_stat'] = '实体商品统计信息';
-$_LANG['virtual_card_stat'] = '虚拟卡商品统计';
+$_LANG['virtual_card_stat'] = '虚拟卡商品统计s';
 $_LANG['goods_count'] = '商品总数:';
 $_LANG['sales_count'] = '促销商品数:';
 $_LANG['new_goods'] = '新品推荐数:';

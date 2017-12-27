@@ -5,12 +5,12 @@
   <form action="category.php" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
   <table width="100%" id="general-table">
       <tr>
-        <td class="label"><?php echo $this->_var['lang']['cat_name']; ?>:</td>
+        <td class="label">饭柜名称:</td>
         <td>
           <input type='text' name='cat_name' maxlength="20" value='<?php echo htmlspecialchars($this->_var['cat_info']['cat_name']); ?>' size='27' /> <font color="red">*</font>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><?php echo $this->_var['lang']['parent_id']; ?>:</td>
         <td>
           <select name="parent_id">
@@ -20,13 +20,13 @@
         </td>
       </tr>
 
-      <tr id="measure_unit">
+      <tr hidden id="measure_unit">
         <td class="label"><?php echo $this->_var['lang']['measure_unit']; ?>:</td>
         <td>
           <input type="text" name='measure_unit' value='<?php echo $this->_var['cat_info']['measure_unit']; ?>' size="12" />
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><?php echo $this->_var['lang']['sort_order']; ?>:</td>
         <td>
           <input type="text" name='sort_order' <?php if ($this->_var['cat_info']['sort_order']): ?>value='<?php echo $this->_var['cat_info']['sort_order']; ?>'<?php else: ?> value="50"<?php endif; ?> size="15" />
@@ -40,22 +40,22 @@
           <input type="radio" name="is_show" value="0" <?php if ($this->_var['cat_info']['is_show'] == 0): ?> checked="true"<?php endif; ?> /> <?php echo $this->_var['lang']['no']; ?>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><?php echo $this->_var['lang']['show_in_nav']; ?>:</td>
         <td>
           <input type="radio" name="show_in_nav" value="1" <?php if ($this->_var['cat_info']['show_in_nav'] != 0): ?> checked="true"<?php endif; ?>/> <?php echo $this->_var['lang']['yes']; ?>
           <input type="radio" name="show_in_nav" value="0" <?php if ($this->_var['cat_info']['show_in_nav'] == 0): ?> checked="true"<?php endif; ?> /> <?php echo $this->_var['lang']['no']; ?>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><?php echo $this->_var['lang']['show_in_index']; ?>:</td>
         <td>
           <input type="checkbox" name="cat_recommend[]" value="1" <?php if ($this->_var['cat_recommend'] [ 1 ] == 1): ?> checked="true"<?php endif; ?>/> <?php echo $this->_var['lang']['index_best']; ?>
           <input type="checkbox" name="cat_recommend[]" value="2" <?php if ($this->_var['cat_recommend'] [ 2 ] == 1): ?> checked="true"<?php endif; ?> /> <?php echo $this->_var['lang']['index_new']; ?>
           <input type="checkbox" name="cat_recommend[]" value="3" <?php if ($this->_var['cat_recommend'] [ 3 ] == 1): ?> checked="true"<?php endif; ?> /> <?php echo $this->_var['lang']['index_hot']; ?>
         </td>
-      </tr>
-      <tr>
+      </tr >
+      <tr hidden>
         <td class="label"><a href="javascript:showNotice('noticeFilterAttr');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['notice_style']; ?>"></a><?php echo $this->_var['lang']['filter_attr']; ?>:</td>
         <td>
           <script type="text/javascript">
@@ -128,26 +128,26 @@ if ($this->_foreach['filter_attr_tab']['total'] > 0):
           <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeFilterAttr"><?php echo $this->_var['lang']['filter_attr_notic']; ?></span>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><a href="javascript:showNotice('noticeGrade');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['notice_style']; ?>"></a><?php echo $this->_var['lang']['grade']; ?>:</td>
         <td>
           <input type="text" name="grade" value="<?php echo empty($this->_var['cat_info']['grade']) ? '0' : $this->_var['cat_info']['grade']; ?>" size="40" /> <br />
           <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeGrade"><?php echo $this->_var['lang']['notice_grade']; ?></span>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><a href="javascript:showNotice('noticeGoodsSN');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['notice_style']; ?>"></a><?php echo $this->_var['lang']['cat_style']; ?>:</td>
         <td>
           <input type="text" name="style" value="<?php echo htmlspecialchars($this->_var['cat_info']['style']); ?>" size="40" /> <br />
           <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeGoodsSN"><?php echo $this->_var['lang']['notice_style']; ?></span>
         </td>
       </tr>
-      <tr>
+      <tr hidden>
         <td class="label"><?php echo $this->_var['lang']['keywords']; ?>:</td>
         <td><input type="text" name="keywords" value='<?php echo $this->_var['cat_info']['keywords']; ?>' size="50">
         </td>
       </tr>
-      <tr>
+      <tr hidden>
           <td class="label">
               请选择分类图片
           </td>

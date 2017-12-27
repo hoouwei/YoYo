@@ -134,7 +134,7 @@
                             <!--{if $good.goods_number==0 }-->
                             <div class="price"><span class="dish-price-value">已售罄</div>
                             <!--{else}-->
-                            <div class="price"><span class="dish-price-value">8.50</span>元</div>
+                            <div class="price"><span class="dish-price-value">{$good.shop_price}</span>元</div>
                             <div class="dish-stock">&nbsp;·&nbsp;剩余<span class="dish-stock-value" data-stock="20">{$good.goods_number}</span>份
                             </div>
                             <div class="test">
@@ -144,7 +144,7 @@
                                 <!--&nbsp&nbsp<i class="fa fa-bell-o"></i></a>-->
                             </div>
                             <!--{/if}-->
-                            <div class="description">{$good.short_des}</div>
+                            <div class="description">{$good.goods_brief}</div>
                         </div>
                     </div>
                 </div>
