@@ -60,8 +60,8 @@
       <a href="javascript:listTable.sort('goods_id'); ">编号</a><?php echo $this->_var['sort_goods_id']; ?>
     </th>
     <th><a href="javascript:listTable.sort('goods_name'); ">商品名称</a></th>
-    <th><a href="">饭柜</a><?php echo $this->_var['sort_goods_sn']; ?></th>
-    <th><a href="">分类</a><?php echo $this->_var['sort_shop_price']; ?></th>
+    <th><a href="">饭柜</a></th>
+    <th><a href="">分类</a></th>
     <th><a href="javascript:listTable.sort('shop_price'); ">价格</a><?php echo $this->_var['sort_shop_price']; ?></th>
     <th><a href="javascript:listTable.sort('is_on_sale'); ">上架</a><?php echo $this->_var['sort_is_on_sale']; ?></th>
     <th><a href="javascript:listTable.sort('sort_order'); ">推荐排序</a><?php echo $this->_var['sort_sort_order']; ?></th>

@@ -62,14 +62,13 @@ elseif ($_REQUEST['act'] == 'list')
     admin_priv('order_view');
     /* 模板赋值 */
     $smarty->assign('ur_here', $_LANG['02_order_list']);
-    $smarty->assign('action_link', array('href' => 'order.php?act=order_query', 'text' => $_LANG['03_order_query']));
     $smarty->assign('status_list', $_LANG['cs']);   // 订单状态
 
     $smarty->assign('os_unconfirmed',   OS_UNCONFIRMED);
     $smarty->assign('cs_await_pay',     CS_AWAIT_PAY);
     $smarty->assign('cs_await_ship',    CS_AWAIT_SHIP);
     $smarty->assign('full_page',        1);
-
+    $smarty->assign('cat_list',     cat_list(0, $cat_id));
     $order_list = order_list();
     $smarty->assign('order_list',   $order_list['orders']);
     $smarty->assign('filter',       $order_list['filter']);
@@ -5131,14 +5130,23 @@ function order_list()
         $filter['start_time'] = empty($_REQUEST['start_time']) ? '' : (strpos($_REQUEST['start_time'], '-') > 0 ?  local_strtotime($_REQUEST['start_time']) : $_REQUEST['start_time']);
         $filter['end_time'] = empty($_REQUEST['end_time']) ? '' : (strpos($_REQUEST['end_time'], '-') > 0 ?  local_strtotime($_REQUEST['end_time']) : $_REQUEST['end_time']);
 
+        $new_where = ' ';
+
         $where = 'WHERE 1 ';
+//        今日菜单，明日菜单
         if ($filter['order_sn'])
         {
-            $where .= " AND o.order_sn LIKE '%" . mysql_like_quote($filter['order_sn']) . "%'";
+            if ($filter['order_sn']!=-1){
+                $new_where .= " AND b.brand_id='$filter[order_sn]' ";
+            }
+
         }
+//        饭柜
         if ($filter['consignee'])
         {
-            $where .= " AND o.consignee LIKE '%" . mysql_like_quote($filter['consignee']) . "%'";
+            if ($filter['consignee']!=-1){
+            $new_where .= " AND c.cat_id='$filter[consignee]' ";
+            }
         }
         if ($filter['email'])
         {
@@ -5292,12 +5300,16 @@ function order_list()
         $filter['page_count']     = $filter['record_count'] > 0 ? ceil($filter['record_count'] / $filter['page_size']) : 1;
 
         /* 查询 */
-        $sql = "SELECT o.order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
+        $sql = "SELECT distinct(o.order_id),g.goods_id,b.brand_name,c.cat_name,b.brand_id,c.cat_id,o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
                     "o.pay_status, o.consignee, o.address, o.email, o.tel, o.extension_code, o.extension_id, " .
                     "(" . order_amount_field('o.') . ") AS total_fee, " .
                     "IFNULL(u.user_name, '" .$GLOBALS['_LANG']['anonymous']. "') AS buyer ".
                 " FROM " . $GLOBALS['ecs']->table('order_info') . " AS o " .
-                " LEFT JOIN " .$GLOBALS['ecs']->table('users'). " AS u ON u.user_id=o.user_id ". $where .
+                " LEFT JOIN " .$GLOBALS['ecs']->table('users'). " AS u ON u.user_id=o.user_id ".
+            "inner join yoyo_order_goods as g on o.order_id=g.order_id ".
+            "inner join yoyo_goods as yg on yg.goods_id=g.goods_id inner join yoyo_brand as b on yg.brand_id=b.brand_id 
+            inner join yoyo_category as c on c.cat_id=yg.cat_id ".$new_where.
+            $where .
                 " ORDER BY $filter[sort_by] $filter[sort_order] ".
                 " LIMIT " . ($filter['page'] - 1) * $filter['page_size'] . ",$filter[page_size]";
 

@@ -10,7 +10,6 @@
 
 <table width="100%" cellspacing="1" cellpadding="2" id="list-table">
   <tr>
-
     <th>饭柜ID</th>
     <th>饭柜名称</th>
     <th><?php echo $this->_var['lang']['goods_number']; ?></th>
@@ -29,6 +28,7 @@
     <td width="10%"><?php echo $this->_var['cat']['goods_num']; ?></td>
     <td width="10%"><img src="images/<?php if ($this->_var['cat']['is_show'] == '1'): ?>yes<?php else: ?>no<?php endif; ?>.gif" onclick="listTable.toggle(this, 'toggle_is_show', <?php echo $this->_var['cat']['cat_id']; ?>)" /></td>
     <td width="24%" align="center">
+      <a href="http://qr.liantu.com/api.php?text=http://localhost/yoyo/index.php?m=default%26c=category%26a=index%26id=<?php echo $this->_var['cat']['cat_id']; ?>%26brand=1" target="_blank">查看二维码</a> |
       <a href="category.php?act=edit&amp;cat_id=<?php echo $this->_var['cat']['cat_id']; ?>"><?php echo $this->_var['lang']['edit']; ?></a> |
       <a href="javascript:;" onclick="listTable.remove(<?php echo $this->_var['cat']['cat_id']; ?>, '<?php echo $this->_var['lang']['drop_confirm']; ?>')" title="<?php echo $this->_var['lang']['remove']; ?>"><?php echo $this->_var['lang']['remove']; ?></a>
     </td>

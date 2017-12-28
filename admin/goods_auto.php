@@ -30,7 +30,7 @@ if ($_REQUEST['act'] == 'list')
     $smarty->assign('record_count', $goodsdb['record_count']);
     $smarty->assign('page_count',   $goodsdb['page_count']);
     assign_query_info();
-    $smarty->display('goods_auto.htm');
+    $smarty->display('qr_code.htm');
 }
 elseif ($_REQUEST['act'] == 'query')
 {

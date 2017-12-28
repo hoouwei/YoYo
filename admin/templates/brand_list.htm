@@ -4,7 +4,6 @@
 {include file="pageheader.htm"}
 {insert_scripts files="../js/utils.js,listtable.js"}
 <!-- 品牌搜索 -->
-{include file="brand_search.htm"}
 <form method="post" action="" name="listForm">
 <!-- start brand list -->
 <div class="list-div" id="listDiv">
@@ -12,10 +11,8 @@
 
   <table cellpadding="3" cellspacing="1">
     <tr>
-      <th>{$lang.brand_name}</th>
-      <th>{$lang.site_url}</th>
-      <th>{$lang.brand_desc}</th>
-      <th>{$lang.sort_order}</th>
+      <th>分类名称</th>
+      <th>分类描述</th>
       <th>{$lang.is_show}</th>
       <th>{$lang.handler}</th>
     </tr>
@@ -26,9 +23,7 @@
         <span style="float:right">{$brand.brand_banner}</span>
         <span onclick="javascript:listTable.edit(this, 'edit_brand_name', {$brand.brand_id})">{$brand.brand_name|escape:html}</span>
       </td>
-      <td>{$brand.site_url}</td>
       <td align="left">{$brand.brand_desc|truncate:36}</td>
-      <td align="right"><span onclick="javascript:listTable.edit(this, 'edit_sort_order', {$brand.brand_id})">{$brand.sort_order}</span></td>
       <td align="center"><img src="images/{if $brand.is_show}yes{else}no{/if}.gif" onclick="listTable.toggle(this, 'toggle_show', {$brand.brand_id})" /></td>
       <td align="center">
         <a href="brand.php?act=edit&id={$brand.brand_id}" title="{$lang.edit}">{$lang.edit}</a> |

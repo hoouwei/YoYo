@@ -118,9 +118,28 @@ if ($_REQUEST['act'] == 'check')
 /*------------------------------------------------------ */
 //-- 列出所有留言
 /*------------------------------------------------------ */
+//if ($_REQUEST['act']=='list_all')
+//{
+//    assign_query_info();
+//    $msg_list = msg_list();
+//
+//    $smarty->assign('msg_list',     $msg_list['msg_list']);
+//    $smarty->assign('filter',       $msg_list['filter']);
+//    $smarty->assign('record_count', $msg_list['record_count']);
+//    $smarty->assign('page_count',   $msg_list['page_count']);
+//    $smarty->assign('full_page',    1);
+//    $smarty->assign('sort_msg_id', '<img src="images/sort_desc.gif">');
+//
+//    $smarty->assign('ur_here',      $_LANG['08_unreply_msg']);
+//    $smarty->assign('full_page',    1);
+//    $smarty->display('msg_list.htm');
+//}
+/*------------------------------------------------------ */
+//-- 查询入驻企业信息
+/*------------------------------------------------------ */
+
 if ($_REQUEST['act']=='list_all')
 {
-    assign_query_info();
     $msg_list = msg_list();
 
     $smarty->assign('msg_list',     $msg_list['msg_list']);
@@ -134,6 +153,8 @@ if ($_REQUEST['act']=='list_all')
     $smarty->assign('full_page',    1);
     $smarty->display('msg_list.htm');
 }
+
+
 
 /*------------------------------------------------------ */
 //-- ajax显示留言列表
@@ -344,31 +365,25 @@ function msg_list()
         $where .= " AND f.msg_type = '$filter[msg_type]' ";
     }
 
-    $sql = "SELECT count(*) FROM " .$GLOBALS['ecs']->table('feedback'). " AS f" .
-           " WHERE parent_id = '0' " . $where;
+    $sql = "SELECT count(*) FROM yoyo_company;";
     $filter['record_count'] = $GLOBALS['db']->getOne($sql);
 
     /* 分页大小 */
     $filter = page_and_size($filter);
 
-    $sql = "SELECT f.msg_id, f.user_name, f.msg_title, f.msg_type, f.order_id, f.msg_status, f.msg_time, f.msg_area, COUNT(r.msg_id) AS reply " .
-            "FROM " . $GLOBALS['ecs']->table('feedback') . " AS f ".
-            "LEFT JOIN " . $GLOBALS['ecs']->table('feedback') . " AS r ON r.parent_id=f.msg_id ".
-            "WHERE f.parent_id = 0 $where " .
-            "GROUP BY f.msg_id ".
-            "ORDER by $filter[sort_by] $filter[sort_order] ".
+    $sql = "select * from yoyo_company order by id ".
             "LIMIT " . $filter['start'] . ', ' . $filter['page_size'];
 
     $msg_list = $GLOBALS['db']->getAll($sql);
-    foreach ($msg_list AS $key => $value)
-    {   if($value['order_id'] > 0)
-        {
-            $msg_list[$key]['order_sn'] = $GLOBALS['db']->getOne("SELECT order_sn FROM " . $GLOBALS['ecs']->table('order_info') ." WHERE order_id= " .$value['order_id']);
-        }
-        $msg_list[$key]['msg_time'] = local_date($GLOBALS['_CFG']['time_format'], $value['msg_time']);
-        $msg_list[$key]['msg_type'] = $GLOBALS['_LANG']['type'][$value['msg_type']];
-    }
-    $filter['keywords'] = stripslashes($filter['keywords']);
+//    foreach ($msg_list AS $key => $value)
+//    {   if($value['order_id'] > 0)
+//        {
+//            $msg_list[$key]['order_sn'] = $GLOBALS['db']->getOne("SELECT order_sn FROM " . $GLOBALS['ecs']->table('order_info') ." WHERE order_id= " .$value['order_id']);
+//        }
+//        $msg_list[$key]['msg_time'] = local_date($GLOBALS['_CFG']['time_format'], $value['msg_time']);
+//        $msg_list[$key]['msg_type'] = $GLOBALS['_LANG']['type'][$value['msg_type']];
+//    }
+//    $filter['keywords'] = stripslashes($filter['keywords']);
     $arr = array('msg_list' => $msg_list, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
 
     return $arr;

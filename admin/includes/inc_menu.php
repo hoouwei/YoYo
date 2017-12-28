@@ -46,11 +46,11 @@ $modules['02_menu_goods']['06_goods_brand_list'] = 'brand.php?act=list';
 //$modules['02_menu_goods']['50_virtual_card_list']   = 'goods.php?act=list&extension_code=virtual_card';
 //$modules['02_menu_goods']['51_virtual_card_add']    = 'goods.php?act=add&extension_code=virtual_card';
 //$modules['02_menu_goods']['52_virtual_card_change'] = 'virtual_card.php?act=change';
-$modules['02_menu_goods']['goods_auto']             = 'goods_auto.php?act=list';
+//$modules['02_menu_goods']['goods_auto']             = 'goods_auto.php?act=list';
 
 // 订单
 $modules['03_menu_order']['02_order_list']               = 'order.php?act=list';
-$modules['03_menu_order']['03_order_query']              = 'order.php?act=order_query';
+//$modules['03_menu_order']['03_order_query']              = 'order.php?act=order_query';
 //$modules['03_menu_order']['04_merge_order']              = 'order.php?act=merge';
 //$modules['03_menu_order']['05_edit_order_print']         = 'order.php?act=templates';
 //$modules['03_menu_order']['06_undispose_booking']        = 'goods_booking.php?act=list_all';

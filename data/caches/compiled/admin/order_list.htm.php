@@ -5,17 +5,30 @@
 <div class="form-div">
   <form action="javascript:searchOrder()" name="searchForm">
     <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
-    <?php echo $this->_var['lang']['order_sn']; ?><input name="order_sn" type="text" id="order_sn" size="15">
-    <?php echo htmlspecialchars($this->_var['lang']['consignee']); ?><input name="consignee" type="text" id="consignee" size="15">
-    <?php echo $this->_var['lang']['all_status']; ?>
-    <select name="status" id="status">
+
+    饭柜：<select name="consignee" id="consignee">
       <option value="-1"><?php echo $this->_var['lang']['select_please']; ?></option>
-      <?php echo $this->html_options(array('options'=>$this->_var['status_list'])); ?>
+      <?php echo $this->_var['cat_list']; ?>
+    </select>
+
+
+    分类：<select name="order_sn" id="order_sn">
+    <option value="-1">全部分类</option>
+    <option value="1">今日菜单</option>
+    <option value="2">明日菜单</option>
+  </select>
+
+
+    <?php echo $this->_var['lang']['all_status']; ?>：
+    <select name="status" id="status">
+      <option value="-1">全部状态</option>
+      <option value="0" >待确认</option>
+      <option value="101">待发货</option>
+      <option value="2">取消</option>
     </select>
     <input type="submit" value="<?php echo $this->_var['lang']['button_search']; ?>" class="button" />
-    <a href="order.php?act=list&composite_status=<?php echo $this->_var['os_unconfirmed']; ?>"><?php echo $this->_var['lang']['cs'][$this->_var['os_unconfirmed']]; ?></a>
-    <a href="order.php?act=list&composite_status=<?php echo $this->_var['cs_await_pay']; ?>"><?php echo $this->_var['lang']['cs'][$this->_var['cs_await_pay']]; ?></a>
-    <a href="order.php?act=list&composite_status=<?php echo $this->_var['cs_await_ship']; ?>"><?php echo $this->_var['lang']['cs'][$this->_var['cs_await_ship']]; ?></a>
+    <a href="order.php?act=list&composite_status=<?php echo $this->_var['os_unconfirmed']; ?>">未付款</a>
+    <a href="order.php?act=list&composite_status=<?php echo $this->_var['cs_await_ship']; ?>">已付款</a>
   </form>
 </div>
 
@@ -30,11 +43,11 @@
       <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" /><a href="javascript:listTable.sort('order_sn', 'DESC'); "><?php echo $this->_var['lang']['order_sn']; ?></a><?php echo $this->_var['sort_order_sn']; ?>
     </th>
     <th><a href="javascript:listTable.sort('add_time', 'DESC'); "><?php echo $this->_var['lang']['order_time']; ?></a><?php echo $this->_var['sort_order_time']; ?></th>
-    <th><a href="javascript:listTable.sort('consignee', 'DESC'); "><?php echo $this->_var['lang']['consignee']; ?></a><?php echo $this->_var['sort_consignee']; ?></th>
+    <th>饭柜</th>
+    <th>分类</th>
     <th><a href="javascript:listTable.sort('total_fee', 'DESC'); "><?php echo $this->_var['lang']['total_fee']; ?></a><?php echo $this->_var['sort_total_fee']; ?></th>
     <th><a href="javascript:listTable.sort('order_amount', 'DESC'); "><?php echo $this->_var['lang']['order_amount']; ?></a><?php echo $this->_var['sort_order_amount']; ?></th>
     <th><?php echo $this->_var['lang']['all_status']; ?></th>
-    <th><?php echo $this->_var['lang']['handler']; ?></th>
   <tr>
   <?php $_from = $this->_var['order_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('okey', 'order');if (count($_from)):
     foreach ($_from AS $this->_var['okey'] => $this->_var['order']):
@@ -42,16 +55,11 @@
   <tr>
     <td valign="top" nowrap="nowrap"><input type="checkbox" name="checkboxes" value="<?php echo $this->_var['order']['order_sn']; ?>" /><a href="order.php?act=info&order_id=<?php echo $this->_var['order']['order_id']; ?>" id="order_<?php echo $this->_var['okey']; ?>"><?php echo $this->_var['order']['order_sn']; ?><?php if ($this->_var['order']['extension_code'] == "group_buy"): ?><br /><div align="center"><?php echo $this->_var['lang']['group_buy']; ?></div><?php elseif ($this->_var['order']['extension_code'] == "exchange_goods"): ?><br /><div align="center"><?php echo $this->_var['lang']['exchange_goods']; ?></div><?php endif; ?></a></td>
     <td><?php echo htmlspecialchars($this->_var['order']['buyer']); ?><br /><?php echo $this->_var['order']['short_order_time']; ?></td>
-    <td align="left" valign="top"><a href="mailto:<?php echo $this->_var['order']['email']; ?>"> <?php echo htmlspecialchars($this->_var['order']['consignee']); ?></a><?php if ($this->_var['order']['tel']): ?> [TEL: <?php echo htmlspecialchars($this->_var['order']['tel']); ?>]<?php endif; ?> <br /><?php echo htmlspecialchars($this->_var['order']['address']); ?></td>
+    <td align="left" valign="top"> <?php echo $this->_var['order']['cat_name']; ?></td>
+    <td align="left" valign="top"> <?php echo $this->_var['order']['brand_name']; ?></td>
     <td align="right" valign="top" nowrap="nowrap"><?php echo $this->_var['order']['formated_total_fee']; ?></td>
     <td align="right" valign="top" nowrap="nowrap"><?php echo $this->_var['order']['formated_order_amount']; ?></td>
-    <td align="center" valign="top" nowrap="nowrap"><?php echo $this->_var['lang']['os'][$this->_var['order']['order_status']]; ?>,<?php echo $this->_var['lang']['ps'][$this->_var['order']['pay_status']]; ?>,<?php echo $this->_var['lang']['ss'][$this->_var['order']['shipping_status']]; ?></td>
-    <td align="center" valign="top"  nowrap="nowrap">
-     <a href="order.php?act=info&order_id=<?php echo $this->_var['order']['order_id']; ?>"><?php echo $this->_var['lang']['detail']; ?></a>
-     <?php if ($this->_var['order']['can_remove']): ?>
-     <br /><a href="javascript:;" onclick="listTable.remove(<?php echo $this->_var['order']['order_id']; ?>, remove_confirm, 'remove_order')"><?php echo $this->_var['lang']['remove']; ?></a>
-     <?php endif; ?>
-    </td>
+    <td align="center" valign="top" nowrap="nowrap"><?php echo $this->_var['lang']['os'][$this->_var['order']['order_status']]; ?>,<?php echo $this->_var['lang']['ps'][$this->_var['order']['pay_status']]; ?></td>
   </tr>
   <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 </table>
@@ -68,12 +76,12 @@
 <?php if ($this->_var['full_page']): ?>
   </div>
   <div>
-    <input name="confirm" type="submit" id="btnSubmit" value="<?php echo $this->_var['lang']['op_confirm']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
-    <input name="invalid" type="submit" id="btnSubmit1" value="<?php echo $this->_var['lang']['op_invalid']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
-    <input name="cancel" type="submit" id="btnSubmit2" value="<?php echo $this->_var['lang']['op_cancel']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
-    <input name="remove" type="submit" id="btnSubmit3" value="<?php echo $this->_var['lang']['remove']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
-    <input name="print" type="submit" id="btnSubmit4" value="<?php echo $this->_var['lang']['print_order']; ?>" class="button" disabled="true" onclick="this.form.target = '_blank'" />
-    <input name="export" type="submit" id="btnSubmit5" value="导出为EXCEL" class="button" disabled="true" onclick="this.form.target = '_blank'" />  
+    <input name="confirm" type="hidden" id="btnSubmit" value="<?php echo $this->_var['lang']['op_confirm']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
+    <input name="invalid" type="hidden" id="btnSubmit1" value="<?php echo $this->_var['lang']['op_invalid']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
+    <input name="cancel" type="hidden" id="btnSubmit2" value="<?php echo $this->_var['lang']['op_cancel']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
+    <input name="remove" type="hidden" id="btnSubmit3" value="<?php echo $this->_var['lang']['remove']; ?>" class="button" disabled="true" onclick="this.form.target = '_self'" />
+    <input name="print" type="hidden" id="btnSubmit4" value="<?php echo $this->_var['lang']['print_order']; ?>" class="button" disabled="true" onclick="this.form.target = '_blank'" />
+    <input name="export" type="hidden" id="btnSubmit5" value="导出为EXCEL" class="button" disabled="true" onclick="this.form.target = '_blank'" />
     <input name="batch" type="hidden" value="1" />
     <input name="order_id" type="hidden" value="" />
   </div>

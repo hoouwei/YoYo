@@ -44,6 +44,7 @@ if ($_REQUEST['act'] == 'list')
 
     /* 列表页面 */
     assign_query_info();
+    $smarty->assign('cat_list',     cat_list(0, $cat_id));
     $smarty->display('category_list.htm');
 }
 

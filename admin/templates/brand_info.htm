@@ -4,14 +4,14 @@
 <form method="post" action="brand.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
 <table cellspacing="1" cellpadding="3" width="100%">
   <tr>
-    <td class="label">{$lang.brand_name}</td>
+    <td class="label">分类名称</td>
     <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" />{$lang.require_field}</td>
   </tr>
-  <tr>
+  <tr hidden>
     <td class="label">{$lang.site_url}</td>
     <td><input type="text" name="site_url" maxlength="60" size="40" value="{$brand.site_url}" /></td>
   </tr>
-  <tr>
+  <tr hidden>
     <td class="label">
         <a href="javascript:showNotice('warn_brandlogo');" title="{$lang.form_notice}">
         <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.brand_logo}
@@ -31,7 +31,7 @@
         </span>
     </td>
   </tr>
-  <tr>
+  <tr hidden>
     <td class="label">
         {$lang.brand_banner}
     </td>
@@ -47,10 +47,10 @@
     </td>
   </tr>
   <tr>
-    <td class="label">{$lang.brand_desc}</td>
+    <td class="label">分类描述</td>
     <td><textarea  name="brand_desc" cols="60" rows="4"  >{$brand.brand_desc}</textarea></td>
   </tr>
-  <tr>
+  <tr hidden>
     <td class="label">{$lang.sort_order}</td>
     <td><input type="text" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
   </tr>
@@ -58,7 +58,6 @@
     <td class="label">{$lang.is_show}</td>
     <td><input type="radio" name="is_show" value="1" {if $brand.is_show eq 1}checked="checked"{/if} /> {$lang.yes}
         <input type="radio" name="is_show" value="0" {if $brand.is_show eq 0}checked="checked"{/if} /> {$lang.no}
-        ({$lang.visibility_notes})
     </td>
   </tr>
   <tr>

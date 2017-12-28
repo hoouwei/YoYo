@@ -45,8 +45,8 @@ $_LANG['drop_fail'] = '删除失败！';
 $_LANG['no_brandname'] = '您必须输入品牌名称！';
 $_LANG['enter_int'] = '请输入一个整数！';
 
-$_LANG['back_list'] = '返回品牌列表';
-$_LANG['continue_add'] = '继续添加新品牌';
+$_LANG['back_list'] = '返回';
+$_LANG['continue_add'] = '继续添加';
 
 $_LANG['upfile_type_error'] = "只能上传jpg，gif，png类型的图片";
 $_LANG['upfile_error'] = "图片无法上传，请确保data目录下所有子目录的可写性！";
