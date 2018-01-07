@@ -1,1 +1,1 @@
-<?php exit;?>a:3:{s:8:"template";a:1:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";}s:7:"expires";i:1515328317;s:8:"maketime";i:1515324717;}
+<?php exit;?>a:3:{s:8:"template";a:1:{i:0;s:45:"C:/xampp/htdocs/yoyo/themes/default/index.dwt";}s:7:"expires";i:1515331644;s:8:"maketime";i:1515328044;}
