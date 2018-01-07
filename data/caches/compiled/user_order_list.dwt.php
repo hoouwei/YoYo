@@ -1,76 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta name="Generator" content="ECTouch 2.2.30" />
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta charset="utf-8" />
 	<title><?php echo $this->_var['page_title']; ?></title>
-	<link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
-	<link rel="stylesheet" href="<?php echo $this->_var['ecs_css_path']; ?>">
-	<link rel="stylesheet" href="__TPL__/css/user.css">
-	<link rel="stylesheet" href="__TPL__/css/photoswipe.css">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="assets/base/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+	<link href="assets/base/css/themes/default.css" rel="stylesheet" id="style_theme" type="text/css" />
+	<style>
+		body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Lucida Grande',sans-serif;}
+		.fa-angle-right{
+			content: "\f105";
+			font-size: 2.4em;
+			float: right;
+			color: #bbb;
+		}
+	</style>
 </head>
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse">
+<div class="c-layout-page">
+	<div class="container" style="margin-top: -60px">
+		<div class="c-layout-sidebar-content ">
+			<h3 class="c-border-bottom "style="line-height:1.5;">全部订单</h3><br>
 
-<body>
-<div class="con">
-	<div class="ect-bg">
-		<header class="ect-header ect-margin-tb ect-margin-lr text-center ect-bg icon-write"> <a href="<?php if ($this->_var['title'] != '消息中心'): ?> javascript:history.go(-1) <?php else: ?><?php echo url('user/index');?><?php endif; ?>" class="pull-left ect-icon ect-icon1 ect-icon-history"></a> <span><?php echo $this->_var['title']; ?></span> <a href="javascript:;" onClick="openMune()" class="pull-right ect-icon ect-icon1 ect-icon-mune"></a></header>
-		<nav class="ect-nav ect-nav-list" style="display:none;">
-			<ul class="ect-diaplay-box text-center">
-				<li class="ect-box-flex"><a href="<?php echo url('index/index');?>"><i class="ect-icon ect-icon-home"></i><?php echo $this->_var['lang']['home']; ?></a></li>
-				<li class="ect-box-flex"><a href="<?php echo url('category/top_all');?>"><i class="ect-icon ect-icon-cate"></i><?php echo $this->_var['lang']['category']; ?></a></li>
-				<li class="ect-box-flex"><a href="javascript:openSearch();"><i class="ect-icon ect-icon-search"></i><?php echo $this->_var['lang']['search']; ?></a></li>
-				<li class="ect-box-flex"><a href="<?php echo url('flow/cart');?>"><i class="ect-icon ect-icon-flow"></i><?php echo $this->_var['lang']['shopping_cart']; ?></a></li>
-				<li class="ect-box-flex"><a href="<?php echo url('user/index');?>"><i class="ect-icon ect-icon-user"></i><?php echo $this->_var['lang']['user_center']; ?></a></li>
-			</ul>
-		</nav>
-	</div>
 
-    <?php if ($this->_var['show_asynclist']): ?>
-<div class="ect-pro-list user-order" style="border-bottom:none;">
-    <ul id="J_ItemList">
-       <li class="single_item"></li>
-       <a href="javascript:;" style="text-align:center" class="get_more"></a>
-    </ul>
-</div>
-<?php else: ?>
-	<div class="ect-pro-list user-order" style="border-bottom:none;">
-		<ul id="J_ItemList">
-		 <?php $_from = $this->_var['orders_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'orders');$this->_foreach['orders_list'] = array('total' => count($_from), 'iteration' => 0);
+
+			<?php $_from = $this->_var['orders_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'orders');$this->_foreach['orders_list'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['orders_list']['total'] > 0):
     foreach ($_from AS $this->_var['orders']):
         $this->_foreach['orders_list']['iteration']++;
 ?>
-			<li>
-			<a href="<?php echo url('user/order_detail', array('order_id'=>$this->_var['orders']['order_id']));?>"><img src="<?php echo $this->_var['orders']['img']; ?>" class="pull-left" />
-			<dl>
-			  <dt>
-				<h4 class="title"><?php echo $this->_var['lang']['order_number']; ?>：<?php echo $this->_var['orders']['order_sn']; ?></h4>
-			  </dt>
-			  <dd><?php echo $this->_var['lang']['order_status']; ?>：<?php echo $this->_var['orders']['order_status']; ?></dd>
-			  <dd><?php echo $this->_var['lang']['order_total_fee']; ?>：<span class="ect-color"><?php echo $this->_var['orders']['total_fee']; ?></span></dd>
-			  <dd><?php echo $this->_var['lang']['order_addtime']; ?>：<?php echo $this->_var['orders']['order_time']; ?></dd>
-			</dl>
-			<i class="pull-right fa fa-angle-right"></i> </a> 
-			</li>
-		<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-		</ul>
+			<a href="<?php echo url('user/order_detail', array('order_id'=>$this->_var['orders']['order_id']));?>">
+			<div class="row c-margin-b-40 c-order-history-2" style="margin-top: -40px">
+				<div class="row c-cart-table-row">
+					<div class="col-md-2 col-sm-3 col-xs-5 c-cart-image">
+						<img src="<?php echo $this->_var['orders']['img']; ?>" /> </div>
+
+					<div class=" col-xs-7 c-cart-desc">
+						<p class="c-font-dark" style="margin: 0 0 0px">订单号：<?php echo $this->_var['orders']['order_sn']; ?></p><i class="pull-right fa fa-angle-right"></i>
+						<p class="c-font-dark" style="margin: 0 0 0px">订单状态：<?php echo $this->_var['orders']['order_status']; ?></p>
+						<p class="c-cart-sub-title c-theme-font" style="margin: 0 0 0px">订单金额：<?php echo $this->_var['orders']['total_fee']; ?></p>
+						<p class="c-font-dark" style="margin: 0 0 0px">下单时间：<?php echo $this->_var['orders']['order_time']; ?></p>
+					</div>
+				</div>
+			</div>
+			</a>
+			<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+
+
+		</div>
 	</div>
-
- <?php echo $this->fetch('library/page.lbi'); ?>
-<?php endif; ?>
 </div>
+</body>
 
-<script type="text/javascript">
-<?php $_from = $this->_var['lang']['merge_order_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
-?>
-    var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
-<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-if(<?php echo $this->_var['show_asynclist']; ?>){
-get_asynclist('index.php?m=default&c=user&a=async_order_list&pay=<?php echo $this->_var['pay']; ?>' , '__TPL__/images/loader.gif');
-}
-</script>
-</body></html>
+</html>

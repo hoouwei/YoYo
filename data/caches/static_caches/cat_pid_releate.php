@@ -2,8 +2,8 @@
 $data = array (
   0 => 
   array (
-    'cat_id' => '2',
-    'cat_name' => '去哪儿',
+    'cat_id' => '9',
+    'cat_name' => '阿斯顿',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -11,7 +11,7 @@ $data = array (
     'grade' => '0',
     'sort_order' => '50',
     'has_children' => '0',
-    'goods_num' => '1',
+    'goods_num' => 0,
   ),
   1 => 
   array (
@@ -24,7 +24,20 @@ $data = array (
     'grade' => '0',
     'sort_order' => '50',
     'has_children' => '0',
-    'goods_num' => '17',
+    'goods_num' => '23',
+  ),
+  2 => 
+  array (
+    'cat_id' => '2',
+    'cat_name' => '去哪儿',
+    'measure_unit' => '',
+    'parent_id' => '0',
+    'is_show' => '1',
+    'show_in_nav' => '0',
+    'grade' => '0',
+    'sort_order' => '50',
+    'has_children' => '0',
+    'goods_num' => '1',
   ),
 );
 ?>
