@@ -28,39 +28,7 @@ function get_asynclist(url, src) {
 /* *
  * 添加商品到购物车 
  */
-function addToCart0(goodsId, parentId) {
-    var goods = new Object();
-    var spec_arr = new Array();
-    var fittings_arr = new Array();
-    var number = 1;
-    var formBuy = document.forms['ECS_FORMBUY'];
-    var quick = 0;
 
-    // 检查是否有商品规格 
-    if (formBuy) {
-        str = getSelectedAttributes(formBuy);
-        spec_arr = str.split(',');
-        if (formBuy.elements['number']) {
-            number = formBuy.elements['number'].value;
-        }
-
-        quick = 1;
-    }
-
-    goods.quick = quick;
-    goods.spec = spec_arr;
-    goods.goods_id = goodsId;
-    goods.number = number;
-    goods.parent = (typeof (parentId) == "undefined") ? 0 : parseInt(parentId);
-
-    $.post('index.php?m=default&c=flow&a=add_to_cart', {
-        goods: $.toJSON(goods),
-        isCart: "0"
-    }, function(data) {
-        addToCartResponse0(data);
-    }, 'json');
-    //Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
-}
 
 /**
  * 直接购买

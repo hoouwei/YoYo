@@ -21,6 +21,7 @@
     <form action="{:url('flow/done')}" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
       <section hidden class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
         <div  id="collapseTwo" class="panel-collapse collapse in">
+          //暂时先不跳转，看一看怎么回事
           //支付方式暂时默认为支付宝，如果默认微信支付，将id改为1，并且hidden############
           <ul class="ect-radio">
             <li>
