@@ -1,169 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    {if $auto_redirect}
-        <meta http-equiv="refresh" content="3;URL={$message.back_url}" />
-    {/if}
-    <title>{$page_title}</title>
-    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/swiper/css/swiper.min.css"/>
-    <link rel="stylesheet" href="__TPL__/css/photoswipe.css">
-    <link rel="stylesheet" href="__TPL__/css/style.css">
-    <script type="text/javascript" src="__TPL__/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="__TPL__/js/ectouch.js"></script>
-</head>
-<body>
+
 <div class="con">
-  <section class="ect-bg-colorf ect-padding-lr flow-done">
-  		<i class="glyphicon glyphicon-ok"></i>
-
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      {if $pay_desc}
-      <p class="ect-margin-tb">{$lang.select_payment}: <b>{$order.pay_name}</b></p>
-      <p class="ect-margin-tb text-center" style="background-color: rgb(255, 240, 240);padding: 10px;">{$pay_desc}</p>
-      {/if}
-       <p class="ect-margin-tb text-center">{$pay_online}</p>
-  </section>
+    <div class="ect-bg">
+        <header class="ect-header ect-margin-tb ect-margin-lr text-center ect-bg icon-write"> <a href="javascript:history.go(-1)" class="pull-left ect-icon ect-icon1 ect-icon-history"></a> <span>{$title}</span> <a href="javascript:;" onClick="openMune()" class="pull-right ect-icon ect-icon1 ect-icon-mune"></a></header>
+        <nav class="ect-nav ect-nav-list" style="display:none;"> <!-- #BeginLibraryItem "/library/page_menu.lbi" --><!-- #EndLibraryItem --> </nav>
+    </div>
+    <section class="ect-bg-colorf ect-padding-lr flow-done">
+        <i class="glyphicon glyphicon-ok"></i>
+        <p class="ect-margin-tb">{$lang.remember_order_number}：<b class="ect-color">{$order.order_sn}</b></p>
+        <p class="ect-margin-tb"><!--{if $order.shipping_name}-->{$lang.select_shipping}:<b>{$order.shipping_name}</b><!--{/if}--></p>
+        <p class="ect-margin-tb">{$lang.order_amount}: <b>{$total.amount_formated}</b></p>
+        <!--{if $virtual_card}-->
+        <div class="alert alert-warning" role="alert" style="height: 100px;">
+            <!--{foreach from=$virtual_card item=vgoods}-->
+            <h3 style="color:#2359B1; font-size:15px;">{$vgoods.goods_name}</h3>
+            <!--{foreach from=$vgoods.info item=card}-->
+            <ul style="list-style:none;padding:0;margin:0;clear:both">
+                <!--{if $card.card_sn}-->
+                <li> <strong>{$lang.card_sn}:</strong><span style="color:red;">{$card.card_sn}</span> </li>
+                <!--{/if}-->
+                <!--{if $card.card_password}-->
+                <li> <strong>{$lang.card_password}:</strong><span style="color:red;">{$card.card_password}</span> </li>
+                <!--{/if}-->
+                <!--{if $card.end_date}-->
+                <li> <strong>{$lang.end_date}:</strong>{$card.end_date} </li>
+                <!--{/if}-->
+            </ul>
+            <!--{/foreach}-->
+            <!--{/foreach}-->
+        </div>
+        <!-- {/if} -->
+        {if $pay_desc}
+            <p class="ect-margin-tb">{$lang.select_payment}: <b>{$order.pay_name}</b></p>
+            <p class="ect-margin-tb text-center" style="background-color: rgb(255, 240, 240);padding: 10px;">{$pay_desc}</p>
+        {/if}
+        <p class="ect-margin-tb text-center">{$pay_online}</p>
+        <p class="ect-margin-tb text-center">{$order_submit_back}</p>
+    </section>
 </div>
-
-<script>
-    window.onload = function(){
-        function autoclick(){
-            $('#pay').click();
-        }
-        setTimeout(autoclick, 0)
-    }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-    #scrollUp {
-        border-radius:100%;
-        background-color: #777;
-        color: #eee;
-        font-size: 40px;
-        line-height: 1;text-align: center;text-decoration: none;bottom: 1.5em;right: 10px;overflow: hidden;width: 46px;
-        height: 46px;
-        border: none;
-        opacity: 0.6;
-    }
-</style>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.json.js" ></script>
-<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.more.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/utils.js" ></script>
-<script src="__PUBLIC__/swiper/js/jquery.swiper.min.js"></script>
-<script src="__TPL__/js/ectouch.js"></script>
-<script src="__TPL__/js/simple-inheritance.min.js"></script>
-<script src="__TPL__/js/code-photoswipe-1.0.11.min.js"></script>
-<script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
-<script src="__TPL__/js/jquery.scrollUp.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/validform.js" ></script>
-<script language="javascript">
-    /*banner滚动图片*/
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1,
-        loop: true,
-        autoplay : 2000
-    });
-    /*弹出评论层并隐藏其他层*/
-    function openSearch(){
-        if($(".con").is(":visible")){
-            $(".con").hide();
-            $(".search").show();
-        }
-    }
-    function closeSearch(){
-        if($(".con").is(":hidden")){
-            $(".con").show();
-            $(".search").hide();
-        }
-    }
-</script>
-
-<script type="text/javascript" src="__PUBLIC__/js/shopping_flow.js"></script>
-<script>
-    function back_goods_number(id){
-        var goods_number = document.getElementById('goods_number'+id).value;
-        document.getElementById('back_number'+id).value = goods_number;
-    }
-    function change_goods_number(type, id)
-    {
-        var goods_number = document.getElementById('goods_number'+id).value;
-        if(type != 2){  back_goods_number(id) }
-        if(type == 1){  goods_number--;  }
-        if(type == 3){  goods_number++;  }
-        if(goods_number <=0 ){ goods_number=1; }
-        if(!/^[0-9]*$/.test(goods_number)){ goods_number = document.getElementById('back_number'+id).value; }
-        document.getElementById('goods_number'+id).value = goods_number;
-        $.post('{:url("flow/ajax_update_cart")}', {
-            rec_id : id,goods_number : goods_number
-        }, function(data) {
-            change_goods_number_response(data,id);
-        }, 'json');
-    }
-    // 处理返回信息并显示
-    function change_goods_number_response(result,id)
-    {
-        if (result.error == 0){
-            var rec_id = result.rec_id;
-            $("#goods_number_"+rec_id).val(result.goods_number);
-            document.getElementById('total_number').innerHTML = result.total_number;//更新数量
-            document.getElementById('goods_subtotal').innerHTML = result.total_desc;//更新小计
-            if (document.getElementById('ECS_CARTINFO')){
-                //更新购物车数量
-                document.getElementById('ECS_CARTINFO').innerHTML = result.cart_info;
-            }
-        }else if (result.message != ''){
-            alert(result.message);
-            var goods_number = document.getElementById('back_number'+id).value;
-            document.getElementById('goods_number'+id).value = goods_number;
-        }
-    }
-
-    /*点击下拉手风琴效果*/
-    $('.collapse').collapse()
-    $(".checkout-select a").click(function(){
-        if(!$(this).hasClass("select")){
-            $(this).addClass("select");
-        }else{
-            $(this).removeClass("select");
-        }
-    });
-
-</script>
-
-
-</body>
-</html>
