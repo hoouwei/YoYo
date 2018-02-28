@@ -86,12 +86,44 @@
         }
 
     </style>
-    <script type="text/javascript" src="themes/default/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="__TPL__/statics/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="__TPL__/statics/js/swiper-3.2.5.min.js"></script>
     <script type="text/javascript" src="__TPL__/statics/js/ectouch.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.json.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
     <script>
+        function addToCart1(goodsId, parentId) {
+            var goods = new Object();
+            var spec_arr = new Array();
+            var fittings_arr = new Array();
+            var number = 1;
+            var formBuy = document.forms['ECS_FORMBUY'];
+            var quick = 0;
+
+            // 检查是否有商品规格
+            if (formBuy) {
+                str = getSelectedAttributes(formBuy);
+                spec_arr = str.split(',');
+                if (formBuy.elements['number']) {
+                    number = formBuy.elements['number'].value;
+                }
+
+                quick = 1;
+            }
+
+            goods.quick = quick;
+            goods.spec = spec_arr;
+            goods.goods_id = goodsId;
+            goods.number = number;
+            goods.parent = (typeof (parentId) == "undefined") ? 0 : parseInt(parentId);
+
+            $.post('index.php?m=default&c=flow&a=add_to_cart', {
+                goods: $.toJSON(goods),
+                isCart: "1"
+            }, function(data) {
+                addToCartResponse1(data);
+            }, 'json');
+        }
         function addToCart0(goodsId, parentId) {
             var goods = new Object();
             var spec_arr = new Array();
@@ -125,6 +157,101 @@
             }, 'json');
             //Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
         }
+        /**
+         * 处理加入购物车
+         * @param result
+         */
+        function addToCartResponse0(result) {
+            if (result.error > 0) {
+                // 如果需要缺货登记，跳转
+                if (result.error == 2)
+                {
+                    if (confirm(result.message))
+                    {
+                        location.href = 'index.php?c=user&a=add_booking&id=' + result.goods_id + '&spec=' + result.product_spec;
+                    }
+                }
+                // 没选规格，弹出属性选择框
+                else if (result.error == 6) {
+                    openSpeDiv(result.message, result.goods_id, result.parent);
+                } else {
+                    alert(result.message);
+                }
+            } else {
+                var cartInfo = document.getElementById('ECS_CARTINFO');
+                var cart_url = 'index.php?c=flow&a=cart';
+                if (cartInfo)
+                {
+                    cartInfo.innerHTML = result.content;
+                }
+
+                if (result.one_step_buy == '1')
+                {
+                    location.href = cart_url;
+                }
+                else
+                {
+                    document.getElementById('total_number').innerHTML = result.cart_number;//更新数量
+                    document.getElementById('total_price').innerHTML = result.total_price;//更新数量
+                }
+            }
+        }
+
+        /* *
+         * 处理直接购买
+         */
+        function addToCartResponse1(result) {
+            if (result.error > 0) {
+                // 如果需要缺货登记，跳转
+                if (result.error == 2)
+                {
+                    if (confirm(result.message))
+                    {
+                        location.href = 'index.php?c=user&a=add_booking&id=' + result.goods_id + '&spec=' + result.product_spec;
+                    }
+                }
+                // 没选规格，弹出属性选择框
+                else if (result.error == 6) {
+                    openSpeDiv(result.message, result.goods_id, result.parent);
+                } else {
+                    alert(result.message);
+                }
+            } else {
+                var cartInfo = document.getElementById('ECS_CARTINFO');
+                var cart_url = 'index.php?c=flow&a=cart';
+                if (cartInfo)
+                {
+                    cartInfo.innerHTML = result.content;
+                }
+
+                if (result.one_step_buy == '1')
+                {
+                    location.href = cart_url;
+                }
+                else
+                {
+                    switch (result.confirm_type)
+                    {
+                        case '1' :
+                            if (confirm(result.message))
+                                location.href = cart_url;
+                            break;
+                        case '2' :
+                            if (!confirm(result.message))
+                                location.href = cart_url;
+                            break;
+                        case '3' :
+                            location.href = cart_url;
+                            break;
+                        default :
+                            break;
+                    }
+                    //showDiv();
+                    document.getElementById('total_number').innerHTML = result.cart_number;//更新数量
+                }
+            }
+        }
+
     </script>
 </head>
 
