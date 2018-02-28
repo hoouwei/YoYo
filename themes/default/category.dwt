@@ -289,7 +289,7 @@
                         <div class="c-content-overlay">
                             <div class="c-label c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
                             <div class="c-bg-img-center c-overlay-object" data-height="height"
-                                 style="height: 270px; background-image: url(http://localhost/yoyo/{$good.original_img});"></div>
+                                 style="height: 270px; background-image: url(http://beta.yocook.cn/{$good.original_img});"></div>
                         </div>
                         <div class="c-info">
                             <p class="c-title c-font-20 c-font-dark">{$good.goods_name}</p>
