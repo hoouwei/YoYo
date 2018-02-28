@@ -1,231 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {if $auto_redirect}
+      <meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+    {/if}
+  <title>{$page_title}</title>
+  <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/swiper/css/swiper.min.css"/>
+  <link rel="stylesheet" href="__TPL__/css/photoswipe.css">
+  <link rel="stylesheet" href="__TPL__/css/style.css">
+  <script type="text/javascript" src="__TPL__/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="__TPL__/js/ectouch.js"></script>
+</head>
+<body>
 <div class="con">
-  <div class="ect-bg">
-    <header class="ect-header ect-margin-tb ect-margin-lr text-center ect-bg icon-write"> <a href="javascript:history.go(-1)" class="pull-left ect-icon ect-icon1 ect-icon-history"></a> <span>{$title}</span> <a href="javascript:;" onClick="openMune()" class="pull-right ect-icon ect-icon1 ect-icon-mune"></a></header>
-    <nav class="ect-nav ect-nav-list" style="display:none;">
-      <ul class="ect-diaplay-box text-center">
-        <li class="ect-box-flex"><a href="{:url('index/index')}"><i class="ect-icon ect-icon-home"></i>{$lang.home}</a></li>
-        <li class="ect-box-flex"><a href="{:url('category/top_all')}"><i class="ect-icon ect-icon-cate"></i>{$lang.category}</a></li>
-        <li class="ect-box-flex"><a href="javascript:openSearch();"><i class="ect-icon ect-icon-search"></i>{$lang.search}</a></li>
-        <li class="ect-box-flex"><a href="{:url('flow/cart')}"><i class="ect-icon ect-icon-flow"></i>{$lang.shopping_cart}</a></li>
-        <li class="ect-box-flex"><a href="{:url('user/index')}"><i class="ect-icon ect-icon-user"></i>{$lang.user_center}</a></li>
-      </ul>
-
-  </div>
   <div class="flow-checkout">
     <form action="{:url('flow/done')}" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
-      <script type="text/javascript">
-          var flow_no_payment = "没有支付";
-          var flow_no_shipping = "没有配送方式";
-      </script>
-
-
-      <section class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
-        <!--{if $total.real_goods_count neq 0}-->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          <p><b>{$lang.shipping_method}</b><span class="label ect-bg-colory">{$lang.require_field}</span></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <ul class="ect-radio">
-            <!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
-            <li>
-              <input name="shipping" type="radio" id="shipping_{$shipping.shipping_id}" value="{$shipping.shipping_id}"  {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)">
-              <label for="shipping_{$shipping.shipping_id}">{$shipping.shipping_name} [{$shipping.format_shipping_fee}]<i></i></label>
-            </li>
-            <!-- {/foreach} 循环配送方式 -->
-          </ul>
-        </div>
-        <!--{else}-->
-        <input name="shipping"  type="radio" value = "-1" checked="checked" style="display:none" />
-        <!--{/if}-->
-        <!--{if $is_exchange_goods neq 1 || $total.real_goods_count neq 0}-->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          <p><b>{$lang.payment_method}</b><span class="label ect-bg-colory">{$lang.require_field}</span></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseTwo" class="panel-collapse collapse in">
-          <ul class="ect-radio">
-            <!-- {foreach from=$payment_list item=payment} -->
-            <li>
-              <input name="payment" type="radio" id="payment_{$payment.pay_id}" value="{$payment.pay_id}"
-                     {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}"
-                     onclick="selectPayment(this)"
-                      {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"
-                      {/if}
-                     style="vertical-align:middle">
-              <label for="payment_{$payment.pay_id}">{$payment.pay_name} [{$payment.format_pay_fee}]<i></i></label>
-            </li>
-            <!-- {/foreach} -->
-          </ul>
-        </div>
-        <!--{else}-->
-        <input name = "payment" type="radio" value = "-1" checked="checked"  style="display:none"/>
-        <!--{/if}-->
-        <!-- {if $inv_content_list} 能否开发票 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1">
-          <p><b>{$lang.invoice}</b></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseTwo1" class="panel-collapse collapse in" style="overflow:hidden;">
-
-          <div id="inv">
-            <div  id="inv_show1" style="border-radius: .5rem;text-align:center;float:left;width:2rem;height:2rem;background:#CBC5C5"><span  style="color:#CBC5C5">.</span></div>
-            <div  id="inv_show2" style="border-radius: .5rem;text-align:center;float:left;width:2rem;height:2rem;background:#1CBB7F"><span  style="color:#fff">否</span></div>
-            <div  id="inv_none1" style="display:none;border-radius: .5rem;text-align:center;float:left;width:2rem;height:2rem;background:#1CBB7F"><span  style="color:#fff">是</span></div>
-            <div  id="inv_none2" style="display:none;border-radius: .5rem;text-align:center;float:left;width:2rem;height:2rem;background:#CBC5C5"><span  style="color:#CBC5C5"></span></div>
-          </div>
-          <div id="need_inv">
-            <input name="need_inv" type="checkbox"  class="input" id="ECS_NEEDINV" onclick="changeNeedInv()" value="1"  {if $order.need_inv}checked="true"{/if} style="display:none"/>
-          </div>
-          </li>
-          <li>
-            <!-- {if $inv_type_list} -->
-            <span class="pull-left select-span">{$lang.invoice_type}</span>
-            <div class="form-select pull-left"> <i class="fa fa-sort"></i>
-              <select name="inv_type" id="ECS_INVTYPE"  onchange="changeNeedInv()" style="border:1px solid #ccc;">
-
-                  {html_options options=$inv_type_list selected=$order.inv_type}
-
-              </select>
-            </div>
-          </li>
-          <!-- {/if} -->
-          <li>
-            <input name="inv_payee" type="text"  placeholder="{$lang.please_invoice_title}" class="input" id="ECS_INVPAYEE" size="20" value="{$order.inv_payee}" onblur="changeNeedInv()" />
-          </li>
-          <li> <span class="pull-left select-span">{$lang.invoice_content}</span>
-            <div class="form-select pull-left"> <i class="fa fa-sort"></i>
-              <select name="inv_content" id="ECS_INVCONTENT"  onchange="changeNeedInv()" style="border:1px solid #ccc;">
-
-
-                  {html_options values=$inv_content_list output=$inv_content_list selected=$order.inv_content}
-
-
-              </select>
-            </div>
-          </li>
-        </div>
-        <!--{/if}-->
-
-      </section>
-      <!-- {if $pack_list || $card_list} 是否有包装 或贺卡 -->
-      <section class="ect-margin-tb ect-padding-lr checkout-select">
-        <!-- {if $pack_list} 是否有包装 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          <p><b>{$lang.goods_package}</b></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseThree" class="panel-collapse collapse in">
+      <section hidden class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
+        <div  id="collapseTwo" class="panel-collapse collapse in">
+          //暂时先不跳转，看一看怎么回事
+          //支付方式暂时默认为支付宝，如果默认微信支付，将id改为1，并且hidden############
           <ul class="ect-radio">
             <li>
-              <input  type="radio" id="pack_{$pack.pack_id}"  name="pack" value="0" {if $order.pack_id eq 0}checked="true"{/if} onclick="selectPack(this)" >
-              <label for="pack_{$pack.pack_id}">{$lang.no_pack}<i></i></label>
+              <input name="payment" type="radio" id="payment_1" value="1"
+                     checked style="vertical-align:middle">
+              <label for="payment_1">weixin<i></i></label>
             </li>
-            <!-- {foreach from=$pack_list item=pack} 循环包装 -->
-            <li>
-              <input type="radio" class="radio" name="pack" id="pack_{$pack.pack_id}" value="{$pack.pack_id}" {if $order.pack_id eq $pack.pack_id}checked="true"{/if} onclick="selectPack(this)" />
-              <label for="pack_{$pack.pack_id}">{$pack.pack_name}[{$pack.format_pack_fee}][{$lang.free_money}:{$pack.format_free_money}]<i></i></label>
-            </li>
-            <!-- {/foreach} 循环包装 -->
           </ul>
-        </div>
-        <!-- {/if} 是否使用包装 -->
-        <!-- {if $card_list} 是否有贺卡 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-          <p><b>{$lang.goods_card}</b></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseFour" class="panel-collapse collapse in">
-          <ul class="ect-radio">
-            <li>
-              <input name="card" type="radio"  value="0" {if $order.card_id eq 0}checked="true"{/if} onclick="selectCard(this)" id="card_0" />
-              <label for="card_0">{$lang.no_card}<i></i></label>
-            </li>
-            <!-- {foreach from=$card_list item=card} 循环贺卡 -->
-            <li>
-              <input name="card" type="radio" id="card_{$card.card_id}" value="{$card.card_id}" {if $order.card_id eq $card.card_id}checked="true"{/if} onclick="selectCard(this)">
-              <label for="card_{$card.card_id}">{$card.card_name}[{$card.format_card_fee}][{$lang.free_money}:{$card.format_free_money}]<i></i></label>
-            </li>
-            <!-- {/foreach} 循环贺卡 -->
-          </ul>
-          <input name="" type="text" placeholder="{$lang.bless_note}">
         </div>
       </section>
-      <!-- {/if} 是否使用贺卡 -->
-      <!-- {/if} 是否有包装 或贺卡 -->
 
-      <section class="ect-margin-tb ect-padding-lr checkout-select">
-        <!-- {if $allow_use_bonus and $bonus_list} 是否使用红包 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseBonus">
-          <p><b>{$lang.use_bonus}</b></p>
-          <i class="fa fa-angle-down"></i></a>
-        <div id="collapseBonus" class="panel-collapse collapse in">
-          <ul class="ect-radio">
-            <li>
-              <input  type="radio" id="bonus_{$bonus.bonus_id}"  name="bonus" value="0" {if $order.bonus_id eq 0}checked="true"{/if} onclick="changeBonus(this)" >
-              <label for="bonus_{$bonus.bonus_id}">{$lang.no_use_bonus}<i></i></label>
-            </li>
-            <!-- {foreach from=$bonus_list item=bonus} 循环红包 -->
-            <li>
-              <input type="radio" class="radio" name="bonus" id="bonus_{$bonus.bonus_id}" value="{$bonus.bonus_id}" {if $order.bonus_id eq $bonus.bonus_id}checked="true"{/if} onclick="changeBonus(this)" />
-              <label for="bonus_{$bonus.bonus_id}">{$bonus.type_name}[{$bonus.bonus_money_formated}]<i></i></label>
-            </li>
-            <!-- {/foreach} 循环红包 -->
-          </ul>
-        </div>
-        <!-- {/if} 是否使用红包 -->
-        <!-- {if $allow_use_surplus} 是否使用余额 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour1">
-          <p><b> {$lang.use_surplus} </b></p>
-          <i class="fa fa-angle-down"></i> </a>
-        <div id="collapseFour1" class="panel-collapse collapse in"> {$lang.your_surplus}{$your_surplus|default:0}<br />
-          <span id="ECS_SURPLUS_NOTICE"></span>
-          <input name="surplus" type="text" id="ECS_SURPLUS" size="10" value="{$order.surplus|default:0}" onblur="changeSurplus(this.value)" {if $disable_surplus}disabled="disabled"{/if} />
-        </div>
-        <!-- {/if} 是否使用余额 -->
-
-        <!-- {if $allow_use_integral} 是否使用积分 -->
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive1">
-          <p><b> {$lang.use_integral} </b></p>
-          <i class="fa fa-angle-down"></i> </a>
-        <div id="collapseFive1" class="panel-collapse collapse in"> {$lang.can_use_integral}:{$your_integral|default:0} {$points_name}，{$lang.noworder_can_integral}{$order_max_integral}  {$points_name}.<br />
-          <span id="ECS_INTEGRAL_NOTICE" class="notice"></span>
-          <input name="integral" type="text" class="input" id="ECS_INTEGRAL" onblur="changeIntegral(this.value)" value="{$order.integral|default:0}" size="10" />
-        </div>
-        <!-- {/if} 是否使用积分 -->
-
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-          <p><b> {$lang.order_postscript} </b></p>
-          <i class="fa fa-angle-down"></i> </a>
-        <div id="collapseFive" class="panel-collapse collapse in">
-          <input name="postscript" type="text" class="fuyan" placeholder="{$lang.please_order_postscript}">
-        </div>
-      </section>
-      <section class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
-        <p><b>{$lang.goods_list}</b><span class="label ect-bg-colory"><!--{if $allow_edit_cart} --><a href="{:url('flow/index')}" class="ect-colorf">{$lang.modify}</a><!--{/if} --></span></p>
+      <section hidden class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
         <ul>
           <!-- {foreach from=$goods_list item=goods} -->
           <li>
             <dl>
               <dt class="pull-left">
-                <!-- {if $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
-                <a href="javascript:void(0)" onClick="setSuitShow({$goods.goods_id})" >{$goods.goods_name}<span style="color:#FF0000;">（{$lang.remark_package}）</span></a>
-                <!-- { else } -->
                 <a href="{:url('goods/index',array('id'=>$this->_var['goods']['goods_id']))}" target="_blank" >{$goods.goods_name}</a>
-                <!-- {if $goods.parent_id > 0} -->
-                <span style="color:#FF0000">（{$lang.accessories}）</span>
-                <!-- {elseif $goods.is_gift} -->
-                <span style="color:#FF0000">（{$lang.largess}）</span>
-                <!-- {/if} -->
-                <!-- {/if} -->
-                <!-- {if $goods.is_shipping} -->(<span style="color:#FF0000">{$lang.free_goods}</span>)<!-- {/if} -->
               </dt>
+
               <dd class="pull-left list-num">x {$goods.goods_number}</dd>
               <dd class="pull-right">{$goods.formated_subtotal}</dd>
             </dl>
           </li>
           <!-- {/foreach} -->
         </ul>
-        <!-- #BeginLibraryItem "/Library/order_total.lbi" --><!-- #EndLibraryItem --> </section>
+
+        <div class="ect-padding-tb text-right" id="ECS_ORDERTOTAL">
+          商品总价
+          <b class="ect-colory">{$total.goods_price_formated}</b>
+          <br />
+        </div>
+
+
+      </section>
       <div class="ect-padding-lr ect-padding-tb ect-margin-tb">
-        <input type="submit" name="submit" value="{$lang.order_submit}" class="btn btn-info ect-btn-info ect-colorf ect-bg"/>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <input id="pay" type="submit" name="submit" value="" class=""/>
         <input type="hidden" name="step" value="done" />
       </div>
     </form>
   </div>
 </div>
+
+{*######################*}
+<script>
+    window.onload = function(){
+        function autoclick(){
+            $('#pay').click();
+        }
+        setTimeout(autoclick, 0)
+    }
+</script>
+
+
+
+
+
+
+
+<style>
+  #scrollUp {
+    border-radius:100%;
+    background-color: #777;
+    color: #eee;
+    font-size: 40px;
+    line-height: 1;text-align: center;text-decoration: none;bottom: 1.5em;right: 10px;overflow: hidden;width: 46px;
+    height: 46px;
+    border: none;
+    opacity: 0.6;
+  }
+</style>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.more.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/utils.js" ></script>
+<script src="__PUBLIC__/swiper/js/jquery.swiper.min.js"></script>
+<script src="__TPL__/js/ectouch.js"></script>
+<script src="__TPL__/js/simple-inheritance.min.js"></script>
+<script src="__TPL__/js/code-photoswipe-1.0.11.min.js"></script>
+<script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__TPL__/js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/validform.js" ></script>
+<script language="javascript">
+    /*banner滚动图片*/
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1,
+        loop: true,
+        autoplay : 2000
+    });
+    /*弹出评论层并隐藏其他层*/
+    function openSearch(){
+        if($(".con").is(":visible")){
+            $(".con").hide();
+            $(".search").show();
+        }
+    }
+    function closeSearch(){
+        if($(".con").is(":hidden")){
+            $(".con").show();
+            $(".search").hide();
+        }
+    }
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/js/shopping_flow.js"></script>
+<script>
+    function back_goods_number(id){
+        var goods_number = document.getElementById('goods_number'+id).value;
+        document.getElementById('back_number'+id).value = goods_number;
+    }
+    function change_goods_number(type, id)
+    {
+        var goods_number = document.getElementById('goods_number'+id).value;
+        if(type != 2){  back_goods_number(id) }
+        if(type == 1){  goods_number--;  }
+        if(type == 3){  goods_number++;  }
+        if(goods_number <=0 ){ goods_number=1; }
+        if(!/^[0-9]*$/.test(goods_number)){ goods_number = document.getElementById('back_number'+id).value; }
+        document.getElementById('goods_number'+id).value = goods_number;
+        $.post('{:url("flow/ajax_update_cart")}', {
+            rec_id : id,goods_number : goods_number
+        }, function(data) {
+            change_goods_number_response(data,id);
+        }, 'json');
+    }
+    // 处理返回信息并显示
+    function change_goods_number_response(result,id)
+    {
+        if (result.error == 0){
+            var rec_id = result.rec_id;
+            $("#goods_number_"+rec_id).val(result.goods_number);
+            document.getElementById('total_number').innerHTML = result.total_number;//更新数量
+            document.getElementById('goods_subtotal').innerHTML = result.total_desc;//更新小计
+            if (document.getElementById('ECS_CARTINFO')){
+                //更新购物车数量
+                document.getElementById('ECS_CARTINFO').innerHTML = result.cart_info;
+            }
+        }else if (result.message != ''){
+            alert(result.message);
+            var goods_number = document.getElementById('back_number'+id).value;
+            document.getElementById('goods_number'+id).value = goods_number;
+        }
+    }
+
+    /*点击下拉手风琴效果*/
+    $('.collapse').collapse()
+    $(".checkout-select a").click(function(){
+        if(!$(this).hasClass("select")){
+            $(this).addClass("select");
+        }else{
+            $(this).removeClass("select");
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
