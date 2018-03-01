@@ -19,7 +19,7 @@
 <div class="con">
     <section class="ect-bg-colorf ect-padding-lr flow-done">
         <i class="glyphicon glyphicon-ok"></i>
-
+        <p class="ect-margin-tb text-center">下单成功</p>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         {if $pay_desc}
             <p class="ect-margin-tb">{$lang.select_payment}: <b>{$order.pay_name}</b></p>

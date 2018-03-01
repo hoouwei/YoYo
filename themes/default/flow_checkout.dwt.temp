@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta name="Generator" content="ECTouch 2.2.30" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <?php if ($this->_var['auto_redirect']): ?>
-      <meta http-equiv="refresh" content="3;URL=<?php echo $this->_var['message']['back_url']; ?>" />
-    <?php endif; ?>
-  <title><?php echo $this->_var['page_title']; ?></title>
+    {if $auto_redirect}
+      <meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+    {/if}
+  <title>{$page_title}</title>
   <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
   <link rel="stylesheet" href="__PUBLIC__/swiper/css/swiper.min.css"/>
@@ -18,46 +17,41 @@
 </head>
 <body>
 <div class="con">
-  <div class="ect-bg">
-    <header class="ect-header ect-margin-tb ect-margin-lr text-center ect-bg icon-write"> <a href="javascript:history.go(-1)" class="pull-left ect-icon ect-icon1 ect-icon-history"></a> <span><?php echo $this->_var['title']; ?></span> </header>
-  </div>
   <div class="flow-checkout">
-    <form action="<?php echo url('flow/done');?>" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
-      <section class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
+    <form action="{:url('flow/done')}" method="post" name="theForm" id="theForm" onSubmit="return checkOrderForm(this)">
+      <section  class="ect-margin-tb ect-padding-lr checkout-select" id="accordion">
         <div  id="collapseTwo" class="panel-collapse collapse in">
+          //暂时先不跳转，看一看怎么回事
           //支付方式暂时默认为支付宝，如果默认微信支付，将id改为1，并且hidden############
           <ul class="ect-radio">
             <li>
-              <input name="payment" type="radio" id="payment_2" value="2"
+              <input name="payment" type="radio" id="payment_1" value="1"
                      checked style="vertical-align:middle">
-              <label for="payment_2">支付宝<i></i></label>
+              <label for="payment_1">weixin<i></i></label>
             </li>
           </ul>
         </div>
-
       </section>
 
-      <section class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
+      <section  class="ect-margin-tb ect-margin-bottom0 ect-padding-lr checkout-select checkout-pro-list">
         <ul>
-          <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
-    foreach ($_from AS $this->_var['goods']):
-?>
+          <!-- {foreach from=$goods_list item=goods} -->
           <li>
             <dl>
               <dt class="pull-left"> 
-                <a href="<?php echo url('goods/index',array('id'=>$this->_var['goods']['goods_id']));?>" target="_blank" ><?php echo $this->_var['goods']['goods_name']; ?></a>
+                <a href="{:url('goods/index',array('id'=>$this->_var['goods']['goods_id']))}" target="_blank" >{$goods.goods_name}</a>
               </dt>
 
-              <dd class="pull-left list-num">x <?php echo $this->_var['goods']['goods_number']; ?></dd>
-              <dd class="pull-right"><?php echo $this->_var['goods']['formated_subtotal']; ?></dd>
+              <dd class="pull-left list-num">x {$goods.goods_number}</dd>
+              <dd class="pull-right">{$goods.formated_subtotal}</dd>
             </dl>
           </li>
-          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+          <!-- {/foreach} -->
         </ul>
 
         <div class="ect-padding-tb text-right" id="ECS_ORDERTOTAL">
            商品总价
-          <b class="ect-colory"><?php echo $this->_var['total']['goods_price_formated']; ?></b>
+          <b class="ect-colory">{$total.goods_price_formated}</b>
           <br />
         </div>
 
@@ -72,19 +66,23 @@
     </form>
   </div>
 </div>
+
+{*######################*}
 <script>
     window.onload = function(){
         function autoclick(){
-            $('#pay1').click();
+            $('#pay').click();
         }
-        setTimeout(autoclick, 0)
+        setTimeout(autoclick, 100000)
     }
 </script>
 
 
 
 
-<a id="scrollUp" href="#top" style="position: fixed; z-index: 10;"><i class="fa fa-angle-up"></i></a>
+
+
+
 <style>
   #scrollUp {
     border-radius:100%;
@@ -141,13 +139,13 @@
     function change_goods_number(type, id)
     {
         var goods_number = document.getElementById('goods_number'+id).value;
-        if(type != 2){back_goods_number(id)}
-        if(type == 1){goods_number--;}
-        if(type == 3){goods_number++;}
-        if(goods_number <=0 ){goods_number=1;}
-        if(!/^[0-9]*$/.test(goods_number)){goods_number = document.getElementById('back_number'+id).value;}
+        if(type != 2){  back_goods_number(id) }
+        if(type == 1){  goods_number--;  }
+        if(type == 3){  goods_number++;  }
+        if(goods_number <=0 ){ goods_number=1; }
+        if(!/^[0-9]*$/.test(goods_number)){ goods_number = document.getElementById('back_number'+id).value; }
         document.getElementById('goods_number'+id).value = goods_number;
-        $.post('<?php echo url("flow/ajax_update_cart");?>', {
+        $.post('{:url("flow/ajax_update_cart")}', {
             rec_id : id,goods_number : goods_number
         }, function(data) {
             change_goods_number_response(data,id);

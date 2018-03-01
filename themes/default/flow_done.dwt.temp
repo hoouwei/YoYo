@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta name="Generator" content="ECTouch 2.2.30" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <?php if ($this->_var['auto_redirect']): ?>
-        <meta http-equiv="refresh" content="3;URL=<?php echo $this->_var['message']['back_url']; ?>" />
-    <?php endif; ?>
-    <title><?php echo $this->_var['page_title']; ?></title>
+    {if $auto_redirect}
+        <meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+    {/if}
+    <title>{$page_title}</title>
     <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/font-awesome.min.css">
     <link rel="stylesheet" href="__PUBLIC__/swiper/css/swiper.min.css"/>
@@ -22,11 +21,11 @@
   		<i class="glyphicon glyphicon-ok"></i>
 
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <?php if ($this->_var['pay_desc']): ?>
-      <p class="ect-margin-tb"><?php echo $this->_var['lang']['select_payment']; ?>: <b><?php echo $this->_var['order']['pay_name']; ?></b></p>
-      <p class="ect-margin-tb text-center" style="background-color: rgb(255, 240, 240);padding: 10px;"><?php echo $this->_var['pay_desc']; ?></p>
-      <?php endif; ?>
-       <p class="ect-margin-tb text-center"><?php echo $this->_var['pay_online']; ?></p>
+      {if $pay_desc}
+      <p class="ect-margin-tb">{$lang.select_payment}: <b>{$order.pay_name}</b></p>
+      <p class="ect-margin-tb text-center" style="background-color: rgb(255, 240, 240);padding: 10px;">{$pay_desc}</p>
+      {/if}
+       <p class="ect-margin-tb text-center">{$pay_online}</p>
   </section>
 </div>
 
@@ -35,7 +34,7 @@
         function autoclick(){
             $('#pay').click();
         }
-        setTimeout(autoclick, 0)
+        setTimeout(autoclick, 10000)
     }
 </script>
 
@@ -122,13 +121,13 @@
     function change_goods_number(type, id)
     {
         var goods_number = document.getElementById('goods_number'+id).value;
-        if(type != 2){back_goods_number(id)}
-        if(type == 1){goods_number--;}
-        if(type == 3){goods_number++;}
-        if(goods_number <=0 ){goods_number=1;}
-        if(!/^[0-9]*$/.test(goods_number)){goods_number = document.getElementById('back_number'+id).value;}
+        if(type != 2){  back_goods_number(id) }
+        if(type == 1){  goods_number--;  }
+        if(type == 3){  goods_number++;  }
+        if(goods_number <=0 ){ goods_number=1; }
+        if(!/^[0-9]*$/.test(goods_number)){ goods_number = document.getElementById('back_number'+id).value; }
         document.getElementById('goods_number'+id).value = goods_number;
-        $.post('<?php echo url("flow/ajax_update_cart");?>', {
+        $.post('{:url("flow/ajax_update_cart")}', {
             rec_id : id,goods_number : goods_number
         }, function(data) {
             change_goods_number_response(data,id);

@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dbe955d7-f56e-4219-bcf9-51fe9f315f35" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/caches/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/caches/0/index_E6805D44.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/caches/3/category_top_all_4D71EB3C.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/caches/f/index_40F756F0.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/back_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/booking_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/bootstrap.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/category_info.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/category_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/category_move.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/delivery_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/goods_info.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/goods_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/goods_search.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/index.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/merge_order.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/message.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_goods_info.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_info.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_list.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_query.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_step.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/order_templates.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/page.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/pagefooter.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/pageheader.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/admin/start.htm.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/cat_goods.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/category.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/category_top_all.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/flow_cart.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/flow_checkout.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/flow_done.dwt.php" afterPath="$PROJECT_DIR$/data/caches/compiled/flow_done.dwt.php" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/goods.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/index.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_goods_filter.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_goods_list.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_page_footer.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_page_header.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_search.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/new_search_small.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/order_total.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/page.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/page_footer.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/page_header.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/page_index_menu.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/page_menu.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/search.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/search_index.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/user_header.lbi.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/user_login.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/user_order_detail.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/compiled/user_order_list.dwt.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/query_caches/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/query_caches/sqlcache_config_file_c2c7f31889f84824367f8930e9acdb93.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/static_caches/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/static_caches/art_cat_pid_releate.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/static_caches/cat_option_static.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/static_caches/cat_pid_releate.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/caches/static_caches/shop_config.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/themes/default/flow_done.dwt" afterPath="$PROJECT_DIR$/themes/default/flow_done.dwt" />
+      <change beforePath="$PROJECT_DIR$/企业入驻.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/列表页.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/弹出js.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/提交成功.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/订单页.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/详情页.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/购物车-空.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/购物车.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/非法入口.html" afterPath="" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/order.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="247" column="5" lean-forward="false" selection-start-line="247" selection-start-column="5" selection-end-line="247" selection-end-column="5" />
+              <folding>
+                <marker date="1519836692188" expanded="true" signature="4186:4279" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="5413:5513" ph="SELECT MAX(o... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="5724:5824" ph="SELECT MIN(o... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="6261:6296" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+                <marker date="1519836692188" expanded="true" signature="8394:8467" ph="SELECT ad_na... ${$ecs-&gt;table('ad')}" />
+                <marker date="1519836692188" expanded="true" signature="8631:8783" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+                <marker date="1519836692188" expanded="true" signature="9383:9405" ph="SELECT rank_... ${$ecs-&gt;table('user_rank')}" />
+                <marker date="1519836692188" expanded="true" signature="10151:10234" ph="SELECT * FRO... ${$ecs-&gt;table('user_address')}" />
+                <marker date="1519836692188" expanded="true" signature="10390:10986" ph="SELECT o.*, ${$ecs-&gt;table('order_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="12726:12849" ph="SELECT * FRO... ${$ecs-&gt;table('order_action')}" />
+                <marker date="1519836692188" expanded="true" signature="14499:14595" ph="SELECT regio... ${$ecs-&gt;table(&quot;region&quot;)}" />
+                <marker date="1519836692188" expanded="true" signature="15227:15293" ph="SELECT * FRO... ${$ecs-&gt;table(&quot;shipping&quot;)}" />
+                <marker date="1519836692188" expanded="true" signature="19004:19080" ph="SELECT shipp... ${$ecs-&gt;table('shipping')}" />
+                <marker date="1519836692188" expanded="true" signature="22095:22198" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="22426:22521" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+                <marker date="1519836692188" expanded="true" signature="23736:23844" ph="SELECT * FRO... ${$ecs-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="24231:24394" ph="SELECT * FRO... ${$ecs-&gt;table('order_action')}" />
+                <marker date="1519836692188" expanded="true" signature="26610:27100" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="28287:28618" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="37219:37448" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="41474:41567" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="41790:41885" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+                <marker date="1519836692188" expanded="true" signature="43076:43176" ph="SELECT * FRO... ${$ecs-&gt;table('back_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="45932:46089" ph="INSERT INTO ${$ecs-&gt;table('pay_log')}... " />
+                <marker date="1519836692188" expanded="true" signature="50145:50239" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('products')}" />
+                <marker date="1519836692188" expanded="true" signature="51091:51773" ph="INSERT INTO ${$ecs-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="51383:51765" ph="SELECT '${$o... ${$ecs-&gt;table('goods')}" />
+                <marker date="1519836692188" expanded="true" signature="51830:52416" ph="INSERT INTO ${$ecs-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="52108:52408" ph="SELECT '${$o... ${$ecs-&gt;table('goods')}" />
+                <marker date="1519836692188" expanded="true" signature="84163:84248" ph="SELECT goods... ${$ecs-&gt;table('order_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="84568:84663" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="85321:85427" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+                <marker date="1519836692188" expanded="true" signature="91988:92081" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="99685:99778" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="101172:101243" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+                <marker date="1519836692188" expanded="true" signature="101271:101343" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="101371:101444" ph="DELETE FROM ${$ecs-&gt;table('order_action')}... " />
+                <marker date="1519836692188" expanded="true" signature="102772:102850" ph="DELETE FROM ${$ecs-&gt;table('delivery_order')}... " />
+                <marker date="1519836692188" expanded="true" signature="103301:103371" ph="DELETE FROM ${$ecs-&gt;table('back_order')}... " />
+                <marker date="1519836692188" expanded="true" signature="103475:103544" ph="DELETE FROM ${$ecs-&gt;table('back_order')}... " />
+                <marker date="1519836692188" expanded="true" signature="105075:105168" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="107341:107501" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+                <marker date="1519836692188" expanded="true" signature="109932:109955" ph="..." />
+                <marker date="1519836692188" expanded="true" signature="116714:116807" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="118779:118921" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+                <marker date="1519836692188" expanded="true" signature="126932:127089" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="128934:129015" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="131039:131120" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="133556:133634" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+                <marker date="1519836692188" expanded="true" signature="133662:133741" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="133769:133849" ph="DELETE FROM ${$ecs-&gt;table('order_action')}... " />
+                <marker date="1519836692188" expanded="true" signature="134655:134734" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="148076:148206" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('virtual_card')}" />
+                <marker date="1519836692188" expanded="true" signature="149407:149527" ph="SELECT goods... ${$GLOBALS['ecs']-&gt;table('goods')}" />
+                <marker date="1519836692188" expanded="true" signature="149642:149927" ph="SELECT produ... ${$GLOBALS['ecs']-&gt;table('products')}" />
+                <marker date="1519836692188" expanded="true" signature="150810:150922" ph="select add_t... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="165464:165629" ph="SELECT * FRO... ${$ecs-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="165844:166194" ph="INSERT INTO ${$ecs-&gt;table('back_order')}... " />
+                <marker date="1519836692188" expanded="true" signature="167571:167992" ph="INSERT INTO ${$ecs-&gt;table('back_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="167751:167992" ph="SELECT '${$b... ${$ecs-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="172706:172788" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_info')}... " />
+                <marker date="1519836692188" expanded="true" signature="172819:172902" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_goods')}... " />
+                <marker date="1519836692188" expanded="true" signature="172933:173017" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_action')}... " />
+                <marker date="1519836692188" expanded="true" signature="173862:174114" ph="SELECT user_... ${$GLOBALS['ecs']-&gt;table('users')}" />
+                <marker date="1519836692188" expanded="true" signature="174984:175451" ph="SELECT goods... ${$GLOBALS['ecs']-&gt;table('goods')}" />
+                <marker date="1519836692188" expanded="true" signature="197985:198089" ph="SELECT agenc... ${$GLOBALS['ecs']-&gt;table('admin_user')}" />
+                <marker date="1519836692188" expanded="true" signature="198910:199045" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="199110:199181" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="201903:202017" ph="SELECT order... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="202141:202353" ph="SELECT log_i... ${$GLOBALS['ecs']-&gt;table('pay_log')}" />
+                <marker date="1519836692188" expanded="true" signature="202795:203007" ph="INSERT INTO ${$GLOBALS['ecs']-&gt;table('pay_log')}... " />
+                <marker date="1519836692188" expanded="true" signature="203172:203312" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('suppliers')}" />
+                <marker date="1519836692188" expanded="true" signature="206058:206622" ph="SELECT pg.go... ${$GLOBALS['ecs']-&gt;table('package_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="207460:207777" ph="SELECT ga.go... ${$GLOBALS['ecs']-&gt;table('goods_attr')}" />
+                <marker date="1519836692188" expanded="true" signature="209499:209862" ph="SELECT SUM(G... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="210304:210472" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="214214:214391" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="214932:215103" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="215337:215497" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="220811:220832" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="221111:221552" ph="SELECT deliv... ${$GLOBALS['ecs']-&gt;table(&quot;delivery_order&quot;)}" />
+                <marker date="1519836692188" expanded="true" signature="225462:225483" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('back_order')}" />
+                <marker date="1519836692188" expanded="true" signature="225758:226190" ph="SELECT back_... ${$GLOBALS['ecs']-&gt;table(&quot;back_order&quot;)}" />
+                <marker date="1519836692188" expanded="true" signature="227975:227989" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+                <marker date="1519836692188" expanded="true" signature="229578:229717" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('back_order')}" />
+                <marker date="1519836692188" expanded="true" signature="232409:232828" ph="SELECT SUM(D... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="235637:235888" ph="SELECT card_... ${$GLOBALS['ecs']-&gt;table('virtual_card')}" />
+                <marker date="1519836692188" expanded="true" signature="237425:237544" ph="SELECT order... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+                <marker date="1519836692188" expanded="true" signature="238811:238928" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+                <marker date="1519836692188" expanded="true" signature="239912:240032" ph="SELECT invoi... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_info.htm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/order_info.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="779">
+              <caret line="64" column="57" lean-forward="false" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#td#0;n#tr#2;n#table#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="e#4302#4308#1" expanded="true" />
+                <element signature="e#4322#4328#1" expanded="true" />
+                <element signature="e#4552#4558#1" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flow_done.dwt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/default/flow_done.dwt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wxpay.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/payment/wxpay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="83" column="7" lean-forward="false" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
+              <folding>
+                <marker date="1519835456116" expanded="true" signature="1879:2581" ph="..." />
+                <marker date="1519835456116" expanded="true" signature="6390:6530" ph="..." />
+                <marker date="1519835456116" expanded="true" signature="10972:11130" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.dwt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/category.dwt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="787">
+              <caret line="307" column="27" lean-forward="false" selection-start-line="307" selection-start-column="27" selection-end-line="307" selection-end-column="27" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qr_code.htm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/qr_code.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category_list.htm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/category_list.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="28" column="70" lean-forward="false" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alipay.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/notify/alipay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$cs_await_ship</find>
+      <find>Copyright</find>
+      <find>ectouch</find>
+      <find>ecshop</find>
+      <find>上海商派网络科技有限公司，并保留所有权利</find>
+      <find>Copyright (c) 2012-2014 http://ectouch.cn All rights reserved.</find>
+      <find>Licensed ( http://www.ectouch.cn/docs/license.txt )</find>
+      <find>ECTouch Open Source Project</find>
+      <find>这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和</find>
+      <find>使用；不允许对程序代码以任何形式任何目的的再发布。</find>
+      <find>版权所有 2005-2012 。</find>
+      <find>http://www.ecshop.com；</find>
+      <find>$Author: liubo $</find>
+      <find>版权</find>
+      <find>payment_2</find>
+      <find>index.dwt</find>
+      <find>add_to_cart</find>
+      <find>今日菜单</find>
+      <find>支付宝</find>
+      <find>function autoclick</find>
+      <find>hidden</find>
+      <find>pay_fail</find>
+      <find>pay</find>
+      <find>liantu</find>
+      <find>button</find>
+      <find>order_info.htm</find>
+      <find>info</find>
+      <find>status</find>
+      <find>$order</find>
+      <find>order_status</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>flow/test</replace>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\xampp\htdocs\yoyo</dir>
+      <dir>C:\xampp\htdocs\yoyo\admin</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/plugins/payment/alipay.php" />
+        <option value="$PROJECT_DIR$/admin/templates/top.htm" />
+        <option value="$PROJECT_DIR$/admin/license.php" />
+        <option value="$PROJECT_DIR$/include/apps/admin/view/index_license.html" />
+        <option value="$PROJECT_DIR$/include/languages/zh_cn/admin/priv_action.php" />
+        <option value="$PROJECT_DIR$/admin/templates/index.htm" />
+        <option value="$PROJECT_DIR$/admin/templates/2016/index.htm" />
+        <option value="$PROJECT_DIR$/data/assets/admin/css/skin_2.css" />
+        <option value="$PROJECT_DIR$/include/apps/admin/languages/zh_cn/index.php" />
+        <option value="$PROJECT_DIR$/include/languages/zh_cn/admin/index.php" />
+        <option value="$PROJECT_DIR$/admin/templates/start.htm" />
+        <option value="$PROJECT_DIR$/admin/templates/goods_search.htm" />
+        <option value="$PROJECT_DIR$/admin/includes/lib_goods.php" />
+        <option value="$PROJECT_DIR$/admin/templates/goods_info.htm" />
+        <option value="$PROJECT_DIR$/include/apps/admin/languages/zh_cn/common.php" />
+        <option value="$PROJECT_DIR$/include/languages/zh_cn/admin/common.php" />
+        <option value="$PROJECT_DIR$/admin/templates/category_info.htm" />
+        <option value="$PROJECT_DIR$/admin/templates/setting_third.htm" />
+        <option value="$PROJECT_DIR$/include/apps/common/helpers/function.php" />
+        <option value="$PROJECT_DIR$/include/helpers/common_helper.php" />
+        <option value="$PROJECT_DIR$/admin/templates/goods_list.htm" />
+        <option value="$PROJECT_DIR$/admin/category.php" />
+        <option value="$PROJECT_DIR$/admin/templates/brand_list.htm" />
+        <option value="$PROJECT_DIR$/admin/templates/brand_info.htm" />
+        <option value="$PROJECT_DIR$/admin/brand.php" />
+        <option value="$PROJECT_DIR$/include/apps/admin/languages/zh_cn/brand.php" />
+        <option value="$PROJECT_DIR$/include/languages/zh_cn/admin/brand.php" />
+        <option value="$PROJECT_DIR$/admin/goods_auto.php" />
+        <option value="$PROJECT_DIR$/admin/templates/qr_code.htm" />
+        <option value="$PROJECT_DIR$/admin/templates/company.htm" />
+        <option value="$PROJECT_DIR$/admin/user_msg.php" />
+        <option value="$PROJECT_DIR$/admin/templates/msg_list.htm" />
+        <option value="$PROJECT_DIR$/include/config/constant.php" />
+        <option value="$PROJECT_DIR$/admin/goods.php" />
+        <option value="$PROJECT_DIR$/admin/includes/inc_menu.php" />
+        <option value="$PROJECT_DIR$/admin/templates/order_list.htm" />
+        <option value="$PROJECT_DIR$/themes/default/user.dwt" />
+        <option value="$PROJECT_DIR$/include/apps/default/controllers/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/api/notify/paypal.php" />
+        <option value="$PROJECT_DIR$/include/bootstrap.php" />
+        <option value="$PROJECT_DIR$/include/apps/admin/view/welcome.html" />
+        <option value="$PROJECT_DIR$/data/assets/js/common.js" />
+        <option value="$PROJECT_DIR$/themes/default/respond.dwt" />
+        <option value="$PROJECT_DIR$/themes/default/flow_checkout.dwt" />
+        <option value="$PROJECT_DIR$/themes/default/category.dwt" />
+        <option value="$PROJECT_DIR$/admin/templates/category_list.htm" />
+        <option value="$PROJECT_DIR$/plugins/payment/wxpay.php" />
+        <option value="$PROJECT_DIR$/themes/default/index.dwt" />
+        <option value="$PROJECT_DIR$/admin/order.php" />
+        <option value="$PROJECT_DIR$/admin/templates/order_info.htm" />
+        <option value="$PROJECT_DIR$/themes/default/flow_done.dwt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="93" />
+    <option name="y" value="55" />
+    <option name="width" value="960" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yoyo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yoyo" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="yoyo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yoyo" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="yoyo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yoyo" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="yoyo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yoyo" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="yoyo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yoyo" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\yoyo\themes\default" />
+      <recent name="C:\xampp\htdocs\yoyo\admin\templates" />
+      <recent name="C:\xampp\htdocs\yoyo\themes\default\library" />
+      <recent name="C:\xampp\htdocs\yoyo\include\apps\default\controllers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbe955d7-f56e-4219-bcf9-51fe9f315f35" name="Default" comment="" />
+      <created>1513524308119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1513524308119</updated>
+      <workItem from="1513524309582" duration="2415000" />
+      <workItem from="1513691366856" duration="64678000" />
+      <workItem from="1514037587675" duration="1191000" />
+      <workItem from="1514041224474" duration="509000" />
+      <workItem from="1514042826589" duration="509000" />
+      <workItem from="1514045271678" duration="551000" />
+      <workItem from="1514046570182" duration="286000" />
+      <workItem from="1514134006360" duration="55256000" />
+      <workItem from="1514468140478" duration="9323000" />
+      <workItem from="1514561545431" duration="673000" />
+      <workItem from="1515307148203" duration="68000" />
+      <workItem from="1515323852456" duration="3508000" />
+      <workItem from="1515687737925" duration="88000" />
+      <workItem from="1516114281544" duration="1931000" />
+      <workItem from="1516117773225" duration="670000" />
+      <workItem from="1517582953410" duration="4264000" />
+      <workItem from="1519636492317" duration="709000" />
+      <workItem from="1519827747268" duration="7938000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="154567000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/include/apps/common/helpers/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="1124" column="4" lean-forward="true" selection-start-line="1124" selection-start-column="4" selection-end-line="1124" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/msg_list.htm.bak.new">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/msg_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/company.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="108" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/user_msg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="153" column="34" lean-forward="false" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/helpers/common_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="82" column="17" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/page.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/goods_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="67" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="88" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/js/listtable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/pageheader.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/includes/inc_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/order_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/card_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/apps/default/controllers/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/user.dwt.bak.new">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/user.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/notify/paypal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/apps/admin/view/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/about_map.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/includes/lib_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/apps/default/controllers/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Reflection/Reflection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="644" column="20" lean-forward="false" selection-start-line="644" selection-start-column="20" selection-end-line="644" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1501">
+          <caret line="90" column="39" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/goods.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="48" column="52" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/apps/default/controllers/MY_FlowController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="56" column="49" lean-forward="false" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3477">
+          <caret line="183" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding>
+            <marker date="1517589140755" expanded="true" signature="461:492" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="15816:16219" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="19936:20005" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="20044:20229" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="20368:20472" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="20558:20600" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="20710:20785" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="26374:26405" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="26542:26569" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="26582:26636" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="26919:26936" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="27635:27652" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="28572:28589" ph="..." />
+            <marker date="1517589140755" expanded="true" signature="29515:29521" ph=" " />
+            <marker date="1517589140755" expanded="true" signature="29521:29527" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/index.dwt.bak.new">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="130" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_checkout.dwt.bak.new">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="24" column="46" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="230" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/apps/default/controllers/RespondController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/respond.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_checkout.dwt.temp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="186" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_checkout.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_done.dwt.temp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="168" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_done.dwt.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/b.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/category.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="307" column="27" lean-forward="false" selection-start-line="307" selection-start-column="27" selection-end-line="307" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/qr_code.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/category_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="28" column="70" lean-forward="false" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/notify/alipay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/payment/wxpay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="83" column="7" lean-forward="false" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
+          <folding>
+            <marker date="1519835456116" expanded="true" signature="1879:2581" ph="..." />
+            <marker date="1519835456116" expanded="true" signature="6390:6530" ph="..." />
+            <marker date="1519835456116" expanded="true" signature="10972:11130" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/index.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/payment/alipay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="109" column="2" lean-forward="false" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/notify/wxpay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="247" column="5" lean-forward="false" selection-start-line="247" selection-start-column="5" selection-end-line="247" selection-end-column="5" />
+          <folding>
+            <marker date="1519836692188" expanded="true" signature="4186:4279" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="5413:5513" ph="SELECT MAX(o... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="5724:5824" ph="SELECT MIN(o... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="6261:6296" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+            <marker date="1519836692188" expanded="true" signature="8394:8467" ph="SELECT ad_na... ${$ecs-&gt;table('ad')}" />
+            <marker date="1519836692188" expanded="true" signature="8631:8783" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+            <marker date="1519836692188" expanded="true" signature="9383:9405" ph="SELECT rank_... ${$ecs-&gt;table('user_rank')}" />
+            <marker date="1519836692188" expanded="true" signature="10151:10234" ph="SELECT * FRO... ${$ecs-&gt;table('user_address')}" />
+            <marker date="1519836692188" expanded="true" signature="10390:10986" ph="SELECT o.*, ${$ecs-&gt;table('order_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="12726:12849" ph="SELECT * FRO... ${$ecs-&gt;table('order_action')}" />
+            <marker date="1519836692188" expanded="true" signature="14499:14595" ph="SELECT regio... ${$ecs-&gt;table(&quot;region&quot;)}" />
+            <marker date="1519836692188" expanded="true" signature="15227:15293" ph="SELECT * FRO... ${$ecs-&gt;table(&quot;shipping&quot;)}" />
+            <marker date="1519836692188" expanded="true" signature="19004:19080" ph="SELECT shipp... ${$ecs-&gt;table('shipping')}" />
+            <marker date="1519836692188" expanded="true" signature="22095:22198" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="22426:22521" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+            <marker date="1519836692188" expanded="true" signature="23736:23844" ph="SELECT * FRO... ${$ecs-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="24231:24394" ph="SELECT * FRO... ${$ecs-&gt;table('order_action')}" />
+            <marker date="1519836692188" expanded="true" signature="26610:27100" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="28287:28618" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="37219:37448" ph="SELECT DG.go... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="41474:41567" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="41790:41885" ph="SELECT agenc... ${$ecs-&gt;table('agency')}" />
+            <marker date="1519836692188" expanded="true" signature="43076:43176" ph="SELECT * FRO... ${$ecs-&gt;table('back_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="45932:46089" ph="INSERT INTO ${$ecs-&gt;table('pay_log')}... " />
+            <marker date="1519836692188" expanded="true" signature="50145:50239" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('products')}" />
+            <marker date="1519836692188" expanded="true" signature="51091:51773" ph="INSERT INTO ${$ecs-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="51383:51765" ph="SELECT '${$o... ${$ecs-&gt;table('goods')}" />
+            <marker date="1519836692188" expanded="true" signature="51830:52416" ph="INSERT INTO ${$ecs-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="52108:52408" ph="SELECT '${$o... ${$ecs-&gt;table('goods')}" />
+            <marker date="1519836692188" expanded="true" signature="84163:84248" ph="SELECT goods... ${$ecs-&gt;table('order_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="84568:84663" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="85321:85427" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+            <marker date="1519836692188" expanded="true" signature="91988:92081" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="99685:99778" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="101172:101243" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+            <marker date="1519836692188" expanded="true" signature="101271:101343" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="101371:101444" ph="DELETE FROM ${$ecs-&gt;table('order_action')}... " />
+            <marker date="1519836692188" expanded="true" signature="102772:102850" ph="DELETE FROM ${$ecs-&gt;table('delivery_order')}... " />
+            <marker date="1519836692188" expanded="true" signature="103301:103371" ph="DELETE FROM ${$ecs-&gt;table('back_order')}... " />
+            <marker date="1519836692188" expanded="true" signature="103475:103544" ph="DELETE FROM ${$ecs-&gt;table('back_order')}... " />
+            <marker date="1519836692188" expanded="true" signature="105075:105168" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="107341:107501" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+            <marker date="1519836692188" expanded="true" signature="109932:109955" ph="..." />
+            <marker date="1519836692188" expanded="true" signature="116714:116807" ph="SELECT agenc... ${$ecs-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="118779:118921" ph="SELECT actio... ${$ecs-&gt;table('order_action')}" />
+            <marker date="1519836692188" expanded="true" signature="126932:127089" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="128934:129015" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="131039:131120" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="133556:133634" ph="DELETE FROM ${$ecs-&gt;table('order_info')}... " />
+            <marker date="1519836692188" expanded="true" signature="133662:133741" ph="DELETE FROM ${$ecs-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="133769:133849" ph="DELETE FROM ${$ecs-&gt;table('order_action')}... " />
+            <marker date="1519836692188" expanded="true" signature="134655:134734" ph="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="148076:148206" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('virtual_card')}" />
+            <marker date="1519836692188" expanded="true" signature="149407:149527" ph="SELECT goods... ${$GLOBALS['ecs']-&gt;table('goods')}" />
+            <marker date="1519836692188" expanded="true" signature="149642:149927" ph="SELECT produ... ${$GLOBALS['ecs']-&gt;table('products')}" />
+            <marker date="1519836692188" expanded="true" signature="150810:150922" ph="select add_t... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="165464:165629" ph="SELECT * FRO... ${$ecs-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="165844:166194" ph="INSERT INTO ${$ecs-&gt;table('back_order')}... " />
+            <marker date="1519836692188" expanded="true" signature="167571:167992" ph="INSERT INTO ${$ecs-&gt;table('back_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="167751:167992" ph="SELECT '${$b... ${$ecs-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="172706:172788" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_info')}... " />
+            <marker date="1519836692188" expanded="true" signature="172819:172902" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_goods')}... " />
+            <marker date="1519836692188" expanded="true" signature="172933:173017" ph="DELETE FROM ${$GLOBALS['ecs']-&gt;table('order_action')}... " />
+            <marker date="1519836692188" expanded="true" signature="173862:174114" ph="SELECT user_... ${$GLOBALS['ecs']-&gt;table('users')}" />
+            <marker date="1519836692188" expanded="true" signature="174984:175451" ph="SELECT goods... ${$GLOBALS['ecs']-&gt;table('goods')}" />
+            <marker date="1519836692188" expanded="true" signature="197985:198089" ph="SELECT agenc... ${$GLOBALS['ecs']-&gt;table('admin_user')}" />
+            <marker date="1519836692188" expanded="true" signature="198910:199045" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="199110:199181" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="201903:202017" ph="SELECT order... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="202141:202353" ph="SELECT log_i... ${$GLOBALS['ecs']-&gt;table('pay_log')}" />
+            <marker date="1519836692188" expanded="true" signature="202795:203007" ph="INSERT INTO ${$GLOBALS['ecs']-&gt;table('pay_log')}... " />
+            <marker date="1519836692188" expanded="true" signature="203172:203312" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('suppliers')}" />
+            <marker date="1519836692188" expanded="true" signature="206058:206622" ph="SELECT pg.go... ${$GLOBALS['ecs']-&gt;table('package_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="207460:207777" ph="SELECT ga.go... ${$GLOBALS['ecs']-&gt;table('goods_attr')}" />
+            <marker date="1519836692188" expanded="true" signature="209499:209862" ph="SELECT SUM(G... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="210304:210472" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="214214:214391" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('order_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="214932:215103" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="215337:215497" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="220811:220832" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="221111:221552" ph="SELECT deliv... ${$GLOBALS['ecs']-&gt;table(&quot;delivery_order&quot;)}" />
+            <marker date="1519836692188" expanded="true" signature="225462:225483" ph="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('back_order')}" />
+            <marker date="1519836692188" expanded="true" signature="225758:226190" ph="SELECT back_... ${$GLOBALS['ecs']-&gt;table(&quot;back_order&quot;)}" />
+            <marker date="1519836692188" expanded="true" signature="227975:227989" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('delivery_order')}" />
+            <marker date="1519836692188" expanded="true" signature="229578:229717" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('back_order')}" />
+            <marker date="1519836692188" expanded="true" signature="232409:232828" ph="SELECT SUM(D... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="235637:235888" ph="SELECT card_... ${$GLOBALS['ecs']-&gt;table('virtual_card')}" />
+            <marker date="1519836692188" expanded="true" signature="237425:237544" ph="SELECT order... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+            <marker date="1519836692188" expanded="true" signature="238811:238928" ph="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('delivery_goods')}" />
+            <marker date="1519836692188" expanded="true" signature="239912:240032" ph="SELECT invoi... ${$GLOBALS['ecs']-&gt;table('order_info')}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/order_info.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="64" column="57" lean-forward="false" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#td#0;n#tr#2;n#table#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="e#4302#4308#1" expanded="true" />
+            <element signature="e#4322#4328#1" expanded="true" />
+            <element signature="e#4552#4558#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/flow_done.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
