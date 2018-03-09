@@ -2,6 +2,7 @@
 
 /**
  * 管理中心菜单数组
+ * 导航栏
  */
 
 if (!defined('IN_ECTOUCH'))
@@ -96,17 +97,17 @@ $modules['04_menu_members']['08_unreply_msg']            = 'user_msg.php?act=lis
 ////$modules['03_promotion']['ebao_commend']            = 'ebao_commend.php?act=list';
 //$modules['06_menu_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
 
-//// 报表
+// 报表（可以保留）
 //$modules['07_menu_stats']['flow_stats']                  = 'flow_stats.php?act=view';
-////$modules['07_menu_stats']['searchengine_stats']          = 'searchengine_stats.php?act=view';
-////$modules['07_menu_stats']['z_clicks_stats']              = 'adsense.php?act=list';
+//$modules['07_menu_stats']['searchengine_stats']          = 'searchengine_stats.php?act=view';
+//$modules['07_menu_stats']['z_clicks_stats']              = 'adsense.php?act=list';
 //$modules['07_menu_stats']['report_guest']                = 'guest_stats.php?act=list';
 //$modules['07_menu_stats']['report_order']                = 'order_stats.php?act=list';
 //$modules['07_menu_stats']['report_sell']                 = 'sale_general.php?act=list';
 //$modules['07_menu_stats']['sale_list']                   = 'sale_list.php?act=list';
 //$modules['07_menu_stats']['sell_stats']                  = 'sale_order.php?act=goods_num';
 //$modules['07_menu_stats']['report_users']                = 'users_order.php?act=order_num';
-////$modules['07_menu_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
+//$modules['07_menu_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
 //
 //// 模板
 //$modules['08_menu_template']['02_template_select']       = 'template.php?act=list';

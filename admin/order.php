@@ -5289,11 +5289,15 @@ function order_list()
         if ($filter['user_name'])
         {
             $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('order_info') . " AS o ,".
-                   $GLOBALS['ecs']->table('users') . " AS u " . $where;
+                   $GLOBALS['ecs']->table('users') . " AS u " . "inner join yoyo_order_goods as g on o.order_id=g.order_id ".
+                "inner join yoyo_goods as yg on yg.goods_id=g.goods_id inner join yoyo_brand as b on yg.brand_id=b.brand_id 
+            inner join yoyo_category as c on c.cat_id=yg.cat_id ".$new_where.$where;
         }
         else
         {
-            $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('order_info') . " AS o ". $where;
+            $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('order_info') . " AS o "."inner join yoyo_order_goods as g on o.order_id=g.order_id ".
+                "inner join yoyo_goods as yg on yg.goods_id=g.goods_id inner join yoyo_brand as b on yg.brand_id=b.brand_id 
+            inner join yoyo_category as c on c.cat_id=yg.cat_id ".$new_where. $where;
         }
 
         $filter['record_count']   = $GLOBALS['db']->getOne($sql);
