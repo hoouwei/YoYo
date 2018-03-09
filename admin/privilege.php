@@ -585,7 +585,7 @@ elseif ($_REQUEST['act'] == 'allot')
 
     /* 获取权限的分组数据 */
     $sql_query = "SELECT action_id, parent_id, action_code,relevance FROM " .$ecs->table('admin_action').
-                 " WHERE parent_id = 0";
+                 " WHERE parent_id = 0 and is_on=1";
     $res = $db->query($sql_query);
     while ($rows = $db->FetchRow($res))
     {
@@ -594,7 +594,7 @@ elseif ($_REQUEST['act'] == 'allot')
 
     /* 按权限组查询底级的权限名称 */
     $sql = "SELECT action_id, parent_id, action_code,relevance FROM " .$ecs->table('admin_action').
-           " WHERE parent_id " .db_create_in(array_keys($priv_arr));
+           " WHERE parent_id " .db_create_in(array_keys($priv_arr))."and is_on=1";
     $result = $db->query($sql);
     while ($priv = $db->FetchRow($result))
     {
