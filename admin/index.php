@@ -1311,31 +1311,4 @@ elseif ($_REQUEST['act'] == 'license')
         make_json_error(0);
     }
 }
-
-/**
- * license check
- * @return  bool
- */
-function license_check()
-{
-    // return 返回数组
-    $return_array = array();
-
-    // 取出网店 license
-    $license = get_shop_license();
-
-    // 检测网店 license
-    if (!empty($license['certificate_id']) && !empty($license['token']) && !empty($license['certi']))
-    {
-        // license（登录）
-        $return_array = license_login();
-    }
-    else
-    {
-        // license（注册）
-        $return_array = license_reg();
-    }
-
-    return $return_array;
-}
 ?>
