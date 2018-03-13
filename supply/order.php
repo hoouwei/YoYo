@@ -20,6 +20,14 @@ require_once(BASE_PATH . 'helpers/order_helper.php');
 require_once(BASE_PATH . 'helpers/goods_helper.php');
 
 /*------------------------------------------------------ */
+//-- 时间插件测试
+/*------------------------------------------------------ */
+if ($_REQUEST['act'] == 'time')
+{
+
+    $smarty->display('drp_users_audit.htm');
+}
+/*------------------------------------------------------ */
 //-- 订单查询
 /*------------------------------------------------------ */
 
@@ -51,13 +59,16 @@ if ($_REQUEST['act'] == 'order_query')
 }
 
 /*------------------------------------------------------ */
-//-- 订单列表
+//-- 订单列表 NEW
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'list')
-{ 
-   
+{
+    if (empty($_SESSION['supply_id'])){
+        ecs_header("Location: privilege.php?act=login\n");
+    }
     /* 模板赋值 */
+    $smarty->assign('supply_id', $_SESSION['supply_id']);   // supply_id
     $smarty->assign('ur_here', $_LANG['02_order_list']);
     $smarty->assign('status_list', $_LANG['cs']);   // 订单状态
 
@@ -5072,15 +5083,21 @@ function handle_order_money_change($order, &$msgs, &$links)
 }
 
 /**
- *  获取订单列表信息
+ *  获取订单列表信息 newnewnewnew
  *
  * @access  public
  * @param
  *
  * @return void
  */
-function order_list()
-{
+function order_list(){
+    /* 防止session失效 */
+    if(empty($_SESSION['supply_id'])){
+        $g_link = 'privilege.php?act=login';
+        $link[] = array('text' => "重新登陆", 'href'=>$g_link);
+        sys_msg("登陆失效，请重新登陆<script>parent.document.getElementById('header-frame').contentWindow.document.location.reload();</script>", 0, $link);
+    }
+    $supply_id=$_SESSION['supply_id'];
     $result = get_filter();
     if ($result === false)
     {
@@ -5116,89 +5133,25 @@ function order_list()
 
         $filter['start_time'] = empty($_REQUEST['start_time']) ? '' : (strpos($_REQUEST['start_time'], '-') > 0 ?  local_strtotime($_REQUEST['start_time']) : $_REQUEST['start_time']);
         $filter['end_time'] = empty($_REQUEST['end_time']) ? '' : (strpos($_REQUEST['end_time'], '-') > 0 ?  local_strtotime($_REQUEST['end_time']) : $_REQUEST['end_time']);
-
         $new_where = ' ';
 
         $where = 'WHERE 1 ';
-//        今日菜单，明日菜单
-        if ($filter['order_sn'])
-        {
-            if ($filter['order_sn']!=-1){
-                $new_where .= " AND b.brand_id='$filter[order_sn]' ";
-            }
-
-        }
-//        饭柜
+        /* 只查找当前的商户信息 */
+        $where .= " AND o.supply_id = '$supply_id'";
+        /* 查找饭柜饭柜 */
         if ($filter['consignee'])
         {
             if ($filter['consignee']!=-1){
             $new_where .= " AND c.cat_id='$filter[consignee]' ";
             }
         }
-        if ($filter['email'])
-        {
-            $where .= " AND o.email LIKE '%" . mysql_like_quote($filter['email']) . "%'";
-        }
-        if ($filter['address'])
-        {
-            $where .= " AND o.address LIKE '%" . mysql_like_quote($filter['address']) . "%'";
-        }
-        if ($filter['zipcode'])
-        {
-            $where .= " AND o.zipcode LIKE '%" . mysql_like_quote($filter['zipcode']) . "%'";
-        }
-        if ($filter['tel'])
-        {
-            $where .= " AND o.tel LIKE '%" . mysql_like_quote($filter['tel']) . "%'";
-        }
-        if ($filter['mobile'])
-        {
-            $where .= " AND o.mobile LIKE '%" .mysql_like_quote($filter['mobile']) . "%'";
-        }
-        if ($filter['country'])
-        {
-            $where .= " AND o.country = '$filter[country]'";
-        }
-        if ($filter['province'])
-        {
-            $where .= " AND o.province = '$filter[province]'";
-        }
-        if ($filter['city'])
-        {
-            $where .= " AND o.city = '$filter[city]'";
-        }
-        if ($filter['district'])
-        {
-            $where .= " AND o.district = '$filter[district]'";
-        }
-        if ($filter['shipping_id'])
-        {
-            $where .= " AND o.shipping_id  = '$filter[shipping_id]'";
-        }
-        if ($filter['pay_id'])
-        {
-            $where .= " AND o.pay_id  = '$filter[pay_id]'";
-        }
-        if ($filter['order_status'] != -1)
-        {
-            $where .= " AND o.order_status  = '$filter[order_status]'";
-        }
-        if ($filter['shipping_status'] != -1)
-        {
-            $where .= " AND o.shipping_status = '$filter[shipping_status]'";
-        }
-        if ($filter['pay_status'] != -1)
-        {
-            $where .= " AND o.pay_status = '$filter[pay_status]'";
-        }
+        /* 只保留已经付款的订单 */
+        $where .= " AND o.pay_status = '2'";
         if ($filter['user_id'])
         {
             $where .= " AND o.user_id = '$filter[user_id]'";
         }
-        if ($filter['user_name'])
-        {
-            $where .= " AND u.user_name LIKE '%" . mysql_like_quote($filter['user_name']) . "%'";
-        }
+        /* 按时间查找 */
         if ($filter['start_time'])
         {
             $where .= " AND o.add_time >= '$filter[start_time]'";
@@ -5299,7 +5252,6 @@ function order_list()
             $where .
                 " ORDER BY $filter[sort_by] $filter[sort_order] ".
                 " LIMIT " . ($filter['page'] - 1) * $filter['page_size'] . ",$filter[page_size]";
-
         foreach (array('order_sn', 'consignee', 'email', 'address', 'zipcode', 'tel', 'user_name') AS $val)
         {
             $filter[$val] = stripslashes($filter[$val]);
