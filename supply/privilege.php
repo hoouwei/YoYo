@@ -128,7 +128,8 @@ elseif ($_REQUEST['act'] == 'supplyinfoedit')
     $tel = empty($_POST['tel']) ? '' : trim($_POST['tel']);
     $address = empty($_POST['address']) ? '' : trim($_POST['address']);
     $des = empty($_POST['des']) ? '' : trim($_POST['des']);
-    $sql="update ".$ecs->table('supply_user')."set company_name='$company_name',email='$email',tel='$tel',des='$des' where supply_id=".$supply_id;
+    $sql="update ".$ecs->table('supply_user')."set company_name='$company_name',email='$email',tel='$tel',des='$des',address='$address' where supply_id=".$supply_id;
+    error_log($sql);
     $db->query($sql);
     sys_msg("修改成功", 0, $link);
 }
@@ -156,7 +157,7 @@ elseif ($_REQUEST['act'] == 'pwd')
 elseif ($_REQUEST['act'] == 'pwdedit')
 {
     if (empty($_SESSION['supply_id'])){
-       error_log("kong");
+        ecs_header("Location: privilege.php?act=login\n");
     }
     /* 接受参数 */
     $supply_id = empty($_POST['supply_id']) ? '' : trim($_POST['supply_id']);
@@ -166,7 +167,6 @@ elseif ($_REQUEST['act'] == 'pwdedit')
     /* 判断旧密码是否正确 */
     $md5_old_pwd=md5($old_pwd);
     $sql="select * from".$ecs->table('supply_user')."where supply_id=".$supply_id." and password='$md5_old_pwd'";
-    error_log($sql);
     $res=$db->getRow($sql);
     if ($res==null||$res==""||empty($res)){
         sys_msg("旧密码错误，请重新输入", 0, $link);
@@ -187,9 +187,7 @@ elseif ($_REQUEST['act'] == 'pwdedit')
     /* 执行修改 */
     $md5_new_pwd=md5($new_pwd);
     $sql="update ".$ecs->table('supply_user')."set password='$md5_new_pwd' where supply_id=".$supply_id;
-    error_log($sql);
     $db->query($sql);
-
     /* 显示结果 */
     $sess->destroy_session();
     $g_link = 'privilege.php?act=login';
