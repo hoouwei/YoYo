@@ -11,7 +11,8 @@ $modules['00_menu_dashboard']['01_dashboard_welcome'] = 'index.php?act=main';
 
 // 设置
 $modules['01_menu_system']['admin_list']             = 'privilege.php?act=list';
-
+$modules['01_menu_system']['11']             = 'privilege.php?act=supplyinfo';
+$modules['01_menu_system']['12']             = 'privilege.php?act=pwd';
 // 商品
 $modules['02_menu_goods']['02_goods_add']        = 'goods.php?act=add';          // 添加商品
 

@@ -102,6 +102,64 @@ elseif ($_REQUEST['act'] == 'signin')
 }
 
 /*------------------------------------------------------ */
+//-- 商家信息页面 NEW
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'supplyinfo')
+{
+    if (empty($_SESSION['supply_id'])){
+        ecs_header("Location: privilege.php?act=login\n");
+    }
+    $sql="select supply_id,user_name,email,tel,address,company_name,des from".$ecs->table('supply_user')."where supply_id=".$_SESSION['supply_id'];
+    $supply=$db->getRow($sql);
+    /* 模板赋值 */
+    $smarty->assign('supply',   $supply);
+    /* 显示页面 */
+    $smarty->display('supply_info.htm');
+}
+/*------------------------------------------------------ */
+//-- 商家信息页面 NEW
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'supplyinfoedit')
+{
+    /* 接收post数据 */
+    $supply_id = empty($_POST['supply_id']) ? '' : trim($_POST['supply_id']);
+    $company_name = empty($_POST['company_name']) ? '' : trim($_POST['company_name']);
+    $email = empty($_POST['email']) ? '' : trim($_POST['email']);
+    $tel = empty($_POST['tel']) ? '' : trim($_POST['tel']);
+    $address = empty($_POST['address']) ? '' : trim($_POST['address']);
+    $des = empty($_POST['des']) ? '' : trim($_POST['des']);
+    $sql="update ".$ecs->table('supply_user')."set company_name='$company_name',email='$email',tel='$tel',des='$des' where supply_id=".$supply_id;
+    $db->query($sql);
+    sys_msg("修改成功", 0, $link);
+}
+
+/*------------------------------------------------------ */
+//-- 密码修改页面 NEW
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'pwd')
+{
+    /* 模板赋值 */
+
+    /* 显示页面 */
+    assign_query_info();
+    $smarty->display('supply_pwd.htm');
+//    sys_msg($_LANG['js_languages']['password_error'], 0, $link);
+}
+
+/*------------------------------------------------------ */
+//-- 密码修改流程 NEW
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'pwdedit')
+{
+    /* 模板赋值 */
+
+    /* 显示页面 */
+    assign_query_info();
+//    $smarty->display('supply_pwd.htm');
+    sys_msg($_POST["name"], 0, $link);
+}
+
+/*------------------------------------------------------ */
 //-- 管理员列表页面
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'list')

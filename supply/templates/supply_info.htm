@@ -1,0 +1,41 @@
+<!-- $Id: user_info.htm 16854 2009-12-07 06:20:09Z sxc_shop $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form method="post" action="privilege.php?act=supplyinfoedit"  >
+<table width="100%" >
+  <tr>
+    <td class="label">用户名:</td>
+    <td>{$supply.user_name}</td>
+  </tr>
+  <tr>
+    <td class="label">商家名称:</td>
+    <td><input style="width:300px;" type="text" name="company_name" maxlength="60" size="40" value="{$supply.company_name}" /></td>
+  </tr>
+  <tr>
+    <td class="label">email:</td>
+    <td><input style="width:300px;" type="text" name="email" maxlength="60" size="40" value="{$supply.email}" /></td>
+  </tr>
+  <tr>
+    <td class="label">联系电话:</td>
+    <td><input style="width:300px;" type="text" name="tel" maxlength="60" size="40" value="{$supply.tel}" /></td>
+  </tr>
+  <tr>
+    <td class="label">商家地址:</td>
+    <td><input style="width:300px;" type="text" name="address" maxlength="60" size="40" value="{$supply.address}" /></td>
+  </tr>
+  <tr>
+    <td class="label">商家描述:</td>
+    <td><textarea style="width:300px;height:100px;" name="des">{$supply.des}</textarea></td>
+  </tr>
+    <input hidden type="text" name="supply_id" maxlength="60" size="40" value="{$supply.supply_id}" /></td>
+  <td colspan="2" align="center">
+    <br><br>
+    <input type="submit" value="确定" class="button" />
+  </td>
+  </tr>
+</table>
+
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{include file="pagefooter.htm"}
