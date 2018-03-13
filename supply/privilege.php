@@ -138,12 +138,16 @@ elseif ($_REQUEST['act'] == 'supplyinfoedit')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'pwd')
 {
+    if (empty($_SESSION['supply_name'])){
+        ecs_header("Location: privilege.php?act=login\n");
+    }
     /* 模板赋值 */
+    $smarty->assign('supply_name',   $_SESSION['supply_name']);
+    $smarty->assign('supply_id',   $_SESSION['supply_id']);
 
     /* 显示页面 */
     assign_query_info();
     $smarty->display('supply_pwd.htm');
-//    sys_msg($_LANG['js_languages']['password_error'], 0, $link);
 }
 
 /*------------------------------------------------------ */
@@ -151,12 +155,46 @@ elseif ($_REQUEST['act'] == 'pwd')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'pwdedit')
 {
-    /* 模板赋值 */
+    if (empty($_SESSION['supply_id'])){
+       error_log("kong");
+    }
+    /* 接受参数 */
+    $supply_id = empty($_POST['supply_id']) ? '' : trim($_POST['supply_id']);
+    $old_pwd = empty($_POST['old_pwd']) ? '' : trim($_POST['old_pwd']);
+    $new_pwd = empty($_POST['new_pwd']) ? '' : trim($_POST['new_pwd']);
+    $new_pwd_confirm = empty($_POST['new_pwd_confirm']) ? '' : trim($_POST['new_pwd_confirm']);
+    /* 判断旧密码是否正确 */
+    $md5_old_pwd=md5($old_pwd);
+    $sql="select * from".$ecs->table('supply_user')."where supply_id=".$supply_id." and password='$md5_old_pwd'";
+    error_log($sql);
+    $res=$db->getRow($sql);
+    if ($res==null||$res==""||empty($res)){
+        sys_msg("旧密码错误，请重新输入", 0, $link);
 
-    /* 显示页面 */
-    assign_query_info();
-//    $smarty->display('supply_pwd.htm');
-    sys_msg($_POST["name"], 0, $link);
+    }
+    /* 判断确认新密码是否为空 */
+    if (empty($new_pwd)||$new_pwd==null||$new_pwd==''){
+        sys_msg("密码不能为空 ，请重新输入", 0, $link);
+    }
+    /* 判断确认新密码是否相同 */
+    if ($new_pwd <> $new_pwd_confirm)
+    {
+        $link[] = array('text' => $_LANG['go_back'], 'href'=>'javascript:history.back(-1)');
+        sys_msg($_LANG['js_languages']['password_error'], 0, $link);
+    }
+    $msg = $_LANG['edit_password_succeed'];
+
+    /* 执行修改 */
+    $md5_new_pwd=md5($new_pwd);
+    $sql="update ".$ecs->table('supply_user')."set password='$md5_new_pwd' where supply_id=".$supply_id;
+    error_log($sql);
+    $db->query($sql);
+
+    /* 显示结果 */
+    $sess->destroy_session();
+    $g_link = 'privilege.php?act=login';
+    $link[] = array('text' => "重新登陆", 'href'=>$g_link);
+    sys_msg("修改成功，请重新登陆<script>parent.document.getElementById('header-frame').contentWindow.document.location.reload();</script>", 0, $link);
 }
 
 /*------------------------------------------------------ */
