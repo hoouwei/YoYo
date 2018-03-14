@@ -32,9 +32,8 @@ $modules['01_menu_system']['admin_list']             = 'privilege.php?act=list';
 // 商品
 $modules['02_menu_goods']['01_goods_list']       = 'goods.php?act=list'; // 商品列表
 $modules['02_menu_goods']['02_goods_add']        = 'goods.php?act=add';          // 添加商品
-$modules['02_menu_goods']['03_category_list']    = 'category.php?act=list';
-$modules['02_menu_goods']['04_category_add']   = 'category.php?act=add';
 $modules['02_menu_goods']['06_goods_brand_list'] = 'brand.php?act=list';
+
 //###################################部署删除
 //$modules['02_menu_goods']['08_goods_type']       = 'goods_type.php?act=manage';
 $modules['02_menu_goods']['11_goods_trash']      = 'goods.php?act=trash';        // 商品回收站
@@ -49,6 +48,10 @@ $modules['02_menu_goods']['11_goods_trash']      = 'goods.php?act=trash';       
 //$modules['02_menu_goods']['52_virtual_card_change'] = 'virtual_card.php?act=change';
 //$modules['02_menu_goods']['goods_auto']             = 'goods_auto.php?act=list';
 
+//饭柜，列表，添加饭柜
+$modules['03']['03_category_list']    = 'category.php?act=list';
+$modules['03']['04_category_add']   = 'category.php?act=add';
+
 // 订单
 $modules['03_menu_order']['02_order_list']               = 'order.php?act=list';
 //$modules['03_menu_order']['03_order_query']              = 'order.php?act=order_query';
@@ -59,17 +62,22 @@ $modules['03_menu_order']['02_order_list']               = 'order.php?act=list';
 //$modules['03_menu_order']['08_add_order']                = 'order.php?act=add';
 //$modules['03_menu_order']['09_delivery_order']           = 'order.php?act=delivery_list';
 //$modules['03_menu_order']['10_back_order']               = 'order.php?act=back_list';
-
 // 会员
 $modules['04_menu_members']['03_users_list']             = 'users.php?act=list';
 //$modules['04_menu_members']['04_users_add']              = 'users.php?act=add';
 //$modules['04_menu_members']['05_user_rank_list']         = 'user_rank.php?act=list';
 //$modules['04_menu_members']['06_list_integrate']         = 'integrate.php?act=list';
-$modules['04_menu_members']['08_unreply_msg']            = 'user_msg.php?act=list_all';
 //$modules['04_menu_members']['09_user_account']           = 'user_account.php?act=list';
 //$modules['04_menu_members']['10_user_account_manage']    = 'user_account_manage.php?act=list';
 //$modules['04_menu_members']['ucenter_setup']              = 'integrate.php?act=setup&code=ucenter';
 //$modules['04_menu_members']['021_reg_fields']             = 'reg_fields.php?act=list';
+
+//商家
+$modules['05']['xinzengshangjia']             = 'users.php?act=list';
+$modules['05']['shangjialiebiao']             = 'users.php?act=list';
+
+//入驻企业
+$modules['06']['ruzhuqiye']            = 'user_msg.php?act=list_all';
 
 // 内容
 //$modules['05_menu_content']['ad_position']                = 'ad_position.php?act=list';

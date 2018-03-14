@@ -356,6 +356,13 @@ $_LANG['09_menu_backup'] = '数据库';
 $_LANG['10_menu_tools'] = '工具箱';
 $_LANG['11_menu_rec'] = '微分销';
 $_LANG['12_menu_wechat'] = '微信通';
+$_LANG['03'] = '饭柜';
+$_LANG['05'] = '商家';
+$_LANG['06'] = '入驻企业';
+//商家
+$_LANG['xinzengshangjia'] = '新增商家';
+$_LANG['shangjialiebiao'] = '商家列表';
+$_LANG['ruzhuqiye'] = '入驻企业申请';
 
 // 控制台
 $_LANG['01_dashboard_welcome'] = '欢迎页面';
