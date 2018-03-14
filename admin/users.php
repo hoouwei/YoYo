@@ -18,7 +18,7 @@ if ($_REQUEST['act'] == 'supply_list')
     }
 
     $smarty->assign('ur_here',      $_LANG['03_users_list']);
-    $smarty->assign('action_link',  array('text' => '新增商家', 'href'=>'users.php?act=add'));
+    $smarty->assign('action_link',  array('text' => '新增商家', 'href'=>'users.php?act=supply_add'));
 
     $user_list = supply_list();
 
@@ -30,6 +30,86 @@ if ($_REQUEST['act'] == 'supply_list')
 
     assign_query_info();
     $smarty->display('supply_list.htm');
+}
+/*------------------------------------------------------ */
+//-- 商家详情
+/*------------------------------------------------------ */
+
+if ($_REQUEST['act'] == 'supply_info')
+{
+    /* 检查权限 */
+    admin_priv('users_manage');
+    $supply_id=$_GET['id'];
+    /* 执行SQL查询 */
+    $sql = "select supply_id,user_name,add_time,last_login,last_ip,email,tel,address,company_name,des from ".$GLOBALS['ecs']->table('supply_user')." where supply_id ='$supply_id'";
+    $supply=$db->getRow($sql);
+    $supply['add_time']=date("Y-m-d H:m:s",$supply['add_time']);
+    $supply['last_login']=date("Y-m-d H:m:s",$supply['last_login']);
+
+    /* 获取今日订单*/
+    $beginToday = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+    $endToday = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')) - 1;
+    $today_sql = "SELECT count(*) FROM `yoyo`.`yoyo_order_info` AS o 
+LEFT JOIN `yoyo`.`yoyo_users` AS u ON u.user_id=o.user_id 
+inner join yoyo_order_goods as g on o.order_id=g.order_id 
+inner join yoyo_goods as yg on yg.goods_id=g.goods_id 
+inner join yoyo_brand as b on yg.brand_id=b.brand_id
+inner join yoyo_category as c on c.cat_id=yg.cat_id 
+AND o.pay_status = '2' AND yg.supply_id = '$supply_id' 
+AND o.add_time >= '$beginToday' 
+AND o.add_time <= '$endToday'";
+    $today = $db->getOne($today_sql);
+    $smarty->assign('today', $today);
+
+    /* 获取昨日订单*/
+    $beginYesterday=mktime(0,0,0,date('m'),date('d')-1,date('Y'));
+    $endYesterday=mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
+    $yesterday_sql = "SELECT count(*) FROM `yoyo`.`yoyo_order_info` AS o 
+LEFT JOIN `yoyo`.`yoyo_users` AS u ON u.user_id=o.user_id 
+inner join yoyo_order_goods as g on o.order_id=g.order_id 
+inner join yoyo_goods as yg on yg.goods_id=g.goods_id 
+inner join yoyo_brand as b on yg.brand_id=b.brand_id
+inner join yoyo_category as c on c.cat_id=yg.cat_id 
+AND o.pay_status = '2' AND yg.supply_id = '$supply_id' 
+AND o.add_time >= '$beginYesterday' 
+AND o.add_time <= '$endYesterday'";
+//    error_log(date('Y-m-d',$endYesterday));
+    $yesterday = $db->getOne($yesterday_sql);
+    $smarty->assign('yesterday', $yesterday);
+
+    /* 获取上周订单*/
+    $beginLastweek=mktime(0,0,0,date('m'),date('d')-date('w')+1-7,date('Y'));
+    $endLastweek=mktime(23,59,59,date('m'),date('d')-date('w')+7-7,date('Y'));
+    $week_sql = "SELECT count(*) FROM `yoyo`.`yoyo_order_info` AS o 
+LEFT JOIN `yoyo`.`yoyo_users` AS u ON u.user_id=o.user_id 
+inner join yoyo_order_goods as g on o.order_id=g.order_id 
+inner join yoyo_goods as yg on yg.goods_id=g.goods_id 
+inner join yoyo_brand as b on yg.brand_id=b.brand_id
+inner join yoyo_category as c on c.cat_id=yg.cat_id 
+AND o.pay_status = '2' AND yg.supply_id = '$supply_id' 
+AND o.add_time >= '$beginLastweek' 
+AND o.add_time <= '$endLastweek'";
+    $week = $db->getOne($week_sql);
+    $smarty->assign('week', $week);
+
+    /* 获取上月订单*/
+    $beginThismonth=mktime(0,0,0,date('m'),1,date('Y'));
+    $endThismonth=mktime(23,59,59,date('m'),date('t'),date('Y'));
+    $month_sql = "SELECT count(*) FROM `yoyo`.`yoyo_order_info` AS o 
+LEFT JOIN `yoyo`.`yoyo_users` AS u ON u.user_id=o.user_id 
+inner join yoyo_order_goods as g on o.order_id=g.order_id 
+inner join yoyo_goods as yg on yg.goods_id=g.goods_id 
+inner join yoyo_brand as b on yg.brand_id=b.brand_id
+inner join yoyo_category as c on c.cat_id=yg.cat_id 
+AND o.pay_status = '2' AND yg.supply_id = '$supply_id' 
+AND o.add_time >= '$beginThismonth' 
+AND o.add_time <= '$endThismonth'";
+    $month = $db->getOne($month_sql);
+
+    $smarty->assign('month', $month);
+    $smarty->assign('supply',$supply);
+
+    $smarty->display('supply_info.htm');
 }
 
 /*------------------------------------------------------ */
