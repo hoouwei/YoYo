@@ -1,0 +1,43 @@
+{if $full_page}
+<!-- $Id: users_list.htm 17053 2010-03-15 06:50:26Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+
+
+<!-- start users list -->
+<div class="list-div" id="listDiv">
+{/if}
+<!--商家列表部分-->
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>编号</th>
+    <th>用户名</th>
+    <th>商家名称</th>
+    <th>注册时间</th>
+    <th>查看详情</th>
+  <tr>
+  {foreach from=$user_list item=user}
+  <tr>
+    <td>{$user.supply_id}</td>
+    <td>{$user.user_name}</td>
+    <td>{$user.company_name}</td>
+    <td align="center">{$user.add_time}</td>
+    <td align="center">
+      <a href="users.php?act=supply_edit&id={$user.supply_id}" title="查看详情"><img src="images/book_open.gif" border="0" height="16" width="16" /></a>
+    </td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+  {/foreach}
+  <tr>
+      <td align="right" nowrap="true" colspan="8">
+      {include file="page.htm"}
+      </td>
+  </tr>
+</table>
+
+{if $full_page}
+</div>
+{include file="pagefooter.htm"}
+{/if}

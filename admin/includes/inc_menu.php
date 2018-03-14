@@ -73,8 +73,8 @@ $modules['04_menu_members']['03_users_list']             = 'users.php?act=list';
 //$modules['04_menu_members']['021_reg_fields']             = 'reg_fields.php?act=list';
 
 //商家
-$modules['05']['xinzengshangjia']             = 'users.php?act=list';
-$modules['05']['shangjialiebiao']             = 'users.php?act=list';
+$modules['05']['xinzengshangjia']             = 'users.php?act=supply_add';
+$modules['05']['shangjialiebiao']             = 'users.php?act=supply_list';
 
 //入驻企业
 $modules['06']['ruzhuqiye']            = 'user_msg.php?act=list_all';

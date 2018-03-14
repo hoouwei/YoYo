@@ -1,21 +1,36 @@
 <?php
 
-/**
- * ECSHOP 会员管理程序
- * ============================================================================
- * * 
- * 网站地址: 
- * ----------------------------------------------------------------------------
- * 
- * 
- * ============================================================================
- * 
- * $Id: users.php 17217 2011-01-19 06:29:08Z liubo $
-*/
 
 define('IN_ECTOUCH', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+/*------------------------------------------------------ */
+//-- 商家帐号列表
+/*------------------------------------------------------ */
+
+if ($_REQUEST['act'] == 'supply_list')
+{
+    /* 检查权限 */
+    admin_priv('users_manage');
+    while ($row = $db->FetchRow($rs))
+    {
+        $ranks[$row['rank_id']] = $row['rank_name'];
+    }
+
+    $smarty->assign('ur_here',      $_LANG['03_users_list']);
+    $smarty->assign('action_link',  array('text' => '新增商家', 'href'=>'users.php?act=add'));
+
+    $user_list = supply_list();
+
+    $smarty->assign('user_list',    $user_list['user_list']);
+    $smarty->assign('record_count', $user_list['record_count']);
+    $smarty->assign('page_count',   $user_list['page_count']);
+    $smarty->assign('full_page',    1);
+    $smarty->assign('sort_user_id', '<img src="images/sort_desc.gif">');
+
+    assign_query_info();
+    $smarty->display('supply_list.htm');
+}
 
 /*------------------------------------------------------ */
 //-- 用户帐号列表
@@ -805,11 +820,50 @@ function user_list()
     {
         $user_list[$i]['reg_time'] = local_date($GLOBALS['_CFG']['date_format'], $user_list[$i]['reg_time']);
     }
+
     $arr = array('user_list' => $user_list, 'filter' => $filter,
     'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
-    $_SESSION['user_list'] = $user_list;  
+    $_SESSION['user_list'] = $user_list;
     return $arr;
    
 }
+
+/**
+ *  返回商家列表数据
+ *
+ * @access  public
+ * @param
+ *
+ * @return void
+ */
+function supply_list()
+{
+        /* 过滤条件 */
+        $ex_where = ' WHERE 1 ';
+        $filter['record_count'] = $GLOBALS['db']->getOne("SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('supply_user') . $ex_where);
+        /* 分页大小 */
+        $filter = page_and_size($filter);
+        $sql = "SELECT supply_id,user_name,add_time,company_name ".
+            " FROM " . $GLOBALS['ecs']->table('supply_user') . $ex_where .
+            " LIMIT " . $filter['start'] . ',' . $filter['page_size'];
+        $filter['keywords'] = stripslashes($filter['keywords']);
+        set_filter($filter, $sql);
+
+    $user_list = $GLOBALS['db']->getAll($sql);
+
+    $count = count($user_list);
+    for ($i=0; $i<$count; $i++)
+    {
+        $user_list[$i]['add_time']<=1000?$user_list[$i]['add_time']="":$user_list[$i]['add_time']=local_date($GLOBALS['_CFG']['date_format'], $user_list[$i]['add_time']);
+    }
+    $arr = array('user_list' => $user_list, 'filter' => $filter,
+        'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
+    $_SESSION['user_list'] = $user_list;
+
+    return $arr;
+
+}
+
+
 
 ?>
