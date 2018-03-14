@@ -5,6 +5,53 @@ define('IN_ECTOUCH', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
 /*------------------------------------------------------ */
+//-- 商家注册
+/*------------------------------------------------------ */
+if ($_REQUEST['act'] == 'supply_add')
+{
+    admin_priv('users_manage');
+    $smarty->display('supply_add.htm');
+}
+
+/*------------------------------------------------------ */
+//-- 商家注册流程处理
+/*------------------------------------------------------ */
+if ($_REQUEST['act'] == 'add_edit')
+{
+    admin_priv('users_manage');
+    $user_name = empty($_POST['user_name']) ? '' : trim($_POST['user_name']);
+    $company_name = empty($_POST['company_name']) ? '' : trim($_POST['company_name']);
+    $new_pwd = empty($_POST['new_pwd']) ? '' : trim($_POST['new_pwd']);
+    $new_pwd_confirm = empty($_POST['new_pwd_confirm']) ? '' : trim($_POST['new_pwd_confirm']);
+    /* 判断用户名是否已经存在 */
+    $name_sql="select count(*) from ".$ecs->table('supply_user')." where user_name='$user_name'";
+    $count=$db->getOne($name_sql);
+    if($count>0){
+        $link[] = array('text' => $_LANG['go_back'], 'href'=>'javascript:history.back(-1)');
+        sys_msg("用户名已存在 ，请重新输入", 0, $link);
+    }
+
+    /* 判断确认密码是否为空 */
+    if (empty($new_pwd)||$new_pwd==null||$new_pwd==''){
+        $link[] = array('text' => $_LANG['go_back'], 'href'=>'javascript:history.back(-1)');
+        sys_msg("密码不能为空 ，请重新输入", 0, $link);
+    }
+    /* 判断确认密码是否相同 */
+    if ($new_pwd <> $new_pwd_confirm)
+    {
+        $link[] = array('text' => $_LANG['go_back'], 'href'=>'javascript:history.back(-1)');
+        sys_msg("两次输入密码不同，请重新输入", 0, $link);
+    }
+    /* 执行插入 */
+    $md5_pwd=md5($new_pwd);
+    $add_time=time();
+    $sql="insert into ".$ecs->table('supply_user')."(user_name,password,company_name,add_time)"." values('$user_name','$md5_pwd','$company_name','$add_time')";
+    $db->query($sql);
+    $link[] = array('text' => $_LANG['go_back'], 'href'=>'javascript:history.back(-1)');
+    sys_msg("修改成功", 0, $link);
+}
+
+/*------------------------------------------------------ */
 //-- 商家帐号列表
 /*------------------------------------------------------ */
 

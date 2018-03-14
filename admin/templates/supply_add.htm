@@ -1,0 +1,40 @@
+{include file="pageheader.htm"}
+<div class="main-div">
+    <form action="users.php?act=add_edit" method="post">
+        <table width="100%">
+            <tr>
+                <td class="label">用户名：</td>
+                <td>
+                    <input style="width:300px;" type="text" name="user_name" maxlength="20" value="" size="34"/>{$lang.require_field}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">商家名称:</td>
+                <td>
+                    <input style="width:300px;" type="text" name="company_name" maxlength="20" value="" size="34"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">密码:</td>
+                <td>
+                    <input style="width:300px;" type="text" name="new_pwd" maxlength="20" value="" size="34"/>{$lang.require_field}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">确认密码</td>
+                <td>
+                    <input style="width:300px;" type="text" name="new_pwd_confirm" maxlength="20" value="" size="34"/>{$lang.require_field}
+                </td>
+            </tr>
+            <input  hidden type="text" name="supply_id" maxlength="20" value="{$supply_id}" size="34"/>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="{$lang.button_submit}" class="button"/>&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="{$lang.button_reset}" class="button"/>
+            </tr>
+        </table>
+    </form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+
+{include file="pagefooter.htm"}
