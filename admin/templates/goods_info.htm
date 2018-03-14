@@ -30,11 +30,23 @@
             <td class="label">商品名称</td>
             <td><input type="text" name="goods_name" value="{$goods.goods_name|escape}" style="float:left;color:{$goods_name_color};" size="30" />{$lang.require_field}</td>
           </tr>
+
           <tr>
             <td class="label">
             <a href="javascript:showNotice('noticeGoodsSN');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> 商品货号 </td>
             <td><input type="text" name="goods_sn" value="{$goods.goods_sn|escape}" size="20" onblur="checkGoodsSn(this.value,'{$goods.goods_id}')" /><span id="goods_sn_notice"></span><br />
             <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsSN">{$lang.notice_goods_sn}</span></td>
+          </tr>
+
+          <tr>
+            <td class="label">商家：</td>
+            <td>
+              <select name="supply_id" >
+                <option value="0">请选择</option>
+                {foreach from=$supply_list item=supply}
+                <option value="{$supply.supply_id}" {if $supply.supply_id eq $goods.supply_id} selected {/if}>{$supply.company_name}</option>
+                {/foreach}
+              </select>
           </tr>
           <tr>
             <td class="label">饭柜：</td>

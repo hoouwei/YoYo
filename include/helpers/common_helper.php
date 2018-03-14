@@ -641,6 +641,22 @@ function load_config()
 
     return $arr;
 }
+/**
+ * 取得商家列表
+ */
+function get_supply_list()
+{
+    $global = getInstance();
+    $sql = 'SELECT supply_id, company_name FROM ' . $global->ecs->table('supply_user') . ' ORDER BY supply_id';
+    $res = $global->db->getAll($sql);
+//    $supply_list = array();
+//    foreach ($res AS $row)
+//    {
+//        $supply_list[$row['supply_id']] = addslashes($row['company_name']);
+//    }
+
+    return $res;
+}
 
 /**
  * 取得品牌列表
