@@ -7,7 +7,7 @@
  */
 function gmtime()
 {
-    return (time() - date('Z'));
+    return (time());
 }
 
 /**
