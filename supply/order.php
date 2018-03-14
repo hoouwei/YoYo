@@ -5137,7 +5137,7 @@ function order_list(){
 
         $where = 'WHERE 1 ';
         /* 只查找当前的商户信息 */
-        $where .= " AND o.supply_id = '$supply_id'";
+        $new_where .= " AND yg.supply_id = '$supply_id'";
         /* 查找饭柜饭柜 */
         if ($filter['consignee'])
         {
@@ -5239,7 +5239,7 @@ function order_list(){
         $filter['record_count']   = $GLOBALS['db']->getOne($sql);
         $filter['page_count']     = $filter['record_count'] > 0 ? ceil($filter['record_count'] / $filter['page_size']) : 1;
 
-        /* 查询 */
+        /* 查询 ，采用yg.supply_id来处理这个问题吧，这样前端不用改用*/
         $sql = "SELECT distinct(o.order_id),g.goods_id,b.brand_name,c.cat_name,b.brand_id,c.cat_id,o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
                     "o.pay_status, o.consignee, o.address, o.email, o.tel, o.extension_code, o.extension_id, " .
                     "(" . order_amount_field('o.') . ") AS total_fee, " .
