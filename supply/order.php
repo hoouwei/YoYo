@@ -5134,7 +5134,13 @@ function order_list(){
         $filter['start_time'] = empty($_REQUEST['start_time']) ? '' : (strpos($_REQUEST['start_time'], '-') > 0 ?  local_strtotime($_REQUEST['start_time']) : $_REQUEST['start_time']);
         $filter['end_time'] = empty($_REQUEST['end_time']) ? '' : (strpos($_REQUEST['end_time'], '-') > 0 ?  local_strtotime($_REQUEST['end_time']) : $_REQUEST['end_time']);
         $new_where = ' ';
+        if ($filter['order_sn'])
+        {
+            if ($filter['order_sn']!=-1){
+                $new_where .= " AND b.brand_id='$filter[order_sn]' ";
+            }
 
+        }
         $where = 'WHERE 1 ';
         /* 只查找当前的商户信息 */
         $new_where .= " AND yg.supply_id = '$supply_id'";

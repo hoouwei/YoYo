@@ -23,8 +23,22 @@ class GoodsBaseModel extends BaseModel {
         $sql = "SELECT * FROM  yoyo_goods where cat_id='$cat_id' and brand_id='$brand' ORDER BY sort_order DESC ";
         $row = $this->query($sql);
 //        ######################
+        $num=count($row);
+
+        for ($i=0;$i<$num;$i++){
+            $row[$i]['sold']=$this->get_sold($row[$i]['goods_id']);
+        }
         return $row;
         //返回购物车的数量
+    }
+    function get_sold($goods_id){
+        $sql="select sum(goods_number) as s from yoyo_order_goods where goods_id='$goods_id'";
+        $res=$this->query($sql);
+        $sold=$res['0']['s'];
+        if($res['0']['s']==null||$res['0']['s']=''||empty($res['0']['s'])){
+            $sold=0;
+        }
+        return $sold;
     }
     function get_promotion_info($goods_id = '') {
         $snatch = array();

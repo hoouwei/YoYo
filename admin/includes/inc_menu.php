@@ -64,6 +64,7 @@ $modules['03_menu_order']['02_order_list']               = 'order.php?act=list';
 //$modules['03_menu_order']['10_back_order']               = 'order.php?act=back_list';
 // 会员
 $modules['04_menu_members']['03_users_list']             = 'users.php?act=list';
+//$modules['04_menu_members']['08_unreply_msg']            = 'user_msg.php?act=list_all';
 //$modules['04_menu_members']['04_users_add']              = 'users.php?act=add';
 //$modules['04_menu_members']['05_user_rank_list']         = 'user_rank.php?act=list';
 //$modules['04_menu_members']['06_list_integrate']         = 'integrate.php?act=list';
